@@ -1,0 +1,182 @@
+#maininit{
+    min-height: 100vh;
+}
+
+#maininit .item{
+    position: relative;
+    min-height: 97vh;
+    width: 100vw;
+    color: #fff;
+    display: block;
+    overflow: hidden;
+    //background-color: aquamarine;
+       
+}
+
+.owl-carousel .item img {
+    position: relative;
+    //width: 100vw;
+    height: 97vh;
+    object-fit: fill;
+    //max-width: initial;
+    //opacity: .7;
+}
+
+.saq-overlay{
+    position: absolute;
+    z-index: 9999;
+    height: 100vh;
+    width: 100%;
+    background: linear-gradient(rgba(0,0,0,.6), rgba(0,0,0,.6)) ;
+}
+.saq-overlay .content{
+    position: relative;
+    margin-top: 40vh;
+    justify-content: center;
+    align-items: center;
+}
+.content button{
+    text-transform: capitalize;
+    background-color: #000;
+    font-weight: 800;
+    border: 0;
+}
+.content button:hover{
+    color: #000;
+    background-color: #fff;
+    font-weight: 800;
+}
+.content a{
+    text-transform: capitalize;
+    background-color: #4fc3f7;
+    font-weight: 800;
+    border: 0;
+    color: #000;
+}
+.content a:hover{
+    color: #000;
+    background-color: #fff;
+    font-weight: 800;
+}
+
+#about-us{
+    min-height: 45vh;
+}
+
+
+.newsletter{
+    min-height: 15vh;
+    background-color: #4fc3f7;
+    display: flex;
+    align-items: center;
+    color: #000;
+    font-weight: 800;
+    padding: .5rem;
+}
+.newsletter button{
+    text-transform: uppercase;
+    background-color: #000;
+    font-weight: 800;
+    border: 0;
+}
+.newsletter button:hover{
+    color: #000;
+    background-color: #fff;
+    font-weight: 800;
+}
+
+.entrar{
+    text-transform: capitalize;
+    background-color: #4fc3f7;
+    font-weight: 800;
+    border: 0;
+}
+.entrar:hover{
+    text-transform: capitalize;
+    background-color: #4fc3f7;
+    font-weight: 800;
+    border: 0;
+}
+.fechar{
+    text-transform: capitalize;
+    background-color: #000;
+    font-weight: 800;
+    border: 0;
+}
+.fechar:hover{
+    text-transform: capitalize;
+    background-color: #000;
+    font-weight: 800;
+    border: 0;
+}
+
+
+.shop{
+    min-height: 100vh;
+    padding: 1rem;
+    background-color: #fff;
+    padding: 1.2rem;
+}
+
+.main{
+    min-height: 50vh;
+}
+.main .content{
+    position: relative;
+    align-content: center;
+    justify-content: center;
+    margin-top: 25vh;
+}
+.main{
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(../img/sale.jpeg);
+    background: -webkit-linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(../img/sale.jpeg);
+    background: -moz-linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(../img/sale.jpeg);
+    background: -o-linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(../img/sale.jpeg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    object-fit: cover;
+}
+.main .content h4{
+    color: #fff;
+    font-weight: 600;
+    font-size: 1.9rem;
+}
+
+#customized{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+#customized .card{
+    margin-top: 15vh;
+    background-color: transparent;
+    border: 2px solid #fff;
+}
+#customized .alert h4{
+    font-weight: 600;
+}
+#customized .alert{
+    color: #000;
+    background-color: #4fc3f7;
+    border: 0;
+}
+#customized .btn{
+    text-transform: capitalize;
+    font-weight: 600;
+    background-color: #000;
+    border: 0;
+}
+#customized .btn:hover{
+    background-color: #fff;
+    color: #000;
+}
+.customized-img{
+    height: 350px;
+}
+.customized-img img{
+    position: relative;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}

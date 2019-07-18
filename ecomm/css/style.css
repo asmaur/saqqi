@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway&display=swap');
+
+/*color */
+
+/*  blue #4fc3f7 */
+/*red #b71c1c */
+
+body{
+    height: 100%;
+    width: 100%;
+    font-family: 'Raleway', cursive;
+}
+
+.navbar{
+    text-transform: uppercase;
+    color: #000 !important;
+    background-color: #fff !important;
+    border-bottom: 2px solid #b71c1c;
+}
+.navbar a{
+    color: #000;
+    font-weight: 600;
+}
+.navbar a:hover{
+    color: #b71c1c;
+}
+
+#notfound{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+#notfound .card{
+    margin-top: 25vh;
+    background-color: transparent;
+    border: 2px solid #fff;
+}
+#notfound .alert h4{
+    font-weight: 600;
+}
+#notfound .btn{
+    text-transform: capitalize;
+    font-weight: 600;
+}
+#notfound{
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(../img/5.jpg);
+    background: -webkit-linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(../img/5.jpg);
+    background: -moz-linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(../img/5.jpg);
+    background: -o-linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(../img/5.jpg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    object-fit: cover;
+}
+
+#download{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+#download .card{
+    margin-top: 25vh;
+    background-color: transparent;
+    border: 2px solid #fff;
+}
+#download .alert h4{
+    font-weight: 600;
+}
+#download .alert{
+    color: #000;
+    background-color: #4fc3f7;
+    border: 0;
+}
+#download .btn{
+    text-transform: capitalize;
+    font-weight: 600;
+    background-color: #000;
+    border: 0;
+}
+#download .btn:hover{
+    background-color: #fff;
+    color: #000;
+}
+
+#download{
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(../img/5.jpg);
+    background: -webkit-linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(../img/5.jpg);
+    background: -moz-linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(../img/5.jpg);
+    background: -o-linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(../img/5.jpg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    object-fit: cover;
+}
+
+#footer{
+    //position: absolute;
+    bottom: 0;
+    //width: 100vw;
+    min-height: 10vh;
+    background-color: #000;
+    color: #fff;
+    padding: .4rem;
+}
+#footer a{
+    color: #fff;
+    //text-decoration: none;
+}

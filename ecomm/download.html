@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="vendor/css/bootstrap.min.css">
+    <link rel="stylesheet" href="OwlCarousel/assets/owl.theme.default.css">
+    <link rel="stylesheet" href="OwlCarousel/assets/owl.carousel.min.css">
+
+
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/shop.css">
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <title>Hello, world!</title>
+</head>
+
+<body>
+
+
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <a class="navbar-brand" href="#">SAQQI</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Shop</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Category
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Customized</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Cart [ 0 ]</a>
+                </li>
+            </ul>
+
+        </div>
+    </nav>
+
+   
+
+    <div class="shop" id="download">
+        <div class="container">
+            <div class="row">
+                
+                <div class="col-md-6 offset-md-3">
+                    
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="alert alert-info text-center">
+                                <h4>Download your Proforma</h4>                             
+                                <p>We've sent a copy to your email.</p>
+                            </div>
+                            <a href="" class="btn btn-dark btn-block">
+                                    Download now.
+                                </a>
+                                
+                        </div>
+                    </div>
+                    
+                    
+                </div>
+                
+            </div>
+            
+        </div>
+
+    </div>
+    
+    <div class="newsletter">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+
+                    <div class="h4">
+                        <i class="fas fa-envelope-square"></i>
+                        Subscribe to our newsletter
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <button class="btn btn-primary btn-block" data-toggle="modal" data-target="#newsletter">Subscribe Now</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div id="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 offset-md-4 text-center">
+                    <a href="mailto:contact@saqqi.com">contact@saqqi.com</a>
+                    <br>
+                    <a href="">
+                        <i class="fab fa-whatsapp-square fa-3x"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 offset-md-4 text-center">
+                    <p>saqqi &copy; 2019 | All right reserved.</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="modal fade" id="newsletter" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <form>
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Subscribe Now</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+
+                        <div class="form-group">
+                            <label for="email" class="col-form-label">Email:</label>
+                            <input type="email" name="email" class="form-control" id="email" required>
+                        </div>
+
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary mr-auto fechar" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary entrar">Send</button>
+                    </div>
+
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+
+
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="vendor/js/bootstrap.min.js"></script>
+    <script src="OwlCarousel/owl.carousel.min.js"></script>
+
+    <script>
+        $('.owl-carousel').owlCarousel({
+            loop: true,
+            margin: 10,
+            nav: false,
+            autoplay: true,
+            autoplayTimeout: 10000,
+            responsive: {
+                0: {
+                    items: 1
+                },
+                600: {
+                    items: 1
+                },
+                1000: {
+                    items: 1
+                }
+            }
+        })
+    </script>
+
+
+</body>
+
+</html>
