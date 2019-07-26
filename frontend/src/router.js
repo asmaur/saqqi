@@ -2,9 +2,17 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/Home.vue'
 import i18n from './i18n'
+
+import NProgress from 'nprogress'
+
+
+
 Vue.use(Router)
 
+//let BASE_URL = "http://0.0.0.0:8080/"
+
  let router = new Router({
+     
   routes: [
       {
     path: "/",
@@ -12,9 +20,7 @@ Vue.use(Router)
   },
     {
       path: '/:lang/',
-        component: {
-        render: h => h('router-view')
-      },
+        component:{render: h => h('router-view') },
         
       
         children: [
@@ -40,7 +46,7 @@ Vue.use(Router)
                       component: () => import(/* webpackChunkName: "about" */ './views/Shop.vue')
                     },
                       {
-                      path: 'category',
+                      path: 'category/:slug/',
                       name: 'category',
                       // route level code-splitting
                       // this generates a separate chunk (about.[hash].js) for this route
@@ -113,14 +119,29 @@ router.beforeEach((to, from, next) => {
   // use the language from the routing param or default language
   let language = to.params.lang;
   if (!language) {
-    language = 'en';
+    language = i18n.locale;//'en';
+      
   }
 
   // set the current language for vuex-i18n. note that translation data
   // for the language might need to be loaded first
   i18n.locale=to.params.lang;
+        
   next();
+    
   
 }); 
+
+
+router.beforeResolve((to, from, next) => {
+  if (to.path) {
+      
+    NProgress.start()
+  }
+  next()
+});
+router.afterEach(() => {
+  NProgress.done(true)
+});
 
 export default router;

@@ -13,6 +13,7 @@ export default {
   name: 'home',
   components: {
     MainHome
-  }
+  },
+  
 }
 </script>
