@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/Home.vue'
-import i18n from './i18n'
+import {i18n} from './i18n'
 
 import NProgress from 'nprogress'
 
@@ -21,6 +21,20 @@ Vue.use(Router)
     {
       path: '/:lang/',
         component:{render: h => h('router-view') },
+        beforeEnter(to, from, next){
+            let lang = to.params.lang
+            
+            if(!['en', 'fr', 'pt-br'].includes(lang)) return next('en')
+            
+            if(i18n.locale===lang) return next()
+            
+            import(`./locales/${lang}.json`).then( (msgs) => {
+                i18n.setLocaleMessage(lang, msgs.default || msgs)
+                i18n.locale = lang
+                return next()
+            })
+            next()
+        },
         
       
         children: [
@@ -54,7 +68,7 @@ Vue.use(Router)
                       component: () => import(/* webpackChunkName: "about" */ './views/Category.vue')
                     },
                       {
-                      path: 'product',
+                      path: 'product/:slug/:id',
                       name: 'product',
                       // route level code-splitting
                       // this generates a separate chunk (about.[hash].js) for this route
@@ -114,25 +128,38 @@ let router = new Router({
 }); */
 
 // use beforeEach route guard to set the language
+ /*
 router.beforeEach((to, from, next) => {
-
-  // use the language from the routing param or default language
   let language = to.params.lang;
   if (!language) {
-    language = i18n.locale;//'en';
+    language = 'en';
       
   }
-
-  // set the current language for vuex-i18n. note that translation data
-  // for the language might need to be loaded first
   i18n.locale=to.params.lang;
         
   next();
     
   
 }); 
+*/
 
-
+ 
+ router.beforeEach((to, from, next) => {
+  if (!to.params.hasOwnProperty('lang')) {
+    next({
+      ...to,
+      params: {
+        ...to.params,
+        language: from.params.lang || Vue.prototype.$lang
+      }
+    })
+  } else {
+    next()
+  }
+})
+ 
+ 
+ 
 router.beforeResolve((to, from, next) => {
   if (to.path) {
       

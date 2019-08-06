@@ -42,13 +42,17 @@ Vue.use(VueNoty, {
     theme: 'relax',
 })
 
+import VeeValidate from 'vee-validate';
+Vue.use(VeeValidate)
+
+
 import VueAnalytics from 'vue-analytics'
 
 Vue.use(VueAnalytics, {
     id: 'UA-dhd11'
 })
 
-import i18n from './i18n'
+import {i18n} from './i18n'
 
 import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'

@@ -1,9 +1,25 @@
 from django.contrib import admin
-from parler.admin import TranslatableAdmin, TranslatableStackedInline, TranslatableTabularInline
+#from parler.admin import TranslatableAdmin, TranslatableStackedInline, TranslatableTabularInline
 # Register your models here.
+from modeltranslation.admin import TranslationAdmin, TabbedTranslationAdmin
 
 
-from .models import Product, Category
+from .models import *
+
+
+
+class CategoryAdmin(TabbedTranslationAdmin):
+    pass
+
+class ProductAdmin(TabbedTranslationAdmin):
+    pass
+
+
+admin.site.register(Category, CategoryAdmin)
+admin.site.register(Product, ProductAdmin)
+admin.site.register(Image)
+
+"""
 
 class ProductAdmin(TranslatableAdmin):
     # sets values for how the admin site lists your products
@@ -39,3 +55,6 @@ class CategoryAdmin(TranslatableAdmin):
 
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(Product, ProductAdmin)
+
+
+"""

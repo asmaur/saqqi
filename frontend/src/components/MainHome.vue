@@ -18,7 +18,7 @@
                                         <a href="" class="btn btn-primary btn-large">
                                             Shop Now
                                         </a>
-                                        <button class="btn btn-primary" style="margin-left: .2rem;">
+                                        <button class="btn btn-primary" style="margin-left: .2rem;" data-toggle="modal" data-target="#newsletter">
                                             Subscribe to our newsletter
                                         </button>
 
@@ -46,7 +46,7 @@
                                         <a href="" class="btn btn-primary btn-large">
                                             Shop Now
                                         </a>
-                                        <button class="btn btn-primary" style="margin-left: .2rem;">
+                                        <button class="btn btn-primary" style="margin-left: .2rem;" data-toggle="modal" data-target="#newsletter">
                                             Subscribe to our newsletter
                                         </button>
 
@@ -76,7 +76,7 @@
                                         <a href="" class="btn btn-primary btn-large">
                                             Shop Now
                                         </a>
-                                        <button class="btn btn-primary" style="margin-left: .2rem;">
+                                        <button class="btn btn-primary" style="margin-left: .2rem;" data-toggle="modal" data-target="#newsletter">
                                             Subscribe to our newsletter
                                         </button>
 
@@ -152,7 +152,7 @@
 
                 <div class="row">
 
-                    <Item />
+                    <Item v-for="prod in prods" :key="prod.id" :prod="prod" />
 
                 </div>
 
@@ -175,12 +175,39 @@
     import $ from 'jquery'
     import NewsLetter from '@/components/NewsLetter.vue'
     import Item from '@/components/Item.vue'
+    
+    import ax from '../api'
 
     export default {
         name: "MainHome",
+        computed: {
+            //...mapGetters(['GET_PRODUCTS_FEATURED', ]),
+
+            // prods: function() {
+            //    return this.GET_PRODUCTS_FEATURED;
+            // }
+
+        },
         components: {
             NewsLetter,
             Item,
+        },
+        data() {
+            return {
+                prods: {},
+            }
+        },
+        methods: {
+            //...mapMutations(['SET_PRODUCTS_FEATURED', ]),
+            //prod_featured() {
+            //  this.SET_PRODUCTS_FEATURED();
+            //}
+            get_prods() {
+                ax.get("products/featured/", )
+                    .then(response => {
+                        this.prods = response.data;
+                    })
+            },
         },
         created() {
             $(document).ready(function() {
@@ -202,7 +229,9 @@
                         }
                     }
                 })
-            })
+            });
+            this.get_prods();
+
         },
     }
 </script>

@@ -6,13 +6,13 @@
         </div>
         <div class="card-body">
 
-            <p>Code: <strong>REF000172872468714681</strong></p>
-            <p>Total: <strong>$ 1.992.234.234</strong></p>
+            <p>Code: <strong>{{chechoutref}}</strong></p>
+            <p>Total: <strong>$ {{cartTotalAmount}}</strong></p>
         </div>
 
         <div class="card-footer">
             <button class="btn btn-primary btn-block fechar">
-                SAVE
+                SEND REQUEST
             </button>
         </div>
 
@@ -23,7 +23,29 @@
 
 
 <script>
+    
+    import {
+        mapGetters,
+        //mapMutations,
+        mapActions,
+    } from 'vuex'
+    
     export default {
         name: "OutSummary",
+        computed:{
+            chechoutref: function(){
+                return "REF" + (new Date).toISOString().replace(/\D/g, '')+"SAQ";
+            },
+            ...mapGetters(['cartTotalAmount', ]),
+        },
+        data() {
+            return{
+                
+            }
+        },
+        methods:{
+            
+        },
+        
     }
 </script>

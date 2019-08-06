@@ -2,15 +2,21 @@
 
     <div class="col-sm-12 col-md-4 p-1 shop-item">
 
-        <a href="">
-            <img src="../assets/img/031-Sacola.jpg" alt="" class="img-fluid">
-        </a>
+        <router-link :to="'/'+GET_LANG+'/product/'+prod.slug+'/'+prod.code">
+            <img :src="prod.capa" alt="" class="img-fluid">
+        </router-link>
 
         <div class="item-info text-center">
-            <a href="">
-                <span>Kraft paper bag | REF 00001.</span> <br>
-                <span> Dim: 23x45x23 cm </span>
-            </a>
+            <router-link :to="'/'+GET_LANG+'/product/'+prod.slug+'/'+prod.code">
+                <span v-if="GET_LANG=='en'">{{prod.name_en}} </span>
+                <span v-if="GET_LANG=='fr'">{{prod.name_fr}} </span>
+                <span v-if="GET_LANG=='pt-br'">{{prod.name_pt_br}} </span>
+                <span> | REF {{prod.code}}.</span> <br>
+                <span> Dim: {{prod.length}}x{{prod.width}}x{{prod.heigth}} cm </span> <br>
+                <!-- <span>Comprimento: {{prod.length}} cm</span> <br>
+                <span>Largura: {{prod.width}} cm</span> <br>
+                <span>Altura: {{prod.heigth}} cm</span> <br> -->
+            </router-link>
         </div>
 
         <hr>
@@ -20,22 +26,22 @@
             <div class="item-price">
 
                 <span class="price">
-                    $0.008/uni
+                    ${{prod.price}}/uni
                 </span>
 
             </div>
 
             <div class="item-min">
                 <span>
-                    MO: 3000 uni
+                    Minimum Order: {{prod.mini_quantity}} uni
                 </span>
             </div>
 
-            <div class="item-add-cart">
-                <button class="btn btn-outline-danger">
+            <!-- <div class="item-add-cart">
+                <button class="btn btn-outline-danger" @click="add_to_cart(prod.code, prod.mini_quantity)">
                     <i class="fas fa-cart-plus fa-2x"></i>
                 </button>
-            </div>
+            </div> -->
 
         </div>
 
@@ -45,7 +51,39 @@
 
 
 <script>
+    import {
+        mapGetters,
+        //mapMutations,
+        mapActions,
+    } from 'vuex'
+
     export default {
         name: "Item",
+        props: {
+            prod: Object,
+        },
+        computed: {
+
+            ...mapGetters(['GET_LANG', ]),
+
+        },
+        data() {
+            return {
+                img_url: 'localhost:8000',
+            }
+        },
+
+        methods: {
+            ...mapActions(['addToCart', ]),
+            add_to_cart(code, quantity) {
+                //console.log(code, quantity);
+                this.addToCart({
+                    productCode: code,
+                    quantity: quantity
+                });
+                this.$noty.success("Product added to cart!");
+            },
+        },
+
     }
 </script>

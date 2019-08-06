@@ -20,6 +20,7 @@ class Cart(models.Model):
     processing = models.BooleanField(default=False)
     payed = models.BooleanField(default=False)
     delivered = models.BooleanField(default=False)
+    email_sended = models.BooleanField(default=False)
 
     def __str__(self):
         return self.code

@@ -33,6 +33,9 @@ ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
 # Application definition
 
 INSTALLED_APPS = [
+
+    'modeltranslation',
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -43,7 +46,7 @@ INSTALLED_APPS = [
 
 LOCAL_APPS = ['apps.api', 'apps.market', 'apps.basket']
 
-THIRD_PARTY_APPS = [ 'rest_framework', 'rest_framework.authtoken', 'imagekit', 'corsheaders', 'webpack_loader', 'parler']
+THIRD_PARTY_APPS = [  'rest_framework', 'rest_framework.authtoken', 'imagekit', 'corsheaders', 'webpack_loader', 'parler']
 
 INSTALLED_APPS = INSTALLED_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 
@@ -136,7 +139,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
 
 LANGUAGE_CODE = 'en'
-
+"""
 PARLER_LANGUAGES = {
     None: (
         {'code': 'en',},
@@ -148,6 +151,15 @@ PARLER_LANGUAGES = {
         'hide_untranslated': False,   # the default; let .active_translations() return fallbacks too.
     }
 }
+"""
+
+LANGUAGES = (
+    ('en', 'English'),
+    ('fr', 'Français'),
+    ('pt-br', 'Português Brasil'),
+)
+MODELTRANSLATION_DEFAULT_LANGUAGE = 'en'
+MODELTRANSLATION_FALLBACK_LANGUAGES = ('en', 'fr')
 
 TIME_ZONE = 'UTC'
 

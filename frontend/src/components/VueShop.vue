@@ -31,7 +31,7 @@
 
                 <div class="row">
 
-                    <Item />
+                    <Item v-for="prod in prods" :prod="prod" :key="prod.id"/>
 
                 </div>
 
@@ -50,11 +50,32 @@
 
 <script>
     import Item from '@/components/Item.vue'
+    import ax from '../api'
 
     export default {
         name: "VueShop",
+        computed:{
+            
+        },
         components: {
             Item
-        }
+        },
+        data(){
+            return{
+                prods: {},
+            }
+        },
+        methods:{
+                        
+            get_prods(){
+                ax.get("products/",)
+                .then(response =>{
+                    this.prods = response.data;
+                })
+            },
+        },
+        created(){
+            this.get_prods()
+        },
     }
 </script>

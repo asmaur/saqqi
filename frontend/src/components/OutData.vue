@@ -4,7 +4,7 @@
     <div class="card">
 
         <div class="card-header text-center">
-            <h4>Infos</h4>
+            <h4>Informations</h4>
         </div>
 
         <div class="card-body">
@@ -14,7 +14,7 @@
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="first_name">First Name</label>
-                        <input type="text" class="form-control" id="first_name" name="first_name" placeholder="" required>
+                        <input type="text" class="form-control" id="first_name" v-model="first_name" name="first_name" placeholder="Your name" required>
                     </div>
                     <div class="form-group col-md-6">
                         <label for="last_name">Last Name</label>
@@ -84,15 +84,12 @@
 
 
 
-
-
-
-
 </template>
 
 
 <script>
     export default {
         name: "OutData",
+        
     }
 </script>

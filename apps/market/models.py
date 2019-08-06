@@ -3,9 +3,10 @@ from django.db.models.signals import pre_save, post_save
 from django.utils.text import slugify
 from django.dispatch import receiver
 import uuid
+from decimal import Decimal
 from imagekit.models import ProcessedImageField
 from imagekit.processors import ResizeToFit
-from parler.models import TranslatableModel, TranslatedFields
+from django.core.validators import MinValueValidator
 # Create your models here.
 
 # Create your models here.
@@ -19,16 +20,28 @@ def path_product(instance, filename):
 
     return 'WANUCLOUD/products/{0}/{1}'.format(instance.code, change_name(filename))
 
+def image_path_product(instance, filename):
+# file will be uploaded to MEDIA_ROOT/company_<name>/shop_<name>/
+    parent_path = instance.product._meta.get_field('capa').upload_to(instance.product, '')
+    print(parent_path)
+    return 'WANUCLOUD/{0}/images/{1}'.format(instance.product.code, change_name(filename))
+
+
 def generate_uid():
     return str(uuid.uuid4().fields[-1])[:10]
 
+def generate_puid():
+    return str(uuid.uuid4().fields[-1])[:5]
 
-class Category(TranslatableModel):
+
+class Category(models.Model):
     code = models.CharField(max_length=255, unique=True, blank=True)
-    translations = TranslatedFields(
-        name = models.CharField(max_length=50),
-        description = models.TextField(blank=True)
-    )
+    name = models.CharField(max_length=255, blank=True)
+    description = models.TextField(blank=True)
+    #translations = TranslatedFields(
+    #    name = models.CharField(max_length=50),
+    #    description = models.TextField(blank=True)
+    #)
     slug = models.SlugField(max_length=50, unique=True, blank=True)
     is_active = models.BooleanField(default=True)
     created_at = models.DateTimeField(auto_now_add=True)
@@ -44,28 +57,32 @@ class Category(TranslatableModel):
 
 
 
-class Product(TranslatableModel):
+class Product(models.Model):
     code = models.CharField(max_length=255, unique=True, blank=True)
-    translations = TranslatedFields(
-        name = models.CharField(max_length=255,),
-        description = models.TextField(blank=True)
-    )
+    name = models.CharField(max_length=255)
+    description = models.TextField(blank=True)
+    #translations = TranslatedFields(
+    #    name = models.CharField(max_length=255,),
+    #    description = models.TextField(blank=True)
+    #)
     slug = models.SlugField(max_length=255, blank=True)
     #brand = models.CharField(max_length=50)
     #sku = models.CharField(max_length=50)
     site_url = models.URLField(blank=True, null=True)
-    site_price = models.DecimalField(max_digits=9, decimal_places=2, blank=True, null=True)
-    price = models.DecimalField(max_digits=9, decimal_places=2,)
-    old_price = models.DecimalField(max_digits=9, decimal_places=2, blank=True, default=0.00)
+    site_price = models.DecimalField(max_digits=9, decimal_places=2, validators=[MinValueValidator(Decimal('0.01'))], blank=True, null=True)
+    price = models.DecimalField(max_digits=9, decimal_places=2, validators=[MinValueValidator(Decimal('0.01'))])
+    old_price = models.DecimalField(max_digits=9, decimal_places=2, blank=True, default=0.00, validators=[MinValueValidator(Decimal('0.01'))])
     is_active = models.BooleanField(default=True)
     is_bestseller = models.BooleanField(default=False)
     is_featured = models.BooleanField(default=False)
     mini_quantity = models.IntegerField(default=1000)
-
+    length = models.DecimalField((u'largura'), decimal_places=2, max_digits=12, default=0.00, validators=[MinValueValidator(Decimal('0.01'))])
+    width = models.DecimalField((u'largura'), decimal_places=2, max_digits=12, default=0.00,  validators=[MinValueValidator(Decimal('0.01'))])
+    heigth = models.DecimalField((u'altura'), decimal_places=2, max_digits=12, default=0.00,  validators=[MinValueValidator(Decimal('0.01'))])
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     categories = models.ManyToManyField(Category, related_name='products')
-    capa = ProcessedImageField(upload_to=path_product, processors=[ResizeToFit(1600, 900),], format='JPEG', options={'quality': 75}, blank=True)
+    capa = ProcessedImageField(upload_to=path_product, processors=[ResizeToFit(720, 405),], format='JPEG', options={'quality': 60}, blank=True)
 
     class Meta:
         verbose_name = 'Product'
@@ -73,12 +90,12 @@ class Product(TranslatableModel):
         verbose_name_plural = 'Products'
 
     def __str__(self):
-        return self.name
+        return "REF {0}".format(self.code)
 
 
 class Image(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='images')
-    image_erociti = ProcessedImageField(upload_to=path_product, processors=[ResizeToFit(1600, 900),], format='JPEG', options={'quality': 75}, blank=True)
+    image_saqqi = ProcessedImageField(upload_to=image_path_product, processors=[ResizeToFit(720, 405),], format='JPEG', options={'quality': 60}, blank=True)
     is_public = models.BooleanField(default=True)
     created_at = models.DateTimeField('date added', auto_now=True)
 
@@ -89,7 +106,7 @@ class Image(models.Model):
         verbose_name_plural = "Images"
 
     def __str__(self):
-        return "Image de: {0}".format(self.product.name)
+        return "Image de: {0}".format(self.product.code)
 
 
 
@@ -111,7 +128,7 @@ def product_pre_save(sender, **kwargs):
     prod = kwargs.get('instance')
 
     if not prod.code:
-        prod.code = generate_uid()
+        prod.code = generate_puid()
 
     if not prod.slug:
         prod.slug = slugify(prod.name)

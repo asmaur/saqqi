@@ -21,7 +21,7 @@
 
         <nav class="navbar navbar-expand-lg fixed-top">
             <!--  style="margin-top: 1.5rem;"> -->
-            <router-link class="navbar-brand" :to="{name:'home', prefix:GET_LANG}">SAQQI</router-link>
+            <router-link class="navbar-brand" :to="'/'+GET_LANG+'/'">SAQQI</router-link>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -30,34 +30,40 @@
                 <ul class="navbar-nav ml-auto">
 
                     <li class="nav-item">
-                        <router-link class="nav-link" :to="{name:'shop', prefix: GET_LANG}">Shop</router-link>
+                        <router-link class="nav-link" :to="'/'+GET_LANG+'/shop'">Shop</router-link>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Category
                         </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <router-link class="dropdown-item" :to="{name:'category', prefix:GET_LANG, params:{slug:name.slug}}" v-for="name in names" :key="name.index">{{name.name}}</router-link>
-                            <!--<a class="dropdown-item" href="#">Another action</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Something else here</a> -->
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown" v-if="GET_LANG=='en'">
+                            <router-link class="dropdown-item" :to="'/'+GET_LANG+'/category/'+name.slug" v-for="name in names" :key="name.index">{{name.name_en}}</router-link>
+
+                        </div>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown" v-if="GET_LANG=='fr'">
+                            <router-link class="dropdown-item" :to="'/'+GET_LANG+'/category/'+name.slug" v-for="name in names" :key="name.index">{{name.name_fr}}</router-link>
+
+                        </div>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown" v-if="GET_LANG=='pt-br'">
+                            <router-link class="dropdown-item" :to="'/'+GET_LANG+'/category/'+name.slug" v-for="name in names" :key="name.index">{{name.name_pt_br}}</router-link>
+
                         </div>
                     </li>
                     <li class="nav-item">
-                        <router-link class="nav-link" :to="{name:'customized', prefix:GET_LANG}">Customized</router-link>
+                        <router-link class="nav-link" :to="'/'+GET_LANG+'/customized'">Customized</router-link>
                     </li>
                     <li class="nav-item">
-                        <router-link class="nav-link" :to="{name:'cart', prefix:GET_LANG}">Cart [ 0 ]</router-link>
+                        <router-link class="nav-link" :to="'/'+GET_LANG+'/cart'">Cart [ {{GET_CART_TOTAL}} ]</router-link>
                     </li>
 
                     <vue-lang />
-                
+
                 </ul>
 
             </div>
         </nav>
 
-        {{GET_NAMES}}
+
 
     </div>
 
@@ -66,6 +72,8 @@
 
 <script>
     import VueLang from '@/components/VueLang.vue'
+    import ax from '../api'
+    
     import {
         mapGetters,
         mapMutations
@@ -74,12 +82,13 @@
     export default {
         name: "NavBar",
         computed: {
-            
-            ...mapGetters(['GET_LANG','GET_NAMES']),
-            
-            names: function(){
-                return this.GET_NAMES;
-            },
+
+            ...mapGetters(['GET_LANG','GET_CART_TOTAL']),
+
+            //names: function() {
+              //  return this.GET_NAMES;
+           // },
+
 
         },
         components: {
@@ -89,47 +98,54 @@
             return {
                 catus: [],
                 categories: [],
-                cat:{},
-                //names:[],
+                cat: {},
+                names:{},
 
             }
         },
         methods: {
-            ...mapMutations(['SET_LANG', 'SET_NAMES']),
-            NCcategory(){
-                this.SET_NAMES();
-            /*
-            this.catus = JSON.parse(localStorage.getItem('categories'));
-            
-            this.categories = this.catus.filter(cat => { return cat.translations[this.$route.params.lang] })
-            
-                console.log(this.categories)
+            //...mapMutations(['SET_LANG', 'SET_NAMES']),
+            //NCcategory() {
+               // this.SET_NAMES();
+                /*
+                this.catus = JSON.parse(localStorage.getItem('categories'));
                 
-                for (var i in this.categories){
-                    console.log(i)
-                    this.cat.slug = this.categories[i]["slug"]
-                    this.cat.code = this.categories[i]["code"]
-                    this.cat.name = this.categories[i]["translations"][this.$route.params.lang]["name"]
+                this.categories = this.catus.filter(cat => { return cat.translations[this.$route.params.lang] })
+                
+                    console.log(this.categories)
                     
-                    this.names.push(this.cat)
-                    console.log(this.categories[i]["translations"][this.$route.params.lang]["name"])
-                    this.cat = {}
-                } */
-            },
-            
-        },
-        mounted(){
-            //this.SET_CATS;
-            
+                    for (var i in this.categories){
+                        console.log(i)
+                        this.cat.slug = this.categories[i]["slug"]
+                        this.cat.code = this.categories[i]["code"]
+                        this.cat.name = this.categories[i]["translations"][this.$route.params.lang]["name"]
                         
+                        this.names.push(this.cat)
+                        console.log(this.categories[i]["translations"][this.$route.params.lang]["name"])
+                        this.cat = {}
+                    } */
+           // },
+        get_cats(){
+            ax.get("categories/",)
+                .then(response => {
+                    this.names = response.data;
+            })
         },
-        created(){
+
+        },
+        mounted() {
             //this.SET_CATS;
-            this.NCcategory()
+
+
         },
-        beforeUpdate(){
-            this.NCcategory()
+        created() {
+            //this.SET_CATS;
+            //this.NCcategory()
+            this.get_cats();
         },
-        
+        beforeUpdate() {
+            //this.NCcategory()
+        },
+
     }
 </script>
