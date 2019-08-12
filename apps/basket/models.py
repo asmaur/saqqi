@@ -22,6 +22,9 @@ class Cart(models.Model):
     delivered = models.BooleanField(default=False)
     email_sended = models.BooleanField(default=False)
 
+    class Meta:
+        ordering = ["-created_at"]
+
     def __str__(self):
         return self.code
 

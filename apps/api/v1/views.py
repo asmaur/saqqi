@@ -100,46 +100,57 @@ class CartViewset(viewsets.ViewSet):
         return Response(serializer.data)
 
     @staticmethod
-    def render_to_pdf(template_src, context_dict={}):
-        template_src = "api/proforma.html"
-        template = get_template(template_src)
-        html = template.render(context_dict)
-        result = BytesIO()
-        pdf = pisa.pisaDocument(BytesIO(html.encode("ISO-8859-1")), result)
-        if not pdf.err:
-            return HttpResponse(result.getvalue(), content_type='application/pdf')
-        return None
+    def render_to_pdf(data, code):
+        try:
+            filename = "proforma_{0}.pdf".format(code)
+
+            html_string = render_to_string("api/proforma.html",
+                                           {"data": data})  # {"date": timezone.now(), "datus": datas, "items":items})
+            pdf_file = HTML(string=html_string).write_pdf(stylesheets=[CSS(settings.PROFORMA_CSS)],
+                                                          target=f'/tmp/{filename}')
+            return filename
+        except Exception as ex:
+            #print(ex)
+            return None
 
     @action(methods=["GET"], detail=False, url_name='vpdf', url_path='vpdf')
     def view_pdf(self, request, pdf=None):
         return HttpResponse(pdf, content_type='application/pdf')
+
 
     @action(methods=["POST"], detail=False, url_name='pdf', url_path='pdf')
     def generatePDF(self, request):
         #template = get_template("api/proforma.html")
         try:
             datas = json.loads(request.data['datus'])
-            #items = datas['items']
-            #print(items)
-            data = Context({"date": timezone.now(), "datus": datas,}) #"items":items})
-
+            data = Context({"date": timezone.now(), "datus": datas,})
             code = uuid.uuid4()
-            filename = "proforma_{0}.pdf".format(code)
+            filename = self.render_to_pdf(data, code)
 
-            html_string = render_to_string("api/proforma.html", {"data": data}) #{"date": timezone.now(), "datus": datas, "items":items})
-            pdf_file = HTML(string=html_string).write_pdf(stylesheets=[CSS(settings.PROFORMA_CSS)], target=f'/tmp/{filename}')
+            if filename:
+                cart = Cart.objects.create(code=code,)
+                fs = FileSystemStorage('/tmp')
+                with fs.open(filename) as pdf:
+                    #cart = Cart.objects.create(code=code, proforma=pdf)
+                    cart.proforma.save(filename, File(pdf))
+                cart.save()
+                print("OK")
+                return Response({"code": code},status.HTTP_200_OK)
+            else:
+                #print("NONe")
+                return Response(status.HTTP_400_BAD_REQUEST)
+        except Exception as ex:
+            #print(ex)
+            return Response(status.HTTP_400_BAD_REQUEST)
 
-            #reopen = open(f"/tmp/{filename}", "rb")
-            cart = Cart.objects.create(code=code,) # proforma=pdf)
-            fs = FileSystemStorage('/tmp')
-            with fs.open(filename) as pdf:
-                #cart = Cart.objects.create(code=code, proforma=pdf)
-                cart.proforma.save(filename, File(pdf))
 
-            cart.save()
+    def retrieve(self, request, pk=None):
+        try:
+            cart = Cart.objects.get(code=pk)
+            serializer = CartSerializer(cart, context={'request': request})
 
-            return  HttpResponse(pdf_file, content_type='application/pdf')
+            return Response(serializer.data, status.HTTP_200_OK)
 
         except Exception as ex:
-            print(ex)
-            return HttpResponse("Error")
+            #print(ex)
+            return Response(status.HTTP_400_BAD_REQUEST)

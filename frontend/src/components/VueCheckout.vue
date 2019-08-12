@@ -167,7 +167,7 @@
             chechoutref: function() {
                 return "REF" + (new Date).toISOString().replace(/\D/g, '') + "SAQ";
             },
-            ...mapGetters(['cartTotalAmount', ]),
+            ...mapGetters(['cartTotalAmount', 'GET_LANG']),
         },
         data() {
             return {
@@ -198,15 +198,30 @@
 
                 this.$validator.validateAll().then((valid) => {
                     if (valid) {
+                        let loader = this.$loading.show({isFullPage: true});
+                        this.$noty.warning("Processing request", {timeout: 2000,})
                         this.datus.total = this.formatPrice(this.cartTotalAmount);
                         this.datus.reference = this.chechoutref;
                         this.datus.items = JSON.parse(localStorage.getItem('cart'));
                         console.log(this.datus)
                         ax.post("cart/pdf/", {'datus': JSON.stringify(this.datus)},)
-                        .then(() => {
-                            console.log("OK")
+                        .then(response => {
+                            console.log(response.data)
+                            
+                            this.$noty.info("Wait", {timeout: 3000,})
+                            setTimeout(() => {
+                                loader.hide()
+                                localStorage.setItem('cart', JSON.stringify([]));
+                                this.$router.push('download/'+response.data.code)
+                                    
+                                }, 5000);
+                            
                         })
-                        
+                        .catch(error => {
+                            this.$noty.error("Something wrong while processing your request, try again later..!")
+                            localStorage.setItem('cart', JSON.stringify([]));
+                            this.$router.push('/')
+                        })
                         
                         
                     } else {
