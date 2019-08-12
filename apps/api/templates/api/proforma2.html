@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <link href="proforma.css" rel="stylesheet">
-    <title>proforma_REF00129333783</title>
+    <title>Invoice</title>
     <meta name="description" content="Invoice demo sample">
     <meta name="author" content="Kozea">
 </head>
@@ -27,19 +27,19 @@
         <li class="list-group-item active">
             PROFORMA
         </li>
-        <li class="list-group-item">Order: <strong>{{data.datus.reference}}</strong></li>
-        <li class="list-group-item">Date: {{data.date|date:"D, d M, Y"}} </li>
+        <li class="list-group-item">Order: <strong>REF00129333783</strong></li>
+        <li class="list-group-item">Date: 12/34/56</li>
     </ul>
 
     <ul class="list-group">
         <li class="list-group-item active">
             SOLD TO
         </li>
-        <li class="list-group-item">Company: <strong> {{data.datus.company}} </strong></li>
-        <li class="list-group-item">Country: <strong> {{data.datus.state}} </strong> </li>
-        <li class="list-group-item">City: <strong>{{data.datus.city}} </strong> </li>
-        <li class="list-group-item">Port: <strong> {{data.datus.port_name}} </strong> </li>
-        <li class="list-group-item">Port City: <strong> {{data.datus.port_city}} </strong> </li>
+        <li class="list-group-item">Company: <strong> Brang trade </strong></li>
+        <li class="list-group-item">Country: <strong> Congo </strong> </li>
+        <li class="list-group-item">City: <strong>Kinshasa </strong> </li>
+        <li class="list-group-item">Port: <strong> Malafi </strong> </li>
+        <li class="list-group-item">Port City: <strong> Libreville </strong> </li>
     </ul>
 
 
@@ -47,9 +47,9 @@
         <li class="list-group-item active">
             Notify to
         </li>
-        <li class="list-group-item">Name: <strong> {{data.datus.first_name}} {{data.datus.last_name}}</strong></li>
-        <li class="list-group-item">Phone: <strong>+{{data.datus.phone}} </strong> </li>
-        <li class="list-group-item">Email: <strong> {{data.datus.confirm_email}} </strong> </li>
+        <li class="list-group-item">Name: <strong> Nzambi nkongo</strong></li>
+        <li class="list-group-item">Phone: <strong>+23 32 345 5667 </strong> </li>
+        <li class="list-group-item">Email: <strong>nzambi@gmail.com </strong> </li>
     </ul>
 
     <ul class="list-group">
@@ -63,7 +63,6 @@
         <thead>
             <tr>
                 <th>#</th>
-                <th>Code</th>
                 <th>Product</th>
                 <th>Quantity</th>
                 <th>Uni/USD</th>
@@ -72,23 +71,17 @@
         </thead>
         <tbody>
 
-        {% if data.datus.items %}
-            {% for item in data.datus.items %}
+            <tr>
+                <td>1</td>
+                <td>Kraft paper bag <br>
+                    Dim: <strong>23x34x45 cm.</strong>
+                </td>
+                <td> <strong>1.234.456.78</strong> </td>
+                <td> <strong> 0.008 </strong> </td>
+                <td> 3.000.000 </td>
+            </tr>
 
-                <tr>
-                    <td>{{ forloop.counter }}</td>
-                    <td> <strong>{{item.product.code}}</strong> </td>
-                    <td>{{item.product.name}} <br>
-                        Dim: <strong>{{item.product.heigth.normalize}}x{{item.product.width}}x{{item.product.length}} cm.</strong>
-                    </td>
-                    <td> <strong>{{item.quantity}}</strong> </td>
-                    <td> <strong> {{item.product.price}} </strong> </td>
-                    <td> {{item.subtotal}} </td>
-                </tr>
-        {% endfor %}
-        {% endif %}
-
-        <!--    <tr>
+            <tr>
                 <td>2</td>
                 <td>Kraft paper bag <br>
                     Dim: <strong>23x34x45 cm.</strong>
@@ -96,14 +89,14 @@
                 <td> <strong>1.234.456.78</strong> </td>
                 <td> <strong> 0.008 </strong> </td>
                 <td> 3.000.000 </td>
-            </tr> -->
+            </tr>
 
 
             <tr>
 
-                <td colspan="4"></td>
+                <td colspan="3"></td>
                 <td> <strong>Total</strong> </td>
-                <td> <strong> {{data.datus.total}} </strong> </td>
+                <td> <strong> 3.000.000.000 </strong> </td>
             </tr>
         </tbody>
     </table>

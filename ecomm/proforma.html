@@ -8,7 +8,7 @@
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
 
-    <!-- Bootstrap CSS -->
+    <!-- Bootstrap CSS --
     <link rel="stylesheet" href="vendor/css/bootstrap.min.css">
     <link rel="stylesheet" href="OwlCarousel/assets/owl.theme.default.css">
     <link rel="stylesheet" href="OwlCarousel/assets/owl.carousel.min.css">
@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/shop.css">
 
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css"> -->
 
     <title>Hello, world!</title>
 </head>
@@ -25,11 +25,89 @@
 <body>
 
     <style>
-        .list-group-item .active{
-            background-color: #000; 
+        .list-group-item .active {
+            background-color: #000;
             text-transform: uppercase;
             border: none;
         }
+
+        .col-md-4 {
+            position: relative;
+            width: 100%;
+            min-height: 1px;
+            padding-right: 15px;
+            padding-left: 15px;
+        }
+
+        .offset-md-4 {
+            margin-left: 33.333333%;
+        }
+
+        .list-group {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+            flex-direction: column;
+            padding-left: 0;
+            margin-bottom: 0;
+        }
+
+        .list-group-item .active {
+            z-index: 2;
+            color: #fff;
+        }
+
+        .list-group-item {
+            position: relative;
+            display: block;
+            padding: .75rem 1.25rem;
+            margin-bottom: -1px;
+            background-color: #fff;
+            border: 1px solid rgba(0, 0, 0, .125);
+        }
+        .list-group-item .active {
+            background-color: #000;
+            text-transform: uppercase;
+            border: none;
+        }
+
+        .text-center {
+            text-align: center !important;
+        }
+
+        .table-bordered {
+            border: 1px solid #dee2e6;
+        }
+
+        .table {
+            width: 100%;
+            max-width: 100%;
+            margin-bottom: 1rem;
+            background-color: transparent;
+            margin-top: 2rem;
+        }
+
+        .table-bordered td, .table-bordered th {
+            border: 1px solid #dee2e6;
+        }
+
+      
+
+        hr {
+            margin-bottom: -0.1rem;
+            margin-top: 3rem;
+            width: 100%;
+            display: flex;
+            align-content: space-between;
+            align-items: center;
+        }
+        .signature{
+            display: flex;
+        }
+        
     </style>
 
     <div class="shop">
@@ -37,50 +115,53 @@
         <div class="container">
 
             <div class="row">
-                
-                <div class="col-md-4 offset-md-4 text-center">
-                    <h2>SAQQI GROUP</h2>
-                    <h8>Rua Marechal Floriano Peixoto 370</h8> <br>
-                    <h8>90020-061 Porto Alegre-RS, Brasil</h8> <br>
-                    <h8>Phone: +5551 9 999 999 999</h8> <br>
-                    <h8>Email: contact@saqqi.com</h8>
+
+                <div class="col-md-4 text-center">
+                    <h2> <em> SAQQI GROUP </em> </h2>
+                    <em>Rua Marechal Floriano Peixoto 370</em> <br>
+                    <em>90020-061 Porto Alegre-RS, Brasil</em> <br>
+                    <em>Phone: +5551 9 999 999 999</em> <br>
+                    <em>Email: contact@saqqi.com</em>
                 </div>
-                
+
                 <div class="col-md-12">
-                    
+
                     <ul class="list-group" style="margin-top: 1rem">
                         <li class="list-group-item active" style="background-color: #000; text-transform: uppercase; border: none;"> <strong> Proforma </strong> </li>
-  <li class="list-group-item">Order: <strong>REF00129333783</strong></li>
-  <li class="list-group-item">Date: 12/34/56</li>
-  
-</ul>
-                   
-                   <ul class="list-group" style="margin-top: 1rem">
-                       <li class="list-group-item active" style="background-color: #000; text-transform: uppercase; border: none;"> <strong>Sold to </strong> </li>
-  <li class="list-group-item">Company: <strong>Brang trade</strong></li>
-  <li class="list-group-item">Country: Congo</li>
-  <li class="list-group-item">City: Kinshasa</li>
-  <li class="list-group-item">Port: Malafi</li>
-  <li class="list-group-item">Port city: Libreville</li>
-  
-</ul>
-                   
-                   <ul class="list-group" style="margin-top: 1rem">
-                       <li class="list-group-item active" style="background-color: #000; text-transform: uppercase; border: none;"> <strong> Notify to </strong> </li>
-  <li class="list-group-item">Name: <strong> Nzambi nkongo</strong></li>
-  <li class="list-group-item">Phone: +23 32 345 5667</li>
-  <li class="list-group-item">Email: nzambi@gmail.com</li>
-  
-  
-</ul>
-                    
-                    
+                        <li class="list-group-item">Order: <strong>REF00129333783</strong></li>
+                        <li class="list-group-item">Date: 12/34/56</li>
+
+                    </ul>
+
+                    <ul class="list-group" style="margin-top: 1rem">
+                        <li class="list-group-item active" style="background-color: #000; text-transform: uppercase; border: none;"> <strong>Sold to </strong> </li>
+                        <li class="list-group-item">Company: <strong>Brang trade</strong></li>
+                        <li class="list-group-item">Country: Congo</li>
+                        <li class="list-group-item">City: Kinshasa</li>
+                        <li class="list-group-item">Port: Malafi</li>
+                        <li class="list-group-item">Port city: Libreville</li>
+
+                    </ul>
+
+                    <ul class="list-group" style="margin-top: 1rem">
+                        <li class="list-group-item active" style="background-color: #000; text-transform: uppercase; border: none;"> <strong> Notify to </strong> </li>
+                        <li class="list-group-item">Name: <strong> Nzambi nkongo</strong></li>
+                        <li class="list-group-item">Phone: +23 32 345 5667</li>
+                        <li class="list-group-item">Email: nzambi@gmail.com</li>
+
+
+                    </ul>
+
+
                 </div>
 
                 <div class="col-md-12">
 
+                    <ul class="list-group" style="margin-top: 1rem">
+                        <li class="list-group-item active text-center" style="background-color: #000; text-transform: uppercase; border: none;"> <strong>Merchandises </strong> </li>
+                    </ul>
 
-                    <table class="table table-bordered text-center" style="margin-top: 2rem;">
+                    <table class="table table-bordered text-center" style="">
                         <thead>
                             <tr>
                                 <th scope="col">#</th>
@@ -133,60 +214,61 @@
 
 
             </div>
-            
+
             <div class="row">
-            
-            <div class="col-md-12">
-                
-                <ul class="list-group" style="margin-top: 1rem;">
-                    <li class="list-group-item active" style="background-color: #000; text-transform: uppercase; border: none;"> <strong> Banking informations </strong> </li>
-  <li class="list-group-item">Bank Wire Transfer: <strong> SAQQI GROUP </strong></li>
-  <li class="list-group-item">Bank name: BRADESCO S.A.</li>
-  <li class="list-group-item">Swift code: QAWSEDCFVGTB</li>
-  
-  
-</ul>
+
+                <div class="col-md-12">
+
+                    <ul class="list-group" style="margin-top: 1rem;">
+                        <li class="list-group-item active" style="background-color: #000; text-transform: uppercase; border: none;"> <strong> Banking informations </strong> </li>
+                        <li class="list-group-item">Bank Wire Transfer: <strong> SAQQI GROUP </strong></li>
+                        <li class="list-group-item">Bank name: BRADESCO S.A.</li>
+                        <li class="list-group-item">Swift code: QAWSEDCFVGTB</li>
+
+
+                    </ul>
+                </div>
+
+                <div class="col-md-12">
+
+                    <p>Others conditions: The shipmento of the request will be subordinate to the acceptance of the conditions on this
+                        proforma with the paiment the transportation value.</p>
+
+                    <p>if you agree with the terms of this proforma, <strong>please return with your acceptance. </strong> </p>
+
+                    <p>
+                        ( ) Yes, we agree with the conditions proposed in this proforma. <br>
+                        ( ) No, We do not agree with the conditions contained in this Proforma. canccel request.
+                    </p>
+                </div>
+
             </div>
-            
-            <div class="col-md-12">
-                
-                <p>Others conditions: The shipmento of the request will be subordinate to the acceptance of the conditions on this 
-                proforma with the paiment the transportation value.</p>
-                
-                <p>if you agree with the terms of this proforma, <strong>please return with your acceptance. </strong> </p>
-                
-                <p>
-                    ( ) Yes, we agree with the conditions proposed in this proforma. <br>
-                    ( ) No, We do not agree with the conditions contained in this Proforma. canccel request.
-                </p>
+
+            <div class="row signature">
+
+              
+                   <div class="col-md-4 text-center">
+
+                    <hr>
+                    <span>Name</span>
+
+                </div>
+                <div class="col-md-4 text-center">
+
+                    <hr>
+                    <span>Date</span>
+
+                </div>
+                <div class="col-md-4 text-center">
+
+                    <hr>
+                    <span>Signature</span>
+
+                </div> 
+
+
             </div>
-            
-            </div>
-            
-            <div class="row">
-                
-                 <div class="col-md-4 text-center">
-                
-                <hr style="margin-bottom: -.1rem; margin-top: 3rem;">
-                <span>Name</span>
-                
-            </div>
-            <div class="col-md-4 text-center">
-                
-                <hr style="margin-bottom: -.1rem; margin-top: 3rem;">
-                <span>Date</span>
-                
-            </div>
-            <div class="col-md-4 text-center">
-                
-                <hr style="margin-bottom: -.1rem; margin-top: 3rem;">
-                <span>Signature</span>
-                
-            </div>
-                
-                
-            </div>
-           
+
 
 
         </div>
@@ -198,36 +280,6 @@
 
 
 
-
-
-
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="js/jquery-3.4.1.min.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="vendor/js/bootstrap.min.js"></script>
-    <script src="OwlCarousel/owl.carousel.min.js"></script>
-
-    <script>
-        $('.owl-carousel').owlCarousel({
-            loop: true,
-            margin: 10,
-            nav: false,
-            autoplay: true,
-            autoplayTimeout: 10000,
-            responsive: {
-                0: {
-                    items: 1
-                },
-                600: {
-                    items: 1
-                },
-                1000: {
-                    items: 1
-                }
-            }
-        })
-    </script>
 
 
 </body>

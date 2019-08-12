@@ -139,19 +139,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
 
 LANGUAGE_CODE = 'en'
-"""
-PARLER_LANGUAGES = {
-    None: (
-        {'code': 'en',},
-        {'code': 'fr',},
-        {'code': 'pt-br',},
-    ),
-    'default': {
-        'fallbacks': ['en'],          # defaults to PARLER_DEFAULT_LANGUAGE_CODE
-        'hide_untranslated': False,   # the default; let .active_translations() return fallbacks too.
-    }
-}
-"""
+
 
 LANGUAGES = (
     ('en', 'English'),
@@ -176,15 +164,15 @@ USE_TZ = True
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'eroads', 'static'),
-    os.path.join(BASE_DIR, 'frontads', 'dist'),
+    os.path.join(BASE_DIR, 'saqqi', 'static'),
+    os.path.join(BASE_DIR, 'frontend', 'dist'),
 )
+PROFORMA_CSS = os.path.join(BASE_DIR, 'static/css/proforma.css')
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-STATIC_URL = '/static/'
 
 WEBPACK_LOADER = {
     'DEFAULT': {

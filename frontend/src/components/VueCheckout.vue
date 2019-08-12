@@ -42,13 +42,13 @@
                                         <div class="form-group col-md-6">
                                             <label for="last_name">Last Name</label>
                                             <input type="text" class="form-control" id="last_name" name="last_name" v-model="last_name" v-validate="{ required: true, alpha:true }" placeholder="Your last name" required>
-                                            <span class="alert-danger">{{ errors.first('company') }}</span>
+                                            <span class="alert-danger">{{ errors.first('last_name') }}</span>
                                         </div>
 
                                         <div class="form-group col-md-12">
                                             <label for="company">Company name</label>
                                             <input type="text" class="form-control" id="company" name="company" v-model="company" v-validate="{ required: true, alpha:true }" placeholder="Company Name" required>
-                                            <span class="alert-danger">{{ errors.first('telefone') }}</span>
+                                            <span class="alert-danger">{{ errors.first('company') }}</span>
                                         </div>
 
                                         <div class="form-group col-md-6">
@@ -119,6 +119,7 @@
                                 <div class="card-body">
 
                                     <p>Code: <strong>{{chechoutref}}</strong></p>
+                                    
                                     <p>Total: <strong>USD {{formatPrice(cartTotalAmount)}}</strong></p>
                                 </div>
 
@@ -158,6 +159,7 @@
         //mapMutations,
         //mapActions,
     } from 'vuex'
+    import ax from '../api'
 
     export default {
         name: "VueCheckout",
@@ -180,6 +182,7 @@
                 city: null,
                 port_name: null,
                 port_city: null,
+                total: null,
                 datus: {},
 
 
@@ -193,14 +196,24 @@
             sendRequest() {
 
                 this.$validator.validateAll().then((valid) => {
-                    if (valid) {} else {}
+                    if (valid) {
+                        this.datus.total = this.cartTotalAmount;
+                        this.datus.reference = this.chechoutref;
+                        this.datus.items = JSON.parse(localStorage.getItem('cart'));
+                        console.log(this.datus)
+                        ax.post("cart/pdf/", {'datus': JSON.stringify(this.datus)},)
+                        .then(() => {
+                            console.log("OK")
+                        })
+                        
+                        
+                        
+                    } else {
+                        this.$noty.error("Check your datas..!")
+                    }
                 });
 
-
-                this.datus.reference = this.chechoutref;
-                this.datus.items = JSON.parse(localStorage.getItem('cart'))
-
-                console.log(this.datus);
+                //console.log(this.datus);
             },
         },
         watch: {
