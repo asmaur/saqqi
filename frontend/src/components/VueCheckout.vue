@@ -190,14 +190,15 @@
         },
         methods: {
             formatPrice(value) {
-                let val = (value / 1).toFixed(2).replace('.', ',')
-                return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")
+                //let val = (value / 1).toFixed(2).replace('.', ',')
+                //return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")
+                return new Intl.NumberFormat('de-DE', {minimumFractionDigits: 2}).format(value)
             },
             sendRequest() {
 
                 this.$validator.validateAll().then((valid) => {
                     if (valid) {
-                        this.datus.total = this.cartTotalAmount;
+                        this.datus.total = this.formatPrice(this.cartTotalAmount);
                         this.datus.reference = this.chechoutref;
                         this.datus.items = JSON.parse(localStorage.getItem('cart'));
                         console.log(this.datus)

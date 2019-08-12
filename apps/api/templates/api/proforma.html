@@ -79,7 +79,7 @@
                     <td>{{ forloop.counter }}</td>
                     <td> <strong>{{item.product.code}}</strong> </td>
                     <td>{{item.product.name}} <br>
-                        Dim: <strong>{{item.product.heigth.normalize}}x{{item.product.width}}x{{item.product.length}} cm.</strong>
+                        Dim: <strong>{{item.product.heigth | floatformat }}x{{ item.product.width |floatformat }}x{{ item.product.length |floatformat }} cm.</strong>
                     </td>
                     <td> <strong>{{item.quantity}}</strong> </td>
                     <td> <strong> {{item.product.price}} </strong> </td>
@@ -114,7 +114,7 @@
         </li>
         <li class="list-group-item">Bank Wire Transfer: <strong> SAQQI GROUP </strong></li>
         <li class="list-group-item">Bank Name: <strong>BRADESCO S.A.</strong> </li>
-        <li class="list-group-item">Swift Code: <strong>QAWSEDCFVGTBahghsa ashgajhgja</strong> </li>
+        <li class="list-group-item">Swift Code: <strong>QAWSEDCFVGTBQWERTYHGBNMKJASQW</strong> </li>
     </ul>
 
     <div class="infos">

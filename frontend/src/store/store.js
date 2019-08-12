@@ -48,13 +48,17 @@ export default new Vuex.Store({
 
             if (item) {
                 //product already present in the cart. so increase the quantity
-                item.quantity = quantity;
+                item.quantity = new Intl.NumberFormat('de-DE').format(quantity);//String(quantity).replace(/(.)(?=(\d{3})+$)/g,'$1.');
             } else {
+                
+                //let val = ((product.price * quantity) / 1).toFixed(2).replace('.', ',')
+                
+                //console.log(val)
                 state.cart.push({
                     // product newly added to cart
                     product,
-                    quantity: quantity,
-                    subtotal: product.price * quantity,
+                    quantity: new Intl.NumberFormat('de-DE').format(quantity), //String(quantity).replace(/(.)(?=(\d{3})+$)/g,'$1.'),
+                    subtotal: new Intl.NumberFormat('de-DE', {minimumFractionDigits: 2}).format(product.price * quantity) //val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, "."), //product.price * quantity, 
                 });
             }
             localStorage.setItem('cart', JSON.stringify(state.cart))
@@ -123,7 +127,7 @@ export default new Vuex.Store({
         
             cartTotalAmount: (state) => {
             return state.cart.reduce((total, item) => {
-                return total + (item.product.price * item.quantity);
+                return total + (item.product.price * Number(String(item.quantity).replace(/\./g,'')));
             }, 0);
         },
         
