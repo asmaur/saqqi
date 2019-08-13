@@ -13,7 +13,7 @@
                             <div class="row">
                                 <div class="col-md-6 offset-md-3">
                                     <div class="content text-center">
-                                        <h2 style="padding-bottom: .3rem; text-transform: capitalize;"> {{ $t('welcome_one') }}</h2>
+                                        <h2 style="padding-bottom: .3rem; text-transform: capitalize;"> {{ $t('welcome_1') }}.</h2>
 
                                         <a href="" class="btn btn-primary btn-large">
                                             Shop Now
@@ -41,7 +41,7 @@
 
                                 <div class="col-md-6 offset-md-3">
                                     <div class="content text-center">
-                                        <h2 style="padding-bottom: .3rem; text-transform: capitalize;"> Strong, Resistent, versatil for your customers needs.</h2>
+                                        <h2 style="padding-bottom: .3rem; text-transform: capitalize;"> {{ $t('welcome_2') }}.</h2>
 
                                         <a href="" class="btn btn-primary btn-large">
                                             Shop Now
@@ -71,7 +71,9 @@
 
                                 <div class="col-md-6 offset-md-3">
                                     <div class="content text-center">
-                                        <h2 style="padding-bottom: .3rem; text-transform: capitalize;"> Buy with us, help protect our planet.</h2>
+                                       <h2 style="padding-bottom: .3rem; text-transform: capitalize;"> {{ $t('welcome_3') }}.</h2>
+                                       
+                                       <!-- <h2 style="padding-bottom: .3rem; text-transform: capitalize;"> Buy with us, help protect our planet.</h2> -->
 
                                         <a href="" class="btn btn-primary btn-large">
                                             Shop Now
@@ -108,12 +110,12 @@
                     <div class="col-md-8 offset-md-2 text-justify">
 
                         <p>
-                            De Like Packaging Solutions is a leading, innovative & eco-friendly packaging bag manufacturer in Malaysia. De Like Packaging Solutions provides a comprehensive eco-friendly range of packaging bag products such as Design & Customisable Paper Bag, Non Woven Bag and many more eco-friendly bags.
+                            SAQQI offer a Packaging Solutions as an innovative & eco-friendly packaging bag in cooperation with manufacturer in Brasil. SAQQI provides a comprehensive eco-friendly range of packaging bag products such as Design & Customisable Paper Bag, Non Woven Bag and many more eco-friendly bags.
                             <br>
 
                             <strong> Vision </strong>
                             <br>
-                            To position De Like Packaging Solutions in the Eco-friendly Gifts and Premium industry with a significant reliability in products & services.
+                            To position SAQQI in the Eco-friendly Gifts and Premium industry with a significant reliability in products & services for the african market.
 
                             <br>
                         </p>

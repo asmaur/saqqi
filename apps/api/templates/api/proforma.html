@@ -82,8 +82,8 @@
                         Dim: <strong>{{item.product.heigth | floatformat }}x{{ item.product.width |floatformat }}x{{ item.product.length |floatformat }} cm.</strong>
                     </td>
                     <td> <strong>{{item.quantity}}</strong> </td>
-                    <td> <strong> {{item.product.price}} </strong> </td>
-                    <td> {{item.subtotal}} </td>
+                    <td> <strong>$ {{item.product.price}} </strong> </td>
+                    <td>$ {{item.subtotal}} </td>
                 </tr>
         {% endfor %}
         {% endif %}
@@ -103,7 +103,7 @@
 
                 <td colspan="4"></td>
                 <td> <strong>Total</strong> </td>
-                <td> <strong> {{data.datus.total}} </strong> </td>
+                <td> <strong>$ {{data.datus.total}} </strong> </td>
             </tr>
         </tbody>
     </table>
@@ -114,7 +114,7 @@
         </li>
         <li class="list-group-item">Bank Wire Transfer: <strong> SAQQI GROUP </strong></li>
         <li class="list-group-item">Bank Name: <strong>BRADESCO S.A.</strong> </li>
-        <li class="list-group-item">Swift Code: <strong>QAWSEDCFVGTBQWERTYHGBNMKJASQW</strong> </li>
+        <li class="list-group-item">Swift Code: <strong>QAWSEDCFVGT</strong> </li>
     </ul>
 
     <div class="infos">

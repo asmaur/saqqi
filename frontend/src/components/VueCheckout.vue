@@ -77,7 +77,7 @@
 
                                     <div class="form-row">
                                         <div class="form-group col-md-6">
-                                            <label for="state">State</label>
+                                            <label for="state">Country</label>
                                             <input type="text" class="form-control" id="state" name="state" v-model="state" v-validate="{ required: true }" placeholder="country name" required>
                                             <span class="alert-danger">{{ errors.first('state') }}</span>
                                         </div>
@@ -91,7 +91,7 @@
 
                                     <div class="form-row">
                                         <div class="form-group col-md-6">
-                                            <label for="state">Shipment to:</label>
+                                            <label for="state">Ship to:</label>
                                             <input type="text" class="form-control" id="port_name" name="port_name" v-model="port_name" v-validate="{ required: true }" placeholder="port name" required>
                                             <span class="alert-danger">{{ errors.first('port_name') }}</span>
                                         </div>
@@ -207,17 +207,17 @@
                         ax.post("cart/pdf/", {'datus': JSON.stringify(this.datus)},)
                         .then(response => {
                             console.log(response.data)
-                            
+                            localStorage.setItem('cart', JSON.stringify([]));
                             this.$noty.info("Wait", {timeout: 3000,})
                             setTimeout(() => {
                                 loader.hide()
-                                localStorage.setItem('cart', JSON.stringify([]));
+                                //localStorage.setItem('cart', JSON.stringify([]));
                                 this.$router.push('download/'+response.data.code)
                                     
                                 }, 5000);
                             
                         })
-                        .catch(error => {
+                        .catch(() => {
                             this.$noty.error("Something wrong while processing your request, try again later..!")
                             localStorage.setItem('cart', JSON.stringify([]));
                             this.$router.push('/')
