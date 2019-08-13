@@ -4,7 +4,6 @@
     <div>
 
 
-
         <div class="shop" id="customized">
             <div class="container-fluid p-0">
                 <div class="row">
@@ -14,15 +13,15 @@
                         <div class="card">
                             <div class="card-body">
                                 <div class="alert alert-info text-center">
-                                    <h4>Branded for your costumers</h4>
-                                    <p>Make your bags unique.</p>
+                                    <h4>{{$t('branded')}}</h4>
+                                    <p>{{$t('branded_1')}}.</p>
                                 </div>
 
                             </div>
 
                             <div class="card-body text-center">
                                 <div class="alert alert-info text-center">
-                                    <h4>Contact Us</h4>
+                                    <h4>{{$t('contact_us')}}</h4>
 
                                 </div>
                                 <a href="" style="color: #000; text-decoration: none;">

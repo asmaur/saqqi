@@ -2,13 +2,12 @@
 
     <div>
 
-
         <div class="main">
             <div class="container">
                 <div class="row">
                     <div class="col-md-6 offset-md-3">
                         <div class="content text-center">
-                            <h4>Checkout</h4>
+                            <h4>{{$t('checkout')}}</h4>
                             <hr style="height: .1rem; background-color: #fff; margin-top: -.2rem;">
                         </div>
                     </div>
@@ -29,24 +28,24 @@
                             <div class="card">
 
                                 <div class="card-header text-center">
-                                    <h4>Informations</h4>
+                                    <h4>{{$t('informations')}}</h4>
                                 </div>
 
                                 <div class="card-body">
                                     <div class="form-row">
                                         <div class="form-group col-md-6">
-                                            <label for="first_name">First Name</label>
+                                            <label for="first_name">{{$t('first_name')}}</label>
                                             <input type="text" class="form-control" id="first_name" v-model="first_name" name="first_name" v-validate="{ required: true, alpha:true }" placeholder="Your first name" required>
                                             <span class="alert-danger">{{ errors.first('first_name') }}</span>
                                         </div>
                                         <div class="form-group col-md-6">
-                                            <label for="last_name">Last Name</label>
+                                            <label for="last_name">{{$t('last_name')}}</label>
                                             <input type="text" class="form-control" id="last_name" name="last_name" v-model="last_name" v-validate="{ required: true, alpha:true }" placeholder="Your last name" required>
                                             <span class="alert-danger">{{ errors.first('last_name') }}</span>
                                         </div>
 
                                         <div class="form-group col-md-12">
-                                            <label for="company">Company name</label>
+                                            <label for="company">{{$t('company_name')}}</label>
                                             <input type="text" class="form-control" id="company" name="company" v-model="company" v-validate="{ required: true, alpha:true }" placeholder="Company Name" required>
                                             <span class="alert-danger">{{ errors.first('company') }}</span>
                                         </div>
@@ -57,18 +56,18 @@
                                             <span class="alert-danger">{{ errors.first('email') }}</span>
                                         </div>
                                         <div class="form-group col-md-6">
-                                            <label for="confirm_email">Confirm email</label>
+                                            <label for="confirm_email">{{$t('confirm_email')}}</label>
                                             <input type="email" class="form-control" id="confirm_email" name="confirm_email" v-model="confirm_email" v-validate="'required|confirmed:email'" data-vv-as="email" placeholder="Confirm Email" required>
                                             <span class="alert-danger">{{ errors.first('confirm_email') }}</span>
                                         </div>
 
                                         <div class="form-group col-md-6">
-                                            <label for="phone">Phone</label>
+                                            <label for="phone">{{$t('phone')}}</label>
                                             <input type="phone" class="form-control" id="phone" name="phone" v-model="phone" ref="phone" v-validate="{ required: true, numeric:true }" placeholder="Internaltional format" required>
                                             <span class="alert-danger">{{ errors.first('phone') }}</span>
                                         </div>
                                         <div class="form-group col-md-6">
-                                            <label for="confirm_phone">Confirm phone</label>
+                                            <label for="confirm_phone">{{$t('confirm_phone')}}</label>
                                             <input type="phone" class="form-control" id="confirm_phone" name="confirm_phone" v-model="confirm_phone" v-validate="{required:true, confirmed:phone, numeric:true}" data-vv-as="phone" placeholder="Confirm phone" required>
                                             <span class="alert-danger">{{ errors.first('confirm_phone') }}</span>
                                         </div>
@@ -77,12 +76,12 @@
 
                                     <div class="form-row">
                                         <div class="form-group col-md-6">
-                                            <label for="state">Country</label>
+                                            <label for="state">{{$t('country')}}</label>
                                             <input type="text" class="form-control" id="state" name="state" v-model="state" v-validate="{ required: true }" placeholder="country name" required>
                                             <span class="alert-danger">{{ errors.first('state') }}</span>
                                         </div>
                                         <div class="form-group col-md-6">
-                                            <label for="city">City</label>
+                                            <label for="city">{{$t('city')}}</label>
                                             <input type="text" class="form-control" id="city" name="city" v-model="city" v-validate="{ required: true }" placeholder="city name" required>
                                             <span class="alert-danger">{{ errors.first('city') }}</span>
                                         </div>
@@ -91,18 +90,18 @@
 
                                     <div class="form-row">
                                         <div class="form-group col-md-6">
-                                            <label for="state">Ship to:</label>
+                                            <label for="state">{{$t('ship_to')}}:</label>
                                             <input type="text" class="form-control" id="port_name" name="port_name" v-model="port_name" v-validate="{ required: true }" placeholder="port name" required>
                                             <span class="alert-danger">{{ errors.first('port_name') }}</span>
                                         </div>
                                         <div class="form-group col-md-6">
-                                            <label for="state">Port city:</label>
+                                            <label for="state">{{$t('port_city')}}:</label>
                                             <input type="text" class="form-control" id="port_city" name="port_city" v-model="port_city" v-validate="{ required: true }" placeholder="port city" required>
                                             <span class="alert-danger">{{ errors.first('port_city') }}</span>
                                         </div>
                                     </div>
 
-                                    <p> <strong> **Contact may be made by WhatsApp or Email. </strong> </p>
+                                    <p> <strong> **{{$t('advise')}}. </strong> </p>
 
 
                                 </div>
@@ -114,7 +113,7 @@
 
                             <div class="card">
                                 <div class="card-header text-center">
-                                    <h3> <strong>Summary</strong> </h3>
+                                    <h3> <strong>{{$t('summary')}}</strong> </h3>
                                 </div>
                                 <div class="card-body">
 
@@ -125,7 +124,7 @@
 
                                 <div class="card-footer">
                                     <button class="btn btn-primary btn-block fechar" type="submit">
-                                        SEND REQUEST
+                                        {{$t('send_request_button')}}
                                     </button>
                                 </div>
 

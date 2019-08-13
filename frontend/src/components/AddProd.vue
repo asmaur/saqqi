@@ -34,11 +34,12 @@
 
             <span> | REF {{prod.code}}. | <strong> USD {{ prod.price}} </strong> </span>
             <!--<span> Dim: {{prod.length}}x{{prod.width}}x{{prod.heigth}} cm </span> --> <br>
-            <span>Comprimento: {{prod.length}} cm</span> <br>
-            <span>Largura: {{prod.width}} cm</span> <br>
-            <span>Altura: {{prod.heigth}} cm</span> <br>
+            
+            <span>{{$t('width')}}: {{prod.width}} cm</span> <br>
+            <span>{{$t('heigth')}}: {{prod.heigth}} cm</span> <br>
+            <span>{{$t('lateral')}}: {{prod.lateral}} cm</span> <br>
 
-            <p class="card-title"> <strong>Min Order: {{prod.mini_quantity}} uni.</strong> </p>
+            <p class="card-title"> <strong>{{$t('min_order')}}: {{prod.mini_quantity}} uni.</strong> </p>
 
             <ul class="list-group list-group-flush">
 
@@ -61,8 +62,9 @@
             </ul>
         </div>
         <div class="card-footer">
+           
             <button class="btn btn-primary btn-block fechar" @click="add_to_cart(prod.code, qty)">
-                ADD TO CART
+                {{$t('add_to_cart')}}
             </button>
 
         </div>

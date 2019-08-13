@@ -8,7 +8,7 @@
                 <div class="row">
                     <div class="col-md-6 offset-md-3">
                         <div class="content text-center">
-                            <h4>Cart |</h4>
+                            <h4>{{$t('cart')}} |</h4>
                             <hr style="height: .1rem; background-color: #fff; margin-top: -.2rem;">
                         </div>
                     </div>
@@ -20,11 +20,11 @@
             <div class="container-fluid">
                 <div class="row">
                     <router-link :to="'/'+GET_LANG+'/shop'" class="col-6 text-center continue">
-                        <span> continue shopping </span>
+                        <span> {{$t('continue_shopping')}} </span>
                     </router-link>
 
                     <router-link :to="'/'+GET_LANG+'/checkout'" class="col-6 text-center checkout">
-                        <span style="margin-top: 1vh;"> Checkout </span>
+                        <span style="margin-top: 1vh;"> {{$t('checkout')}} </span>
                     </router-link>
 
                 </div>
@@ -37,11 +37,11 @@
 
                 <div class="row">
                     <router-link :to="'/'+GET_LANG+'/shop'" class="col-6 text-center continue">
-                        <span style="margin-top: 1vh;"> continue shopping </span>
+                        <span style="margin-top: 1vh;"> {{$t('continue_shopping')}} </span>
                     </router-link>
 
                     <router-link :to="'/'+GET_LANG+'/checkout'" class="col-6 text-center checkout">
-                        <span style="margin-top: 1vh;"> Checkout </span>
+                        <span style="margin-top: 1vh;"> {{$t('checkout')}} </span>
                     </router-link>
 
 

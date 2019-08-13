@@ -9,16 +9,17 @@
 
                         <div class="h4">
                             <i class="fas fa-envelope-square"></i>
-                            Subscribe to our newsletter
+                            {{$t('suscribe_modal_text')}}
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <button class="btn btn-primary btn-block" data-toggle="modal" data-target="#newsletter">Subscribe Now</button>
+                        <button class="btn btn-primary btn-block" data-toggle="modal" data-target="#newsletter">{{$t('suscribe_text')}}</button>
                     </div>
                 </div>
             </div>
 
         </div>
+        
 
 
         <div class="modal fade" id="newsletter" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -26,7 +27,7 @@
                 <form>
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Subscribe Now</h5>
+                            <h5 class="modal-title" id="exampleModalLabel">{{$t('suscribe_text')}}</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
@@ -41,8 +42,8 @@
 
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary mr-auto fechar" data-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-primary entrar">Send</button>
+                            <button type="button" class="btn btn-secondary mr-auto fechar" data-dismiss="modal">{{$t('modal_close')}}</button>
+                            <button type="submit" class="btn btn-primary entrar">{{$t('modal_send')}}</button>
                         </div>
 
                     </div>

@@ -14,12 +14,12 @@
                                 <div class="col-md-6 offset-md-3">
                                     <div class="content text-center">
                                         <h2 style="padding-bottom: .3rem; text-transform: capitalize;"> {{ $t('welcome_1') }}.</h2>
-
+                                        
                                         <a href="" class="btn btn-primary btn-large">
-                                            Shop Now
+                                            {{$t('shop_button')}}
                                         </a>
                                         <button class="btn btn-primary" style="margin-left: .2rem;" data-toggle="modal" data-target="#newsletter">
-                                            Subscribe to our newsletter
+                                            {{$t('suscribe_button_slide')}}
                                         </button>
 
                                     </div>
@@ -44,10 +44,10 @@
                                         <h2 style="padding-bottom: .3rem; text-transform: capitalize;"> {{ $t('welcome_2') }}.</h2>
 
                                         <a href="" class="btn btn-primary btn-large">
-                                            Shop Now
+                                            {{$t('shop_button')}}
                                         </a>
                                         <button class="btn btn-primary" style="margin-left: .2rem;" data-toggle="modal" data-target="#newsletter">
-                                            Subscribe to our newsletter
+                                            {{$t('suscribe_button_slide')}}
                                         </button>
 
                                     </div>
@@ -76,10 +76,10 @@
                                        <!-- <h2 style="padding-bottom: .3rem; text-transform: capitalize;"> Buy with us, help protect our planet.</h2> -->
 
                                         <a href="" class="btn btn-primary btn-large">
-                                            Shop Now
+                                            {{$t('shop_button')}}
                                         </a>
                                         <button class="btn btn-primary" style="margin-left: .2rem;" data-toggle="modal" data-target="#newsletter">
-                                            Subscribe to our newsletter
+                                            {{$t('suscribe_button_slide')}}
                                         </button>
 
                                     </div>
@@ -105,26 +105,26 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-6 offset-md-3 text-center">
-                        <h4>About us</h4>
+                        <h4>{{$t('about_us')}}</h4>
                     </div>
                     <div class="col-md-8 offset-md-2 text-justify">
 
                         <p>
-                            SAQQI offer a Packaging Solutions as an innovative & eco-friendly packaging bag in cooperation with manufacturer in Brasil. SAQQI provides a comprehensive eco-friendly range of packaging bag products such as Design & Customisable Paper Bag, Non Woven Bag and many more eco-friendly bags.
+                            {{$t('about_p1')}}.
                             <br>
 
-                            <strong> Vision </strong>
+                            <strong> {{$t('about_vision')}}  </strong>
                             <br>
-                            To position SAQQI in the Eco-friendly Gifts and Premium industry with a significant reliability in products & services for the african market.
+                            {{$t('about_vision_p')}}.
 
                             <br>
                         </p>
-                        <strong> Mission </strong>
+                        <strong> {{$t('about_mission')}} </strong>
                         <br>
                         <ul>
-                            <li>To constantly provide quality eco-friendly packaging bag with prompt & reliable service</li>
-                            <li>To constantly provide innovative and trendy packaging bag ideas to meet with current market demand </li>
-                            <li> To constantly research and develop environmental friendly product marketing plans in parallel with market trend changes </li>
+                            <li> {{$t('about_mission_l1')}}. </li>
+                            <li> {{$t('about_mission_l2')}}. </li>
+                            <li> {{$t('about_mission_l3')}}. </li>
                         </ul>
 
 
@@ -145,7 +145,7 @@
 
                         <hr class="divisor-top">
 
-                        <h2>Featured</h2>
+                        <h2>{{$t('title_featured')}}</h2>
 
                         <hr class="divisor-bottom">
 

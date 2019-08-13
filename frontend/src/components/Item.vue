@@ -12,7 +12,7 @@
                 <span v-if="GET_LANG=='fr'">{{prod.name_fr}} </span>
                 <span v-if="GET_LANG=='pt-br'">{{prod.name_pt_br}} </span>
                 <span> | REF {{prod.code}}.</span> <br>
-                <span> Dim: {{prod.length}}x{{prod.width}}x{{prod.heigth}} cm </span> <br>
+                <span> Dim: {{prod.width}}x{{prod.heigth}}x{{prod.lateral}} cm </span> <br>
                 <!-- <span>Comprimento: {{prod.length}} cm</span> <br>
                 <span>Largura: {{prod.width}} cm</span> <br>
                 <span>Altura: {{prod.heigth}} cm</span> <br> -->
@@ -33,7 +33,7 @@
 
             <div class="item-min">
                 <span>
-                    Minimum Order: {{prod.mini_quantity}} uni
+                    {{$t('minimum_order')}}: {{prod.mini_quantity}} uni
                 </span>
             </div>
 
@@ -42,6 +42,7 @@
                     <i class="fas fa-cart-plus fa-2x"></i>
                 </button>
             </div> -->
+            
 
         </div>
 

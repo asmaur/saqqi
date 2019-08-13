@@ -30,11 +30,11 @@
                 <ul class="navbar-nav ml-auto">
 
                     <li class="nav-item">
-                        <router-link class="nav-link" :to="'/'+GET_LANG+'/shop'">Shop</router-link>
-                    </li>
+                        <router-link class="nav-link" :to="'/'+GET_LANG+'/shop'">{{$t('menu_shop')}}</router-link>
+                    </li>                    
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Category
+                            {{$('menu_category')}}
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown" v-if="GET_LANG=='en'">
                             <router-link class="dropdown-item" :to="'/'+GET_LANG+'/category/'+name.slug" v-for="name in names" :key="name.index">{{name.name_en}}</router-link>
@@ -50,10 +50,10 @@
                         </div>
                     </li>
                     <li class="nav-item">
-                        <router-link class="nav-link" :to="'/'+GET_LANG+'/customized'">Customized</router-link>
+                        <router-link class="nav-link" :to="'/'+GET_LANG+'/customized'">{{$t('menu_customized')}}</router-link>
                     </li>
                     <li class="nav-item">
-                        <router-link class="nav-link" :to="'/'+GET_LANG+'/cart'">Cart [ {{GET_CART_TOTAL}} ]</router-link>
+                        <router-link class="nav-link" :to="'/'+GET_LANG+'/cart'">{{$t('menu_cart')}} [ {{GET_CART_TOTAL}} ]</router-link>
                     </li>
 
                     <vue-lang />

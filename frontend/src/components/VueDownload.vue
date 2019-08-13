@@ -9,11 +9,11 @@
                     <div class="card">
                         <div class="card-body" v-if="prof">
                             <div class="alert alert-info text-center">
-                                <h4>Download your Proforma</h4>
-                                <p>We've sent a copy to your email.</p>
+                                <h4>{{$t('download_your')}}</h4>
+                                <p>{{$t('download_1')}}.</p>
                             </div>
                             <a :href="prof.proforma" class="btn btn-dark btn-block" target="_blank">
-                                Download now.
+                                {{$t('download_button')}}.
                             </a>
 
                         </div>
@@ -21,8 +21,8 @@
                         
                         <div class="card-body" v-else>
                             <div class="alert alert-danger text-center">
-                                <h4>Invalid Proforma</h4>
-                                <p>Something Went wrong while creating your proforma. Try again later.</p>
+                                <h4>{{$t('download_invalid')}}</h4>
+                                <p>{{$t('download_invalid_p')}}.</p>
                             </div>
                           <!--  <a href="" class="btn btn-dark btn-block">
                                 Download now.

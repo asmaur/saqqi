@@ -1,4 +1,5 @@
 <template>
+    
 
     <div>
 
@@ -7,7 +8,7 @@
                 <div class="row">
                     <div class="col-md-6 offset-md-3">
                         <div class="content text-center">
-                            <h4>Product | REF {{$route.params.id}}</h4>
+                            <h4> {{$t('product')}} | REF {{$route.params.id}}</h4>
                             <hr style="height: .1rem; background-color: #fff; margin-top: -.2rem;">
                         </div>
                     </div>
