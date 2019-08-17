@@ -197,7 +197,7 @@
 
                 this.$validator.validateAll().then((valid) => {
                     if (valid) {
-                        let loader = this.$loading.show({isFullPage: true});
+                        //let loader = this.$loading.show({isFullPage: true});
                         this.$noty.warning("Processing request", {timeout: 2000,})
                         this.datus.total = this.formatPrice(this.cartTotalAmount);
                         this.datus.reference = this.chechoutref;
@@ -206,14 +206,14 @@
                         ax.post("cart/pdf/", {'datus': JSON.stringify(this.datus)},)
                         .then(response => {
                             console.log(response.data)
-                            localStorage.setItem('cart', JSON.stringify([]));
+                            //localStorage.setItem('cart', JSON.stringify([]));
                             this.$noty.info("Wait", {timeout: 3000,})
-                            setTimeout(() => {
+                            /*setTimeout(() => {
                                 loader.hide()
-                                //localStorage.setItem('cart', JSON.stringify([]));
+                                localStorage.setItem('cart', JSON.stringify([]));
                                 this.$router.push('download/'+response.data.code)
                                     
-                                }, 5000);
+                                }, 5000);*/
                             
                         })
                         .catch(() => {

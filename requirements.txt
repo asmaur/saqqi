@@ -16,3 +16,5 @@ django-parler==1.9.2
 django-parler-rest
 django-modeltranslation
 Weasyprint
+Celery==4.3.0
+requests

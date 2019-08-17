@@ -20,7 +20,7 @@ from django.core.files.storage import FileSystemStorage
 from ...market.models import *
 from ...basket.models import *
 from .serializers import *
-
+from .tasks import *
 
 
 
@@ -113,10 +113,19 @@ class CartViewset(viewsets.ViewSet):
             #print(ex)
             return None
 
-    @action(methods=["GET"], detail=False, url_name='vpdf', url_path='vpdf')
-    def view_pdf(self, request, pdf=None):
-        return HttpResponse(pdf, content_type='application/pdf')
+    @staticmethod
+    def go_tasks(data, code):
+        try:
+            cart = Cart.objects.get(code=code)
 
+            add_to_mailchimp.delay(email=data["email"])
+            #print(cart.proforma)
+            send_email_customer.delay(email=data["email"], link=str(cart.proforma), reference=data['reference'],
+                                      first_name=data['first_name'], last_name=data['last_name'])
+            return None
+        except Exception as ex:
+            print(ex)
+            return None
 
     @action(methods=["POST"], detail=False, url_name='pdf', url_path='pdf')
     def generatePDF(self, request):
@@ -134,7 +143,9 @@ class CartViewset(viewsets.ViewSet):
                     #cart = Cart.objects.create(code=code, proforma=pdf)
                     cart.proforma.save(filename, File(pdf))
                 cart.save()
-                print("OK")
+                #print("OK")
+                self.go_tasks(datas, code)
+
                 return Response({"code": code},status.HTTP_200_OK)
             else:
                 #print("NONe")
@@ -153,4 +164,22 @@ class CartViewset(viewsets.ViewSet):
 
         except Exception as ex:
             #print(ex)
+            return Response(status.HTTP_400_BAD_REQUEST)
+
+class SubscriberViewset(viewsets.ViewSet):
+    queryset = NewsLetters.objects.all()
+
+    def list(self, request):
+        subcribers = NewsLetters.objects.all()
+        serializer = SubscriberSerializer(subcribers, many=True)
+
+        return Response(serializer.data, status.HTTP_200_OK)
+
+    @action(methods=["POST"], detail=False)
+    def add_subscriber(self, request):
+        try:
+            data = request.data
+            add_to_mailchimp.delay(email=data["email"])
+            return Response(status.HTTP_200_OK)
+        except Exception as ex:
             return Response(status.HTTP_400_BAD_REQUEST)

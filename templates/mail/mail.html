@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    
+    <style>
+        p{
+            margin-left: 2rem;
+        }
+        p#dear{
+            font-size: 1.1rem;
+        }
+        a#pr-link{
+            position: relative;
+            margin-left: 2rem;
+            
+           
+        }
+    
+    </style>
+    
+    
+</head>
+<body>
+
+    <p id="dear">
+        Dear 
+        <strong>{{first_name}} {{last_name}}</strong>
+    </p>
+    
+    <p>Your receiving this email with a link to download the proforma of your request: <strong>{{reference}}</strong>.</p>
+    <p>Be aware that we can make contact via WhatsApp or other messaging app using the given phone number you've provided.</p>
+    
+    <a id="pr-link" href="{{link}}" target="_blank">Download proforma</a>
+    
+    <p id="resp">
+        Make a scan of the proforma and with the acceptance form filled, <br>
+         send it back to us to the email <a href="mailto:order@saqqi.com">order@saqqi.com</a>
+    </p>
+    
+    <p>Thanks for your confidence.</p>
+    
+    
+    <adress>
+        <strong>Saqqi.com</strong> <br>
+        Marechal Floriano Peixoto 300 <br>
+        CEP: 90020-060
+        Porto Alegre - RS, Brazil. <br>
+        Tel: +55 51 9 999 999 999
+    </adress>
+
+
+</body>
+</html>

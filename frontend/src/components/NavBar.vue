@@ -34,7 +34,7 @@
                     </li>                    
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            {{$('menu_category')}}
+                            {{$t('menu_category')}}
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown" v-if="GET_LANG=='en'">
                             <router-link class="dropdown-item" :to="'/'+GET_LANG+'/category/'+name.slug" v-for="name in names" :key="name.index">{{name.name_en}}</router-link>
@@ -76,7 +76,7 @@
     
     import {
         mapGetters,
-        mapMutations
+        //mapMutations
     } from 'vuex'
 
     export default {

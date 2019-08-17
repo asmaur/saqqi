@@ -4,6 +4,7 @@ from django.shortcuts import get_object_or_404
 
 from ...market.models import *
 from ...basket.models import *
+from ...news.models import *
 
 
 
@@ -59,3 +60,8 @@ class CartSerializer(serializers.ModelSerializer):
     class Meta:
         model = Cart
         fields =['code', 'proforma']
+
+class SubscriberSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = NewsLetters
+        fields = '__all__'

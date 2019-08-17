@@ -44,7 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 ]
 
-LOCAL_APPS = ['apps.api', 'apps.market', 'apps.basket']
+LOCAL_APPS = ['apps.api', 'apps.market', 'apps.basket', 'apps.news']
 
 THIRD_PARTY_APPS = [  'rest_framework', 'rest_framework.authtoken', 'imagekit', 'corsheaders', 'webpack_loader', 'parler']
 
@@ -190,7 +190,18 @@ EMAIL_PORT = config('EMAIL_PORT', cast=int)
 EMAIL_HOST_USER = config('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
 EMAIL_USE_TLS = config('EMAIL_USE_TLS', cast=bool)
-DEFAULT_FROM_EMAIL = config('DEFAULT_FROM_EMAIL')
+
+ORDER_FROM_EMAIL=config('ORDER_FROM_EMAIL')
+SUPPORT_FROM_EMAIL=config('SUPPORT_FROM_EMAIL')
+STORE_FROM_EMAIL=config('STORE_FROM_EMAIL')
+NOREPLY_FROM_EMAIL=config('NOREPLY_FROM_EMAIL')
+
+#MAILCHIMP
+MAILCHIMP_API_KEY=config('MAILCHIMP_API_KEY')
+MAILCHIMP_DATA_CENTER=config('MAILCHIMP_DATA_CENTER')
+MAILCHIMP_LIST_ID=config('MAILCHIMP_LIST_ID')
+
+CELERY_BROKER_URL = 'amqp://localhost'
 
 CORS_ORIGIN_ALLOW_ALL = config('CORS_ORIGIN_ALLOW_ALL', cast=bool) #False pra ir ao servidor
 

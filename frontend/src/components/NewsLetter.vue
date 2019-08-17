@@ -24,7 +24,7 @@
 
         <div class="modal fade" id="newsletter" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
-                <form>
+                <form @submit.prevent="subscribe()">
                     <div class="modal-content">
                         <div class="modal-header">
                             <h5 class="modal-title" id="exampleModalLabel">{{$t('suscribe_text')}}</h5>
@@ -36,7 +36,7 @@
 
                             <div class="form-group">
                                 <label for="email" class="col-form-label">Email:</label>
-                                <input type="email" name="email" class="form-control" id="email" placeholder="email" required>
+                                <input type="email" name="email" class="form-control" id="email" v-model="email" placeholder="email" required>
                             </div>
 
 
@@ -59,7 +59,24 @@
 
 
 <script>
+    import ax from '../api'
     export default {
         name: "NewsLetter",
+        data(){
+            return{
+                email: null,
+            }
+        },
+        methods:{
+            subscribe(){
+                ax.post("s/add_subscriber/", {"email": this.email})
+                  .then(()=>{
+                        this.$noty.info("Email added")  
+                  })
+                .catch(()=>{
+                    this.$noty.warning("Something went wrong, thy agan later")
+                })
+            }
+        }
     }
 </script>
