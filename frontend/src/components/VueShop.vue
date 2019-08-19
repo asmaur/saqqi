@@ -7,7 +7,7 @@
                 <div class="row">
                     <div class="col-md-6 offset-md-3">
                         <div class="content text-center">
-                            <h4>Shop</h4>
+                            <h4>{{$t('menu_shop')}}</h4>
                             <hr style="height: .1rem; background-color: #fff; margin-top: -.2rem;">
                         </div>
                     </div>
@@ -22,7 +22,7 @@
 
                         <hr class="divisor-top">
 
-                        <h2>Our Products</h2>
+                        <h2>{{$t('title_our_products')}}</h2>
 
                         <hr class="divisor-bottom">
 

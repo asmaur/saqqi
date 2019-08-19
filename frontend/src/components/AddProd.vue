@@ -105,10 +105,10 @@
             minusProd() {
                 if (this.qty == null || this.qty < 0) {
                     this.qty = this.prod.mini_quantity;
-                    this.$noty.warning("valor minimo atingido!");
+                    this.$noty.warning(this.$t('minimum_value')) //"valor minimo atingido!");
                     return;
                 } else if (this.qty == this.prod.mini_quantity) {
-                    this.$noty.warning("valor minimo atingido!");
+                    this.$noty.warning(this.$t('minimum_value')) //"valor minimo atingido!");
                     return;
                 } else {
                     this.qty -= 1000;
@@ -133,7 +133,7 @@
                         productCode: code,
                         quantity: this.prod.mini_quantity
                     });
-                    this.$noty.success("Product added to cart!");
+                    this.$noty.success(this.$t('product_added'))//"Product added to cart!");
 
                 } else {
                     //console.log(code, quantity);
@@ -141,7 +141,7 @@
                         productCode: code,
                         quantity: quantity
                     });
-                    this.$noty.success("Product added to cart!");
+                    this.$noty.success(this.$t('product_added'))//"Product added to cart!");
                 }
             },
 

@@ -38,7 +38,7 @@ def add_to_mailchimp(self, email=None):
         news = NewsLetters.objects.get(email=email)
         return None
     except Exception as ex:
-        print(ex)
+        #print(ex)
         news = None
 
     if news is None:
@@ -53,7 +53,7 @@ def add_to_mailchimp(self, email=None):
                 data=json.dumps(data)
             )
             NewsLetters.objects.create(email=email)
-            return req.status_code, req.json()
+            return req.status_code
         except Exception as ex:
-            print(ex)
+            #print(ex)
             self.retry(exc=ex, max_retries=5, countdown=20)

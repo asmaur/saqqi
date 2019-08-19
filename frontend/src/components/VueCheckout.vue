@@ -35,18 +35,18 @@
                                     <div class="form-row">
                                         <div class="form-group col-md-6">
                                             <label for="first_name">{{$t('first_name')}}</label>
-                                            <input type="text" class="form-control" id="first_name" v-model="first_name" name="first_name" v-validate="{ required: true, alpha:true }" placeholder="Your first name" required>
+                                            <input type="text" class="form-control" id="first_name" v-model="first_name" name="first_name" v-validate="{ required: true, alpha:true }" :placeholder="$t('first_name_placeholder')" required>
                                             <span class="alert-danger">{{ errors.first('first_name') }}</span>
                                         </div>
                                         <div class="form-group col-md-6">
                                             <label for="last_name">{{$t('last_name')}}</label>
-                                            <input type="text" class="form-control" id="last_name" name="last_name" v-model="last_name" v-validate="{ required: true, alpha:true }" placeholder="Your last name" required>
+                                            <input type="text" class="form-control" id="last_name" name="last_name" v-model="last_name" v-validate="{ required: true, alpha:true }" :placeholder="$t('last_name_placeholder')" required>
                                             <span class="alert-danger">{{ errors.first('last_name') }}</span>
                                         </div>
 
                                         <div class="form-group col-md-12">
                                             <label for="company">{{$t('company_name')}}</label>
-                                            <input type="text" class="form-control" id="company" name="company" v-model="company" v-validate="{ required: true, alpha:true }" placeholder="Company Name" required>
+                                            <input type="text" class="form-control" id="company" name="company" v-model="company" v-validate="{ required: true, alpha:true }" :placeholder="$t('company_name_placeholder')" required>
                                             <span class="alert-danger">{{ errors.first('company') }}</span>
                                         </div>
 
@@ -57,18 +57,18 @@
                                         </div>
                                         <div class="form-group col-md-6">
                                             <label for="confirm_email">{{$t('confirm_email')}}</label>
-                                            <input type="email" class="form-control" id="confirm_email" name="confirm_email" v-model="confirm_email" v-validate="'required|confirmed:email'" data-vv-as="email" placeholder="Confirm Email" required>
+                                            <input type="email" class="form-control" id="confirm_email" name="confirm_email" v-model="confirm_email" v-validate="'required|confirmed:email'" data-vv-as="email" :placeholder="$t('confirm_email_placeholder')" required>
                                             <span class="alert-danger">{{ errors.first('confirm_email') }}</span>
                                         </div>
 
                                         <div class="form-group col-md-6">
                                             <label for="phone">{{$t('phone')}}</label>
-                                            <input type="phone" class="form-control" id="phone" name="phone" v-model="phone" ref="phone" v-validate="{ required: true, numeric:true }" placeholder="Internaltional format" required>
+                                            <input type="phone" class="form-control" id="phone" name="phone" v-model="phone" ref="phone" v-validate="{ required: true, numeric:true }" :placeholder="$t('phone_placeholder')" required>
                                             <span class="alert-danger">{{ errors.first('phone') }}</span>
                                         </div>
                                         <div class="form-group col-md-6">
                                             <label for="confirm_phone">{{$t('confirm_phone')}}</label>
-                                            <input type="phone" class="form-control" id="confirm_phone" name="confirm_phone" v-model="confirm_phone" v-validate="{required:true, confirmed:phone, numeric:true}" data-vv-as="phone" placeholder="Confirm phone" required>
+                                            <input type="phone" class="form-control" id="confirm_phone" name="confirm_phone" v-model="confirm_phone" v-validate="{required:true, confirmed:phone, numeric:true}" data-vv-as="phone" :placeholder="$t('confirm_phone_placeholder')" required>
                                             <span class="alert-danger">{{ errors.first('confirm_phone') }}</span>
                                         </div>
 
@@ -77,12 +77,12 @@
                                     <div class="form-row">
                                         <div class="form-group col-md-6">
                                             <label for="state">{{$t('country')}}</label>
-                                            <input type="text" class="form-control" id="state" name="state" v-model="state" v-validate="{ required: true }" placeholder="country name" required>
+                                            <input type="text" class="form-control" id="state" name="state" v-model="state" v-validate="{ required: true }" :placeholder="$t('country_placeholder')" required>
                                             <span class="alert-danger">{{ errors.first('state') }}</span>
                                         </div>
                                         <div class="form-group col-md-6">
                                             <label for="city">{{$t('city')}}</label>
-                                            <input type="text" class="form-control" id="city" name="city" v-model="city" v-validate="{ required: true }" placeholder="city name" required>
+                                            <input type="text" class="form-control" id="city" name="city" v-model="city" v-validate="{ required: true }" :placeholder="$t('city_placeholder')" required>
                                             <span class="alert-danger">{{ errors.first('city') }}</span>
                                         </div>
 
@@ -91,12 +91,12 @@
                                     <div class="form-row">
                                         <div class="form-group col-md-6">
                                             <label for="state">{{$t('ship_to')}}:</label>
-                                            <input type="text" class="form-control" id="port_name" name="port_name" v-model="port_name" v-validate="{ required: true }" placeholder="port name" required>
+                                            <input type="text" class="form-control" id="port_name" name="port_name" v-model="port_name" v-validate="{ required: true }" :placeholder="$t('ship_to_placeholder')" required>
                                             <span class="alert-danger">{{ errors.first('port_name') }}</span>
                                         </div>
                                         <div class="form-group col-md-6">
                                             <label for="state">{{$t('port_city')}}:</label>
-                                            <input type="text" class="form-control" id="port_city" name="port_city" v-model="port_city" v-validate="{ required: true }" placeholder="port city" required>
+                                            <input type="text" class="form-control" id="port_city" name="port_city" v-model="port_city" v-validate="{ required: true }" :placeholder="$t('port_city_placeholder')" required>
                                             <span class="alert-danger">{{ errors.first('port_city') }}</span>
                                         </div>
                                     </div>
@@ -197,34 +197,39 @@
 
                 this.$validator.validateAll().then((valid) => {
                     if (valid) {
-                        //let loader = this.$loading.show({isFullPage: true});
-                        this.$noty.warning("Processing request", {timeout: 2000,})
+                        let loader = this.$loading.show({isFullPage: true});
+                        this.$noty.warning(this.$t('process_request'), {timeout: 2000,})
                         this.datus.total = this.formatPrice(this.cartTotalAmount);
                         this.datus.reference = this.chechoutref;
                         this.datus.items = JSON.parse(localStorage.getItem('cart'));
-                        console.log(this.datus)
+                        //console.log(this.datus)
+                        if(this.datus.items.lenght !=0){
                         ax.post("cart/pdf/", {'datus': JSON.stringify(this.datus)},)
                         .then(response => {
                             console.log(response.data)
-                            //localStorage.setItem('cart', JSON.stringify([]));
-                            this.$noty.info("Wait", {timeout: 3000,})
-                            /*setTimeout(() => {
+                            localStorage.setItem('cart', JSON.stringify([]));
+                            this.$noty.info(this.$t('request_wait'), {timeout: 3000,})
+                            setTimeout(() => {
                                 loader.hide()
                                 localStorage.setItem('cart', JSON.stringify([]));
                                 this.$router.push('download/'+response.data.code)
                                     
-                                }, 5000);*/
+                                }, 5000);
                             
                         })
                         .catch(() => {
-                            this.$noty.error("Something wrong while processing your request, try again later..!")
+                            this.$noty.error(this.$t('request_wrong'))
                             localStorage.setItem('cart', JSON.stringify([]));
                             this.$router.push('/')
                         })
                         
+                        }else{
+                            this.$noty.warning(this.$t('empty_cart'));
+                        }
+                        
                         
                     } else {
-                        this.$noty.error("Check your datas..!")
+                        this.$noty.error(this.$t('wrong_data_in_form'))
                     }
                 });
 

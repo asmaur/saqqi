@@ -71,10 +71,10 @@
             subscribe(){
                 ax.post("s/add_subscriber/", {"email": this.email})
                   .then(()=>{
-                        this.$noty.info("Email added")  
+                        this.$noty.info(this.$t('subscribe_email')) //"Email added")  
                   })
                 .catch(()=>{
-                    this.$noty.warning("Something went wrong, thy agan later")
+                    this.$noty.warning(this.$t('subscribe_went_wrong')) //"Something went wrong, thy agan later")
                 })
             }
         }

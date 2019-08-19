@@ -81,6 +81,7 @@
             ...mapActions(['deleteFromCart', ]),
             remove_from_cart(code) {
                 this.deleteFromCart(code);
+                this.$noty.info(this.$t('delete_from_cart'));
             },
             formatPrice(value) {
                 let val = (value/1).toFixed(2).replace('.', ',')

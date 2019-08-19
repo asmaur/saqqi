@@ -9,12 +9,12 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="alert alert-danger text-center">
-                                <h4>Page not Found</h4>
-                                <p>Sorry, Something went wrong</p>
+                                <h4>{{$t('not_found_1')}}</h4>
+                                <p>{{$t('not_found_p')}}</p>
                             </div>
-                            <a href="" class="btn btn-dark btn-block">
-                                Go Back to home
-                            </a>
+                            <router-link to="/" class="btn btn-dark btn-block">
+                                {{$t('not_found_back')}}
+                            </router-link>
 
                         </div>
                     </div>
