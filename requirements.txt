@@ -16,3 +16,4 @@ Weasyprint==48
 Celery==4.3.0
 requests==2.22.0
 django-hosts==3.0
+cairocffi==1.0.2
