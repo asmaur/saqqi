@@ -81,7 +81,7 @@ Vue.use(Loading, {
 
 
 
-Vue.config.productionTip = false
+Vue.config.productionTip = true
 
 new Vue({
     router,

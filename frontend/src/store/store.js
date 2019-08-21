@@ -35,6 +35,9 @@ export default new Vuex.Store({
             }
 
         },
+        reInitCart(state){
+            state.cart = []
+        },
         setUpProducts: (state, productsPayload) => {
             //sets the state's  products property to the products array recieved as payload
             state.products = productsPayload;

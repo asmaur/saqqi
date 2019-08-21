@@ -56,7 +56,7 @@
     "country_placeholder": "country name",
     "city": "City",
     "city_placeholder": "city name",
-    "ship_to": "Ship to",
+    "ship_to": "Ship to port",
     "ship_to_placeholder": "Port name",
 	"port_code": "Port Code",
 	"port_code_placeholder": "Enter the port code",

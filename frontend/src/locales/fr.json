@@ -56,7 +56,7 @@
     "country_placeholder": "Nom du pays",
     "city": "Ville",
     "city_placeholder": "Nom de votre ville",
-    "ship_to": "Envoyer au",
+    "ship_to": "Envoyer au port",
     "ship_to_placeholder": "Nom du port",
     "port_code": "Code du Port",
 	"port_code_placeholder": "Entrez le code du port",

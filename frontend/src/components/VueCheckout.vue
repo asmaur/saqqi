@@ -194,6 +194,7 @@
             }
         },
         methods: {
+            //...mapGetters(['reInitCart']),
             formatPrice(value) {
                 //let val = (value / 1).toFixed(2).replace('.', ',')
                 //return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")
@@ -203,44 +204,52 @@
 
                 this.$validator.validateAll().then((valid) => {
                     if (valid) {
-                        let loader = this.$loading.show({isFullPage: true});
-                        this.$noty.warning(this.$t('process_request'), {timeout: 2000,})
-                        this.datus.total = this.formatPrice(this.cartTotalAmount);
-                        this.datus.reference = this.chechoutref;
-                        this.datus.items = JSON.parse(localStorage.getItem('cart'));
+                                                
+                        //this.datus.items = JSON.parse(localStorage.getItem('cart'));
+                        let items = JSON.parse(localStorage.getItem('cart'));
                         //console.log(this.datus)
-                        if(this.datus.items.lenght !=0){
-                        ax.post("cart/pdf/", {'datus': JSON.stringify(this.datus)},)
-                        .then(response => {
-                            //console.log(response.data)
-                            localStorage.setItem('cart', JSON.stringify([]));
-                            this.$noty.info(this.$t('request_wait'), {timeout: 3000,})
-                            setTimeout(() => {
-                                loader.hide()
-                                localStorage.setItem('cart', JSON.stringify([]));
-                                this.$router.push('download/'+response.data.code)
-                                    
-                                }, 5000);
+                        if(items.length !=0){
+                            let loader = this.$loading.show({isFullPage: true});
+                            this.$noty.warning(this.$t('process_request'), {timeout: 2000,})
+                            this.datus.total = this.formatPrice(this.cartTotalAmount);
+                            this.datus.reference = this.chechoutref;
                             
-                        })
-                        .catch(() => {
-                            this.$noty.error(this.$t('request_wrong'))
-                            localStorage.setItem('cart', JSON.stringify([]));
-                            this.$router.push('/')
-                        })
+                            //console.log(items);
+                            ax.post("cart/pdf/", {'datus': JSON.stringify(this.datus)},)
+                            .then(response => {
+                                //console.log(response.data)
+                                this.$store.commit('reInitCart');
+                                localStorage.setItem('cart', JSON.stringify([]));
+                                                                
+                                this.$noty.info(this.$t('request_wait'), {timeout: 3000,})
+                                setTimeout(() => {
+                                    loader.hide()
+                                    localStorage.setItem('cart', JSON.stringify([]));
+                                    this.$router.push('download/'+response.data.code)
+
+                                    }, 5000);
+
+                            })
+                            .catch(() => {
+                                this.$noty.error(this.$t('request_wrong'))
+                                localStorage.setItem('cart', JSON.stringify([]));
+                                this.$router.push('/')
+                            }) 
                         
                         }else{
                             this.$noty.warning(this.$t('empty_cart'));
-                        }
+                        } 
                         
                         
-                    } else {
+                    }else{
                         this.$noty.error(this.$t('wrong_data_in_form'))
-                    }
+                    } 
                 });
 
-                //console.log(this.datus);
+                
             },
+                                                   
+                                                   
         },
         watch: {
             first_name: function(ero1) {
