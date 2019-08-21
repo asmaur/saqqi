@@ -30,6 +30,8 @@ def index(request):
 class CategoryViewset(viewsets.ViewSet):
     queryset = Category.objects.all()
     #serializer_class = CategorySerializer
+    authentication_classes = (TokenAuthentication,)
+    permission_classes = (permissions.IsAuthenticated,)
 
     def list(self, request):
         serializer = CategorySerializer(self.queryset, many=True)
@@ -53,6 +55,8 @@ class CategoryViewset(viewsets.ViewSet):
 class ProductViewset(viewsets.ViewSet):
     queryset = Product.objects.all()
     #serializer_class = CategorySerializer
+    authentication_classes = (TokenAuthentication,)
+    permission_classes = (permissions.IsAuthenticated,)
 
     def list(self, request):
         serializer = ProductSerializer(self.queryset, many=True, context={'request': request})
@@ -81,6 +85,8 @@ class ProductViewset(viewsets.ViewSet):
 class ImageViewset(viewsets.ViewSet):
     queryset = Image.objects.all()
     #serializer_class = CategorySerializer
+    authentication_classes = (TokenAuthentication,)
+    permission_classes = (permissions.IsAuthenticated,)
 
     def list(self, request):
         serializer = ImageSerializer(self.queryset, many=True, context={'request': request})
@@ -94,6 +100,9 @@ class ImageViewset(viewsets.ViewSet):
 
 class CartViewset(viewsets.ViewSet):
     queryset = Cart.objects.all()
+
+    authentication_classes = (TokenAuthentication,)
+    permission_classes = (permissions.IsAuthenticated,)
 
     def list(self, request):
         serializer = CartSerializer(self.queryset, many=True, context={'request': request})
@@ -168,6 +177,9 @@ class CartViewset(viewsets.ViewSet):
 
 class SubscriberViewset(viewsets.ViewSet):
     queryset = NewsLetters.objects.all()
+
+    authentication_classes = (TokenAuthentication,)
+    permission_classes = (permissions.IsAuthenticated,)
 
     def list(self, request):
         subcribers = NewsLetters.objects.all()

@@ -89,15 +89,20 @@
                                     </div>
 
                                     <div class="form-row">
-                                        <div class="form-group col-md-6">
+                                        <div class="form-group col-md-4">
                                             <label for="state">{{$t('ship_to')}}:</label>
                                             <input type="text" class="form-control" id="port_name" name="port_name" v-model="port_name" v-validate="{ required: true }" :placeholder="$t('ship_to_placeholder')" required>
                                             <span class="alert-danger">{{ errors.first('port_name') }}</span>
                                         </div>
-                                        <div class="form-group col-md-6">
+                                        <div class="form-group col-md-5">
                                             <label for="state">{{$t('port_city')}}:</label>
                                             <input type="text" class="form-control" id="port_city" name="port_city" v-model="port_city" v-validate="{ required: true }" :placeholder="$t('port_city_placeholder')" required>
                                             <span class="alert-danger">{{ errors.first('port_city') }}</span>
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label for="state">{{$t('port_code')}}:</label>
+                                            <input type="text" class="form-control" id="port_code" name="port_code" v-model="port_code" v-validate="{ required: true }" :placeholder="$t('port_code_placeholder')" required>
+                                            <span class="alert-danger">{{ errors.first('port_code') }}</span>
                                         </div>
                                     </div>
 
@@ -181,6 +186,7 @@
                 city: null,
                 port_name: null,
                 port_city: null,
+                port_code: null,
                 total: null,
                 datus: {},
 
@@ -312,6 +318,13 @@
                     this.datus.port_city = ero11;
                 } else {
                     delete this.datus.port_city;
+                }
+            },
+            port_code: function(ero12) {
+                if (ero12 != "") {
+                    this.datus.port_code = ero12;
+                } else {
+                    delete this.datus.port_code;
                 }
             },
         },

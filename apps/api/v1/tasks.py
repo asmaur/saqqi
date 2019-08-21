@@ -11,7 +11,7 @@ def reverse(value):
 
 @shared_task(bind=True,) #autoretry_for=(Exception,), retry_kwargs={'max_retries': 5, 'countdown': 10}) #bind=True, max_retries=5)
 def send_email_customer(self, **kwargs):
-    base_url = 'http://localhost:8000/media/'
+
     try:
         #print(kwargs)
         to=kwargs.get('email')
@@ -19,7 +19,7 @@ def send_email_customer(self, **kwargs):
         plaintext = get_template('mail/mail.txt')
         link=kwargs.get('link')
         from_email = settings.EMAIL_HOST_USER  #NOREPLY_FROM_EMAIL
-        data = {'email': kwargs.get('email'), 'link':f'{base_url}{link}', 'reference':kwargs.get('reference'), 'first_name':kwargs.get('first_name'), 'last_name':kwargs.get('last_name')}
+        data = {'email': kwargs.get('email'), 'link':f'{settings.PROFORMA_URL}{link}', 'reference':kwargs.get('reference'), 'first_name':kwargs.get('first_name'), 'last_name':kwargs.get('last_name')}
         text_content = plaintext.render(data)
         html_content = template.render(data)
         msg = EmailMultiAlternatives("Your Order Proforma", text_content, from_email=from_email, to=[to,])

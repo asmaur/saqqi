@@ -11,10 +11,8 @@ markdown==3.0.1
 django-filter==2.1.0
 Pillow==5.4.1
 django-imagekit==4.0.2
-xhtml2pdf==0.2.3
-django-parler==1.9.2
-django-parler-rest
-django-modeltranslation
-Weasyprint
+django-modeltranslation==0.13.3
+Weasyprint==48
 Celery==4.3.0
-requests
+requests==2.22.0
+django-hosts==3.0

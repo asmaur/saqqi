@@ -14,13 +14,13 @@
     "modal_send": "Envoyez",
     "modal_close": "Fermer",
     "about_us": "À propos",
-    "about_p1": "",
+    "about_p1": "SAQQI offre des solutions innovative en sacs et amballages ecologiques, en cooperations avec les fabricants du brésil. SAQQI offre egualmente des options variées d'amballages en papiers personnalisés.",
     "about_vision": "Vision",
-    "about_vision_p": "",
+    "about_vision_p": "Posissioner SAQQI comme une entreprise lider par le fournissement des amballages ecologiques.",
     "about_mission": "Mission",
-    "about_mission_l1": "",
-    "about_mission_l2": "",
-    "about_mission_l3": "",
+    "about_mission_l1": "Fournir des amballages ecologiques de qualités avec agilités e confiabilités",
+    "about_mission_l2": "Innover et moderniser les amballages selon la demande du marché africain",
+    "about_mission_l3": "garantir par la recherche le develloppement de produit ecologique tout en satisfaisant la demande du marché.",
     "title_featured": "En Vedette",
     "minimum_order": "Commande Min.",
     "title_our_products": "Nos produit",
@@ -58,6 +58,8 @@
     "city_placeholder": "Nom de votre ville",
     "ship_to": "Envoyer au",
     "ship_to_placeholder": "Nom du port",
+    "port_code": "Code du Port",
+	"port_code_placeholder": "Entrez le code du port",
     "port_city": "Ville du port",
     "port_city_placeholder": "Ville de localisation du port",
     "advise": "Nous pourrions vous contactez par email ou WhatsApp",
@@ -78,6 +80,7 @@
     "request_wrong": "Quelque chose s'est mal passé, Essayez plus tard",
     "wrong_data_in_form": "Le formulaire contient des erreurs, Verifiez vos donnés.",
     "empty_cart": "Votre chariot est vide.",
-    "delete_from_cart": "item retiré du chariot"
+    "delete_from_cart": "item retiré du chariot",
+    "reload_page": "<strong>Actualisez la page pour appliquer les changements.</strong>"
     
 }

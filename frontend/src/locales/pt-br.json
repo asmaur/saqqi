@@ -14,13 +14,13 @@
     "modal_send": "Enviar",
     "modal_close": "Fechar",
     "about_us": "Sobre nós",
-    "about_p1": "",
+    "about_p1": "A SAQQI oferece soluções inovadoras em embalagens ecológicas, em cooperação com os fabricantes no Brasil. A SAQQI fornece uma gama de opções de produtos, como as embalagens de papel com designs customizados e muito mais.",
     "about_vision": "Visão",
-    "about_vision_p": "",
+    "about_vision_p": "Posicionar a SAQQI como uma empresa lider no fornecimento de embalagens ecológicas para o mercado de presentes, com produtos e serviços confiáveis direcionados ao mercado africano.",
     "about_mission": "Misão",
-    "about_mission_l1": "",
-    "about_mission_l2": "",
-    "about_mission_l3": "",
+    "about_mission_l1": "Constantemente providenciar embalagens ecológicas de qualidade com agilidade e confiabilidade",
+    "about_mission_l2": "Constantemente providenciar ideias inovadoras e modernas nas embalagens conforme as demandas do mercado",
+     "about_mission_l3": "Constantemente pesquisar e desenvolver produtos ecologicamente corretos em paralelo às demandas do mercado",
     "title_featured": "Destaques",
     "minimum_order": "Pedido Minimo",
     "title_our_products": "Nossos Produtos",
@@ -58,6 +58,8 @@
     "city_placeholder": "Nome da sua cidade",
     "ship_to": "Enviar para",
     "ship_to_placeholder": "Nome do porto",
+    "port_code": "Codigo do Porto",
+	"port_code_placeholder": "Entre o codigo do porto",
     "port_city": "Cidade do Porto",
     "port_city_placeholder": "Cidade de localização do porto",
     "advise": "Podemos entrar em contato por email ou WhatsApp",
@@ -78,6 +80,7 @@
     "request_wrong": "Algo deu errado ao processar seu pedido, Por favor, tente novamente mais tarde",
     "wrong_data_in_form": "O formulário contêm erros, Verifique os dados",
     "empty_cart": "Seu carrinho está vazio.",
-    "delete_from_cart": "item removido do carrinho"
+    "delete_from_cart": "item removido do carrinho",
+    "reload_page": "<strong>Recarregue a página para aplicar as mudanças</strong>"
     
 }

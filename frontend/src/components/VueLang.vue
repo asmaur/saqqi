@@ -68,6 +68,7 @@
                 this.SET_LANG({
                     lang: this.lang
                 })
+                this.$noty.info(this.$t('reload_page'))
                /*const to = this.$router.resolve({
                     params: {
                         lang

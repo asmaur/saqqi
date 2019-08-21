@@ -2,11 +2,12 @@ import axios from 'axios';
 
 
 const instance = axios.create({
-    baseURL: 'http://localhost:8000/api/',
-    //baseURL: 'https://saqqi.com/api/',
+    baseURL: "http://api.saqqi.com:8000/",
+    //baseURL: 'http://api.saqqi.com/',
     headers: {
         'Content-Type': 'application/json',
-        //'Authorization': "Token f2e310a052f8cdae248c2eaba5670e6a34744f47"
+        'Authorization': "Token a589d98ca79f10f93864a742620222545bdc5649" // teste
+        //'Authorization': "Token a589d98ca79f10f93864a742620222545bdc5649"
     },
     xsrfCookieName: 'csrftoken',
     xsrfHeaderName: 'X-CSRFToken',

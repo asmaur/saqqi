@@ -4,6 +4,7 @@ import Home from './views/Home.vue'
 import {i18n} from './i18n'
 
 import NProgress from 'nprogress'
+import VueAnalytics from 'vue-analytics'
 
 
 
@@ -169,6 +170,14 @@ router.beforeResolve((to, from, next) => {
 });
 router.afterEach(() => {
   NProgress.done(true)
+});
+
+Vue.use(VueAnalytics, {
+    // this one of course needs to me a real domain ID
+    //id: 'UA-146161028-1',
+    id: 'teste', 
+   // use the `router` instance here
+    router
 });
 
 export default router;

@@ -26,6 +26,7 @@ SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', cast=bool)
+DEPLOY = config('DEPLOY', cast=bool)
 
 ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
 
@@ -46,15 +47,25 @@ INSTALLED_APPS = [
 
 LOCAL_APPS = ['apps.api', 'apps.market', 'apps.basket', 'apps.news']
 
-THIRD_PARTY_APPS = [  'rest_framework', 'rest_framework.authtoken', 'imagekit', 'corsheaders', 'webpack_loader', 'parler']
+THIRD_PARTY_APPS = [  'rest_framework', 'rest_framework.authtoken', 'imagekit', 'corsheaders', 'webpack_loader', 'django_hosts']
 
 INSTALLED_APPS = INSTALLED_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',  # <-- And here
+        #'rest_framework.permissions.IsAuthenticated',
+    ],
+}
 
 
 MIDDLEWARE = [
+
+    'django_hosts.middleware.HostsRequestMiddleware',
+
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+
 
     'corsheaders.middleware.CorsMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
@@ -64,9 +75,29 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
+    'django_hosts.middleware.HostsResponseMiddleware',
 ]
 
 ROOT_URLCONF = 'saqqi.urls'
+ROOT_HOSTCONF = 'saqqi.hosts'
+DEFAULT_HOST = 'www'
+
+if DEPLOY:
+    PARENT_HOST = 'http://saqqi.com'
+    MEDIA_URL_PATCH = "http://api.trexengenharia.com.br/media/"
+    CELERY_BROKER_URL = 'amqp://localhost'
+    PROFORMA_URL = "https://api.saqqi.com/media/"
+
+else:
+    PARENT_HOST = 'saqqi.com:8000'
+    MEDIA_URL_PATCH = "http://api.saqqi.com:8000/media/"
+    CELERY_BROKER_URL = 'amqp://localhost'
+    PROFORMA_URL = "http://api.saqqi.com:8000/media/"
+
+
+
+
 
 TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 FRONTEND_DIR = os.path.join(BASE_DIR, 'frontend')
@@ -99,12 +130,8 @@ DEPLOY = config('DEPLOY', cast=bool)
 if DEPLOY:
     DATABASES = {
         'default': {
-            'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': config('DB_NAME'),
-            'USER': config('DB_USER'),
-            'PASSWORD': config('DB_PASSWORD'),
-            'HOST': config('DB_HOST'),
-            'PORT': '',
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db_SAQQIDB_db.sqlite3'),
         }
     }
 else:
@@ -201,7 +228,6 @@ MAILCHIMP_API_KEY=config('MAILCHIMP_API_KEY')
 MAILCHIMP_DATA_CENTER=config('MAILCHIMP_DATA_CENTER')
 MAILCHIMP_LIST_ID=config('MAILCHIMP_LIST_ID')
 
-CELERY_BROKER_URL = 'amqp://localhost'
 
 CORS_ORIGIN_ALLOW_ALL = config('CORS_ORIGIN_ALLOW_ALL', cast=bool) #False pra ir ao servidor
 

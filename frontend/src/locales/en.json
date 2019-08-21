@@ -19,15 +19,15 @@
     "about_vision_p": "To position SAQQI in the Eco-friendly Gifts and Premium industry with a significant reliability in products & services for the african market",
     "about_mission": "Mission",
     "about_mission_l1": "To constantly provide quality eco-friendly packaging bag with prompt & reliable service",
-    "about_mission_l2": "To constantly provide innovative and trendy packaging bag ideas to meet with current market demand",
+    "about_mission_l2": "To constantly provide an innovative and trendy packaging bag ideas to meet with current market demand",
     "about_mission_l3": "To constantly research and develop environmental friendly product marketing plans in parallel with market trend changes",
     "title_featured": "Featured",
     "minimum_order": "Minimum Order",
     "title_our_products": "Our Products",
     "product": "Products",
-    "width": "Width",
-    "heigth": "Heigth",
-    "lateral": "Lateral",
+    "width": "width",
+    "heigth": "heigth",
+    "lateral": "lateral",
     "min_order": "Min. Order",
     "add_to_cart": "ADD TO CART",
     "branded": "Branded for your costumers",
@@ -58,6 +58,8 @@
     "city_placeholder": "city name",
     "ship_to": "Ship to",
     "ship_to_placeholder": "Port name",
+	"port_code": "Port Code",
+	"port_code_placeholder": "Enter the port code",
     "port_city": "Port city",
     "port_city_placeholder": "port city",
     "advise": "Contact may be made by WhatsApp or Email",
@@ -78,6 +80,7 @@
     "request_wrong": "Something wrong while processing your request, Please, try again later..!",
     "wrong_data_in_form": "The Form has errors or is empty, Please check your data.",
     "empty_cart": "Your cart is empty.",
-    "delete_from_cart": "Item removed from cart"
+    "delete_from_cart": "Item removed from cart",
+    "reload_page": "<strong>Please, Reload the page to apply language changes</strong>"
     
 }

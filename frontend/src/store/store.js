@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-
+//import {i18n} from '../i18n'
 //import ax from '../api'
 
 
@@ -18,12 +18,20 @@ export default new Vuex.Store({
     mutations: {
         SET_LANG(state, payload) {
             const lang = JSON.parse(localStorage.getItem('lang'));
-            console.log(payload)
+            //console.log(payload)
             if (payload.lang == null) {
+                
                 state.lang = JSON.parse(localStorage.getItem('lang'));
+                
+                /*import(`../locales/${state.lang}.json`).then( (msgs) => {
+                i18n.setLocaleMessage(state.lang, msgs.default || msgs)}); */
+                                                      
+                
             } else if (payload.lang != lang) {
                 state.lang = payload.lang
                 localStorage.setItem('lang', JSON.stringify(state.lang))
+                   /* import(`../locales/${state.lang}.json`).then( (msgs) => {
+                i18n.setLocaleMessage(state.lang, msgs.default || msgs)});*/
             }
 
         },

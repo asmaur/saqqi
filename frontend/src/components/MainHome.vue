@@ -113,19 +113,19 @@
                             {{$t('about_p1')}}.
                             <br>
 
-                            <strong> {{$t('about_vision')}}  </strong>
+                          <!--  <strong> {{$t('about_vision')}}  </strong>
                             <br>
-                            {{$t('about_vision_p')}}.
+                            {{$t('about_vision_p')}}. -->
 
                             <br>
                         </p>
-                        <strong> {{$t('about_mission')}} </strong>
+                      <!--  <strong> {{$t('about_mission')}} </strong>
                         <br>
                         <ul>
                             <li> {{$t('about_mission_l1')}}. </li>
                             <li> {{$t('about_mission_l2')}}. </li>
                             <li> {{$t('about_mission_l3')}}. </li>
-                        </ul>
+                        </ul> -->
 
 
                     </div>
