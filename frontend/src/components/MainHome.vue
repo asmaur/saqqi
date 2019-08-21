@@ -91,7 +91,7 @@
 
                     </div>
 
-                    <img class="img-fluid" src="../assets/img/6.png" alt="">
+                    <img class="img-fluid" src="../assets/img/6.jpg" alt="">
 
                 </div>
 

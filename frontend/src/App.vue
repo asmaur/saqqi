@@ -27,7 +27,7 @@
                 if (localStorage.getItem('lang')) {
                     return;
                 } else {
-                    console.log(this.$route.params.lang);
+                    //console.log(this.$route.params.lang);
                     localStorage.setItem('lang', JSON.stringify(this.$route.params.lang));
                 }
             },

@@ -212,7 +212,7 @@
                         if(this.datus.items.lenght !=0){
                         ax.post("cart/pdf/", {'datus': JSON.stringify(this.datus)},)
                         .then(response => {
-                            console.log(response.data)
+                            //console.log(response.data)
                             localStorage.setItem('cart', JSON.stringify([]));
                             this.$noty.info(this.$t('request_wait'), {timeout: 3000,})
                             setTimeout(() => {
