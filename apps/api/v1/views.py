@@ -7,10 +7,9 @@ from rest_framework.authentication import TokenAuthentication
 from django.template import Context
 from django.template.loader import render_to_string, get_template
 from django.core.mail import EmailMessage, EmailMultiAlternatives
-from xhtml2pdf import pisa
 from io import BytesIO
 from weasyprint import HTML, CSS
-from  django.conf import settings
+from django.conf import settings
 from django.utils import timezone
 import json, uuid
 from django.core.files import File
