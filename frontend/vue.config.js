@@ -27,7 +27,7 @@ module.exports = {
             .hotOnly(true)
             .watchOptions({poll: 1000})
             .https(false)
-            .headers({"Access-Control-Allow-Origin": ["http://api.saqqi.com/"]
+            .headers({"Access-Control-Allow-Origin": ["https://api.saqqi.com/"]
                      })
           },
           
