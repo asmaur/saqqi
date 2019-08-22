@@ -84,8 +84,8 @@ ROOT_HOSTCONF = 'saqqi.hosts'
 DEFAULT_HOST = 'www'
 
 if DEPLOY:
-    PARENT_HOST = 'http://saqqi.com'
-    MEDIA_URL_PATCH = "http://api.trexengenharia.com.br/media/"
+    PARENT_HOST = 'https://saqqi.com'
+    MEDIA_URL_PATCH = "https://api.trexengenharia.com.br/media/"
     CELERY_BROKER_URL = 'amqp://localhost'
     PROFORMA_URL = "https://api.saqqi.com/media/"
 

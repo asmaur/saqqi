@@ -213,7 +213,7 @@
                             this.$noty.warning(this.$t('process_request'), {timeout: 2000,})
                             this.datus.total = this.formatPrice(this.cartTotalAmount);
                             this.datus.reference = this.chechoutref;
-                            
+                            this.datus.items = items;
                             //console.log(items);
                             ax.post("cart/pdf/", {'datus': JSON.stringify(this.datus)},)
                             .then(response => {

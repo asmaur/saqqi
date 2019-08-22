@@ -174,8 +174,8 @@ router.afterEach(() => {
 
 Vue.use(VueAnalytics, {
     // this one of course needs to me a real domain ID
-    //id: 'UA-146161028-1',
-    id: 'teste', 
+    id: 'UA-146161028-1',
+    //id: 'teste', 
    // use the `router` instance here
     router
 });

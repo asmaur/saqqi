@@ -76,9 +76,10 @@ class Product(models.Model):
     is_bestseller = models.BooleanField(default=False)
     is_featured = models.BooleanField(default=False)
     mini_quantity = models.IntegerField(default=1000)
-    length = models.DecimalField((u'largura'), decimal_places=2, max_digits=12, default=0.00, validators=[MinValueValidator(Decimal('0.01'))])
     width = models.DecimalField((u'largura'), decimal_places=2, max_digits=12, default=0.00,  validators=[MinValueValidator(Decimal('0.01'))])
     heigth = models.DecimalField((u'altura'), decimal_places=2, max_digits=12, default=0.00,  validators=[MinValueValidator(Decimal('0.01'))])
+    lateral = models.DecimalField((u'lateral'), decimal_places=2, max_digits=12, default=0.00,
+                                  validators=[MinValueValidator(Decimal('0.01'))])
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     categories = models.ManyToManyField(Category, related_name='products')
