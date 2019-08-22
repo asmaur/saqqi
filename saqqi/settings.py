@@ -232,3 +232,6 @@ MAILCHIMP_LIST_ID=config('MAILCHIMP_LIST_ID')
 CORS_ORIGIN_ALLOW_ALL = config('CORS_ORIGIN_ALLOW_ALL', cast=bool) #False pra ir ao servidor
 
 CORS_ORIGIN_WHITELIST =config('CORS_ORIGIN_WHITELIST', cast=Csv())
+
+#SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+#proxy_set_header X-Forwarded-Proto $scheme; #adicionar o https direto para as imagens

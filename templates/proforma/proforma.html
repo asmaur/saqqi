@@ -80,7 +80,7 @@
                     <td>{{ forloop.counter }}</td>
                     <td> <strong>{{item.product.code}}</strong> </td>
                     <td>{{item.product.name}} <br>
-                        Dim: <strong>{{item.product.heigth | floatformat }}x{{ item.product.width |floatformat }}x{{ item.product.length |floatformat }} cm.</strong>
+                        Dim: <strong>{{ item.product.width |floatformat }}x{{item.product.heigth | floatformat }}x{{ item.product.lateral |floatformat }} cm.</strong>
                     </td>
                     <td> <strong>{{item.quantity}}</strong> </td>
                     <td> <strong>$ {{item.product.price}} </strong> </td>
