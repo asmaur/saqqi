@@ -81,7 +81,7 @@
                 categories: [],
                 prod: {},
                 saqimg: {},
-                img_url: 'localhost:8000',
+                img_url: 'https://api.saqqi.com/media/',
             }
         },
         created() {
