@@ -12,7 +12,7 @@
 
                 <p class="card-title">
 
-                    <span>Dim: {{item.product.length}}x{{item.product.width}}x{{item.product.heigth}} cm </span>
+                    <span>Dim: {{item.product.width}}x{{item.product.heigth}}x{{item.product.lateral}} cm </span>
                 </p>
                 <p class="card-title"> <strong>{{$t('order')}}: {{item.quantity}} uni.</strong> </p>
                 <p class="card-title"> <strong>Subtotal: USD {{item.subtotal}}</strong> </p>

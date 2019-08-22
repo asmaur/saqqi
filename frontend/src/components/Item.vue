@@ -13,9 +13,7 @@
                 <span v-if="GET_LANG=='pt-br'">{{prod.name_pt_br}} </span> -->
                 <span> | REF {{prod.code}}.</span> <br>
                 <span> Dim: {{prod.width}}x{{prod.heigth}}x{{prod.lateral}} cm </span> <br>
-                <!-- <span>Comprimento: {{prod.length}} cm</span> <br>
-                <span>Largura: {{prod.width}} cm</span> <br>
-                <span>Altura: {{prod.heigth}} cm</span> <br> -->
+                
             </router-link>
         </div>
 
