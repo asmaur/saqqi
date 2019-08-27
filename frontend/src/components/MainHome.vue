@@ -14,10 +14,10 @@
                                 <div class="col-md-6 offset-md-3">
                                     <div class="content text-center">
                                         <h2 style="padding-bottom: .3rem; text-transform: capitalize;"> {{ $t('welcome_1') }}.</h2>
-                                        
-                                        <a href="" class="btn btn-primary btn-large">
+
+                                        <router-link :to="'/'+GET_LANG+'/shop'" class="btn btn-primary btn-large">
                                             {{$t('shop_button')}}
-                                        </a>
+                                        </router-link>
                                         <button class="btn btn-primary" style="margin-left: .2rem;" data-toggle="modal" data-target="#newsletter">
                                             {{$t('suscribe_button_slide')}}
                                         </button>
@@ -43,9 +43,9 @@
                                     <div class="content text-center">
                                         <h2 style="padding-bottom: .3rem; text-transform: capitalize;"> {{ $t('welcome_2') }}.</h2>
 
-                                        <a href="" class="btn btn-primary btn-large">
+                                        <router-link :to="'/'+GET_LANG+'/shop'" class="btn btn-primary btn-large">
                                             {{$t('shop_button')}}
-                                        </a>
+                                        </router-link>
                                         <button class="btn btn-primary" style="margin-left: .2rem;" data-toggle="modal" data-target="#newsletter">
                                             {{$t('suscribe_button_slide')}}
                                         </button>
@@ -71,13 +71,13 @@
 
                                 <div class="col-md-6 offset-md-3">
                                     <div class="content text-center">
-                                       <h2 style="padding-bottom: .3rem; text-transform: capitalize;"> {{ $t('welcome_3') }}.</h2>
-                                       
-                                       <!-- <h2 style="padding-bottom: .3rem; text-transform: capitalize;"> Buy with us, help protect our planet.</h2> -->
+                                        <h2 style="padding-bottom: .3rem; text-transform: capitalize;"> {{ $t('welcome_3') }}.</h2>
 
-                                        <a href="" class="btn btn-primary btn-large">
+                                        <!-- <h2 style="padding-bottom: .3rem; text-transform: capitalize;"> Buy with us, help protect our planet.</h2> -->
+
+                                        <router-link :to="'/'+GET_LANG+'/shop'" class="btn btn-primary btn-large">
                                             {{$t('shop_button')}}
-                                        </a>
+                                        </router-link>
                                         <button class="btn btn-primary" style="margin-left: .2rem;" data-toggle="modal" data-target="#newsletter">
                                             {{$t('suscribe_button_slide')}}
                                         </button>
@@ -113,13 +113,13 @@
                             {{$t('about_p1')}}.
                             <br>
 
-                          <!--  <strong> {{$t('about_vision')}}  </strong>
+                            <!--  <strong> {{$t('about_vision')}}  </strong>
                             <br>
                             {{$t('about_vision_p')}}. -->
 
                             <br>
                         </p>
-                      <!--  <strong> {{$t('about_mission')}} </strong>
+                        <!--  <strong> {{$t('about_mission')}} </strong>
                         <br>
                         <ul>
                             <li> {{$t('about_mission_l1')}}. </li>
@@ -177,17 +177,19 @@
     import $ from 'jquery'
     import NewsLetter from '@/components/NewsLetter.vue'
     import Item from '@/components/Item.vue'
-    
+
     import ax from '../api'
+    
+    import {
+        mapGetters,
+        //mapMutations
+    } from 'vuex'
 
     export default {
         name: "MainHome",
         computed: {
-            //...mapGetters(['GET_PRODUCTS_FEATURED', ]),
 
-            // prods: function() {
-            //    return this.GET_PRODUCTS_FEATURED;
-            // }
+            ...mapGetters(['GET_LANG',]),
 
         },
         components: {
