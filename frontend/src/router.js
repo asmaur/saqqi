@@ -10,10 +10,11 @@ import VueAnalytics from 'vue-analytics'
 
 Vue.use(Router)
 
-//let BASE_URL = "http://0.0.0.0:8080/"
+
 
  let router = new Router({
-     
+     mode: 'history',
+    //base: __dirname,
   routes: [
       {
     path: "/",
@@ -109,7 +110,7 @@ Vue.use(Router)
                       component: () => import(/* webpackChunkName: "about" */ './views/Customized.vue')
                     },
                       {
-                      path: 'notfound',
+                      path: '*',
                       name: 'notfound',
                       // route level code-splitting
                       // this generates a separate chunk (about.[hash].js) for this route

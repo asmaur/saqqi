@@ -60,7 +60,8 @@
                 this.SET_LANG({
                     lang: locale
                 }) //this.$route.params.lang})
-                this.$router.push('/' + locale)
+                //this.$router.push('/' + locale)
+                window.location.href = "/"+locale+"/"
             },
 
             changeLanguage() {
