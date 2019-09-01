@@ -47,7 +47,7 @@ INSTALLED_APPS = [
 
 LOCAL_APPS = ['apps.api', 'apps.market', 'apps.basket', 'apps.news']
 
-THIRD_PARTY_APPS = [  'rest_framework', 'rest_framework.authtoken', 'imagekit', 'corsheaders', 'webpack_loader', 'django_hosts']
+THIRD_PARTY_APPS = [  'rest_framework', 'rest_framework.authtoken', 'imagekit', 'corsheaders', 'webpack_loader',] # 'django_hosts']
 
 INSTALLED_APPS = INSTALLED_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 
@@ -61,7 +61,7 @@ REST_FRAMEWORK = {
 
 MIDDLEWARE = [
 
-    'django_hosts.middleware.HostsRequestMiddleware',
+    #'django_hosts.middleware.HostsRequestMiddleware',
 
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -76,13 +76,13 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 
-    'django_hosts.middleware.HostsResponseMiddleware',
+    #'django_hosts.middleware.HostsResponseMiddleware',
 ]
 
 ROOT_URLCONF = 'saqqi.urls'
-ROOT_HOSTCONF = 'saqqi.hosts'
-DEFAULT_HOST = 'www'
-
+#ROOT_HOSTCONF = 'saqqi.hosts'
+#DEFAULT_HOST = 'www'
+"""
 if DEPLOY:
     PARENT_HOST = 'https://saqqi.com'
     MEDIA_URL_PATCH = "https://api.trexengenharia.com.br/media/"
@@ -94,7 +94,7 @@ else:
     MEDIA_URL_PATCH = "http://api.saqqi.com:8000/media/"
     CELERY_BROKER_URL = 'amqp://localhost'
     PROFORMA_URL = "http://api.saqqi.com:8000/media/"
-
+"""
 
 
 

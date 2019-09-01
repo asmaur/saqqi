@@ -20,8 +20,8 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    #path('admin/', admin.site.urls),
-    #path('api/', include('apps.api.v1.urls')),
+    path('admin/', admin.site.urls),
+    path('api/', include('apps.api.v1.urls')),
     path("", TemplateView.as_view(template_name="application.html"), name="app",),
     re_path('^.*$', TemplateView.as_view(template_name="application.html"), name="app",),
 
