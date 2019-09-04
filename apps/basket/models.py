@@ -21,12 +21,35 @@ class Cart(models.Model):
     payed = models.BooleanField(default=False)
     delivered = models.BooleanField(default=False)
     email_sended = models.BooleanField(default=False)
+    email = models.EmailField(blank=True, null=True)
+    buyer_firstname = models.CharField(max_length=200, blank=True)
+    buyer_lastname = models.CharField(max_length=200, blank=True)
+    buyer_phone = models.CharField(max_length=200, blank=True)
+    company_name = models.CharField(max_length=200, blank=True)
+    buyer_city = models.CharField(max_length=200, blank=True)
+    buyer_country = models.CharField(max_length=200, blank=True)
+    order_code = models.CharField(max_length=200, blank=True)
+    port_name = models.CharField(max_length=200, blank=True)
+    port_code = models.CharField(max_length=200, blank=True)
+    port_city = models.CharField(max_length=200, blank=True)
+
 
     class Meta:
         ordering = ["-created_at"]
 
     def __str__(self):
         return self.code
+
+    def fullname(self):
+        return f'{self.buyer_firstname} {self.buyer_lastname}, {self.company_name}'
+
+    def location(self):
+        return f'{self.buyer_city}, {self.buyer_country}'
+
+    def shipto(self):
+        return f'{self.port_name}, {self.port_code}'
+
+
 
 
 

@@ -27,7 +27,7 @@ def index(request):
     return HttpResponse("For Restrited People. If you Dont have authorization, do not enter here!")
 
 class CategoryViewset(viewsets.ViewSet):
-    queryset = Category.objects.all()
+    queryset = Category.objects.all().filter(is_active=True)
     #serializer_class = CategorySerializer
     authentication_classes = (TokenAuthentication,)
     permission_classes = (permissions.IsAuthenticated,)
@@ -68,14 +68,14 @@ class ProductViewset(viewsets.ViewSet):
 
     @action(methods=["GET"], detail=False)
     def featured(self, request):
-        prods = Product.objects.filter(is_featured=True)
+        prods = Product.objects.filter(is_active=True).filter(is_featured=True)
         serializer = ProductSerializer(prods, many=True, context={'request': request})
         return Response(serializer.data, status.HTTP_200_OK)
 
     @action(detail=False, methods=["GET"], url_path='categories/(?P<slug>[-\w]+)')
     def categories(self, request, slug=None):
-        print(slug)
-        prods = Product.objects.all().filter(categories__slug=slug).distinct()
+        #print(slug)
+        prods = Product.objects.filter(is_active=True).filter(categories__slug=slug).distinct()
         serializer = ProductSerializer(prods, many=True, context={'request': request})
         return Response(serializer.data)
 
@@ -112,7 +112,7 @@ class CartViewset(viewsets.ViewSet):
         try:
             filename = "proforma_{0}.pdf".format(code)
 
-            html_string = render_to_string("api/proforma.html",
+            html_string = render_to_string("proforma/proforma.html",
                                            {"data": data})  # {"date": timezone.now(), "datus": datas, "items":items})
             pdf_file = HTML(string=html_string).write_pdf(stylesheets=[CSS(settings.PROFORMA_CSS)],
                                                           target=f'/tmp/{filename}')
@@ -129,7 +129,7 @@ class CartViewset(viewsets.ViewSet):
             add_to_mailchimp.delay(email=data["email"])
             #print(cart.proforma)
             send_email_customer.delay(email=data["email"], link=str(cart.proforma), reference=data['reference'],
-                                      first_name=data['first_name'], last_name=data['last_name'])
+                                      first_name=data['first_name'], last_name=data['last_name'], code=code)
             return None
         except Exception as ex:
             print(ex)
@@ -145,21 +145,35 @@ class CartViewset(viewsets.ViewSet):
             filename = self.render_to_pdf(data, code)
 
             if filename:
-                cart = Cart.objects.create(code=code,)
+                cart = Cart(
+                    code = code,
+                    email = datas["confirm_email"],
+                    buyer_firstname = datas["first_name"],
+                    buyer_lastname = datas["last_name"],
+                    buyer_phone = datas["phone"],
+                    company_name = datas["company"],
+                    buyer_city = datas["city"],
+                    buyer_country = datas["state"],
+                    order_code = datas["reference"],
+                    port_name = datas["port_name"],
+                    port_code = datas["port_code"],
+                    port_city = datas["port_city"]
+                )
+
                 fs = FileSystemStorage('/tmp')
                 with fs.open(filename) as pdf:
                     #cart = Cart.objects.create(code=code, proforma=pdf)
                     cart.proforma.save(filename, File(pdf))
                 cart.save()
-                #print("OK")
+                print("OK")
                 self.go_tasks(datas, code)
 
                 return Response({"code": code},status.HTTP_200_OK)
             else:
-                #print("NONe")
+                print("NONe")
                 return Response(status.HTTP_400_BAD_REQUEST)
         except Exception as ex:
-            #print(ex)
+            print(ex)
             return Response(status.HTTP_400_BAD_REQUEST)
 
 

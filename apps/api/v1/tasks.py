@@ -1,15 +1,37 @@
-from celery import shared_task
+
 from django.core.mail import EmailMultiAlternatives
 from django.template.loader import get_template
 from django.conf import settings
+from celery import task, shared_task
 import requests, json
 from ...news.models import *
+from ...basket.models import *
 
-@shared_task()
-def reverse(value):
-    return value[::-1]
 
-@shared_task(bind=True,) #autoretry_for=(Exception,), retry_kwargs={'max_retries': 5, 'countdown': 10}) #bind=True, max_retries=5)
+
+@task(bind=True)
+def noty_new_order(self, **kwargs):
+    try:
+        to = settings.NEW_ORDER_FROM_EMAIL
+        template = get_template('mail/order.html')
+        plaintext = get_template('mail/order.txt')
+        from_email = settings.NOREPLY_FROM_EMAIL
+        data = {'link': kwargs.get('link'), 'code': kwargs.get('code'),
+                'reference': kwargs.get('reference'),
+                }
+        text_content = plaintext.render(data)
+        html_content = template.render(data)
+        msg = EmailMultiAlternatives("NEW ORDER", text_content, from_email=from_email, to=[to, ])
+        msg.attach_alternative(html_content, "text/html")
+        msg.send()
+        return "NOTY NEW ORDER"
+    except Exception as ex:
+        print(ex)
+        self.retry(exc=ex, max_retries=5, countdown=30)
+
+
+
+@task(bind=True)
 def send_email_customer(self, **kwargs):
 
     try:
@@ -18,19 +40,29 @@ def send_email_customer(self, **kwargs):
         template = get_template('mail/mail.html')
         plaintext = get_template('mail/mail.txt')
         link=kwargs.get('link')
-        from_email = settings.EMAIL_HOST_USER  #NOREPLY_FROM_EMAIL
+        from_email = settings.ORDER_FROM_EMAIL
         data = {'email': kwargs.get('email'), 'link':f'{settings.PROFORMA_URL}{link}', 'reference':kwargs.get('reference'), 'first_name':kwargs.get('first_name'), 'last_name':kwargs.get('last_name')}
         text_content = plaintext.render(data)
         html_content = template.render(data)
         msg = EmailMultiAlternatives("Your Order Proforma", text_content, from_email=from_email, to=[to,])
         msg.attach_alternative(html_content, "text/html")
         msg.send()
+
+        cart = Cart.objects.get(code=kwargs.get('code'))
+
+        cart.email_sended = True
+        cart.save()
+
+        noty_new_order.delay(reference=kwargs.get('reference'), code=kwargs.get('code'), link=f'{settings.PROFORMA_URL}{link}')
+        return "NEW ORDER"
+
     except Exception as ex:
-        #print(ex)
+        print(ex)
         #dt = datetime.datetime.now(pytz.utc) + datetime.timedelta(seconds=1)
         self.retry(exc=ex, max_retries=5, countdown=30)
 
-@shared_task(bind=True)
+
+@task(bind=True)
 def add_to_mailchimp(self, email=None):
     api_url = f'https://{settings.MAILCHIMP_DATA_CENTER}.api.mailchimp.com/3.0'
     members_url = f'{api_url}/lists/{settings.MAILCHIMP_LIST_ID}/members'

@@ -7,6 +7,7 @@ from decimal import Decimal
 from imagekit.models import ProcessedImageField
 from imagekit.processors import ResizeToFit
 from django.core.validators import MinValueValidator
+import json, requests
 # Create your models here.
 
 # Create your models here.
@@ -38,10 +39,6 @@ class Category(models.Model):
     code = models.CharField(max_length=255, unique=True, blank=True)
     name = models.CharField(max_length=255, blank=True)
     description = models.TextField(blank=True)
-    #translations = TranslatedFields(
-    #    name = models.CharField(max_length=50),
-    #    description = models.TextField(blank=True)
-    #)
     slug = models.SlugField(max_length=50, unique=True, blank=True)
     is_active = models.BooleanField(default=True)
     created_at = models.DateTimeField(auto_now_add=True)
@@ -61,16 +58,14 @@ class Product(models.Model):
     code = models.CharField(max_length=255, unique=True, blank=True)
     name = models.CharField(max_length=255)
     description = models.TextField(blank=True)
-    #translations = TranslatedFields(
-    #    name = models.CharField(max_length=255,),
-    #    description = models.TextField(blank=True)
-    #)
+
     slug = models.SlugField(max_length=255, blank=True)
     #brand = models.CharField(max_length=50)
     #sku = models.CharField(max_length=50)
     site_url = models.URLField(blank=True, null=True)
     site_price = models.DecimalField(max_digits=9, decimal_places=2, validators=[MinValueValidator(Decimal('0.01'))], blank=True, null=True)
-    price = models.DecimalField(max_digits=9, decimal_places=2, validators=[MinValueValidator(Decimal('0.01'))])
+    price = models.DecimalField(max_digits=9, decimal_places=2, blank=True, validators=[MinValueValidator(Decimal('0.01'))])
+    price_real = models.DecimalField(max_digits=9, decimal_places=2, blank=True, default=1.00, validators=[MinValueValidator(Decimal('0.01'))])
     old_price = models.DecimalField(max_digits=9, decimal_places=2, blank=True, default=0.00, validators=[MinValueValidator(Decimal('0.01'))])
     is_active = models.BooleanField(default=True)
     is_bestseller = models.BooleanField(default=False)
@@ -93,6 +88,15 @@ class Product(models.Model):
     def __str__(self):
         return "REF {0}".format(self.code)
 
+    def convert_price(self):
+        response = requests.get('https://api.exchangeratesapi.io/latest?symbols=USD,BRL')
+        datas = json.loads(response.text)
+        real = datas['rates']['BRL']
+        dollar = datas['rates']['BRL']
+        return round(self.price_real/Decimal(real), 2)
+
+
+
 
 class Image(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='images')
@@ -108,6 +112,8 @@ class Image(models.Model):
 
     def __str__(self):
         return "Image de: {0}".format(self.product.code)
+
+
 
 
 

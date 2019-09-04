@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        p{
+            margin-left: 2rem;
+        }
+        p#dear{
+            font-size: 1.1rem;
+        }
+        a#pr-link{
+            position: relative;
+            margin-left: 2rem;
+
+
+        }
+
+    </style>
+
+
+</head>
+<body>
+
+    <h3>New order have been make: {{code}}</h3>
+
+    <h3>Order reference {{reference}}</h3>
+
+<p>
+    <a id="pr-link" href="{{link}}" target="_blank">link proforma</a>
+</p>
+
+    <adress>
+        <strong>Saqqi.com</strong> <br>
+        Marechal Floriano Peixoto 300 <br>
+        CEP: 90020-060
+        Porto Alegre - RS, Brazil. <br>
+        Tel: +55 51 9 999 999 999
+    </adress>
+
+
+</body>
+</html>

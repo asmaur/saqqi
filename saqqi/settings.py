@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 import os
 from decouple import config, Csv
 from django.utils.translation import ugettext_lazy as _
+from kombu import Queue
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -47,7 +48,7 @@ INSTALLED_APPS = [
 
 LOCAL_APPS = ['apps.api', 'apps.market', 'apps.basket', 'apps.news']
 
-THIRD_PARTY_APPS = [  'rest_framework', 'rest_framework.authtoken', 'imagekit', 'corsheaders', 'webpack_loader', 'django_hosts']
+THIRD_PARTY_APPS = [ 'rest_framework', 'rest_framework.authtoken', 'imagekit', 'corsheaders', 'webpack_loader', 'django_hosts']
 
 INSTALLED_APPS = INSTALLED_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 
@@ -85,7 +86,7 @@ DEFAULT_HOST = 'www'
 
 if DEPLOY:
     PARENT_HOST = 'https://saqqi.com'
-    MEDIA_URL_PATCH = "https://api.trexengenharia.com.br/media/"
+    MEDIA_URL_PATCH = "https://api.saqqi.com/media/"
     CELERY_BROKER_URL = 'amqp://localhost'
     PROFORMA_URL = "https://api.saqqi.com/media/"
 
@@ -222,6 +223,7 @@ ORDER_FROM_EMAIL=config('ORDER_FROM_EMAIL')
 SUPPORT_FROM_EMAIL=config('SUPPORT_FROM_EMAIL')
 STORE_FROM_EMAIL=config('STORE_FROM_EMAIL')
 NOREPLY_FROM_EMAIL=config('NOREPLY_FROM_EMAIL')
+NEW_ORDER_FROM_EMAIL=config('NEW_ORDER_FROM_EMAIL')
 
 #MAILCHIMP
 MAILCHIMP_API_KEY=config('MAILCHIMP_API_KEY')
@@ -235,3 +237,30 @@ CORS_ORIGIN_WHITELIST =config('CORS_ORIGIN_WHITELIST', cast=Csv())
 
 #SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 #proxy_set_header X-Forwarded-Proto $scheme; #adicionar o https direto para as imagens
+
+#celery config
+
+CELERY_TIMEZONE = TIME_ZONE
+CELERY_ACCEPT_CONTENT = ['json', 'pickle']
+CELERYD_CONCURRENCY = 2
+CELERYD_MAX_TASKS_PER_CHILD = 4
+CELERYD_PREFETCH_MULTIPLIER = 1
+CELERY_BROKER_URL = 'amqp://localhost'
+CELERY_IMPORTS = ("apps.api.v1.tasks")
+# celery queues setup
+CELERY_CREATE_MISSING_QUEUES=True
+
+CELERY_ROUTES = {
+    'apps.api.v1.tasks.send_email_customer': {
+        'queue': 'mail-customer',
+        'routing_key': 'mail_customer',
+    },
+    'apps.api.v1.tasks.noty_new_order': {
+        'queue': 'new-order',
+        'routing_key': 'new_order',
+    },
+    'apps.api.v1.add_to_mailchimp': {
+        'queue': 'new-mailchimp',
+        'routing_key': 'new_mailchimp',
+    },
+}

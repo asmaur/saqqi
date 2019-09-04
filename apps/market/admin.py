@@ -9,9 +9,12 @@ from .models import *
 
 
 class CategoryAdmin(TabbedTranslationAdmin):
+    list_display = ("__str__", "is_active", "created_at")
+    search_fields = ["name", "code"]
     pass
 
 class ProductAdmin(TabbedTranslationAdmin):
+    list_display = ('__str__', 'is_active','price', 'price_real', 'convert_price', 'created_at')
     pass
 
 
