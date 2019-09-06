@@ -8,8 +8,17 @@ class CartAdmin(admin.ModelAdmin):
     list_display_links = ('proforma', 'fullname')
 
 
-class ItemAdmin(admin.ModelAdmin):
-    list_display = ('code', 'cart_code', 'name', 'quantity', 'price', 'total', 'created_at')
+class OrderAdmin(admin.ModelAdmin):
+    list_display = ('number',
+                    'processing',
+                    'request',
+                    'confirm',
+                    'payed',
+                    'transit',
+                    'transit_code',
+                    'delivered'
+                    )
+    list_display_links = ('number')
 
 admin.site.register(Cart, CartAdmin)
-admin.site.register(Item, ItemAdmin)
+admin.site.register(Order, OrderAdmin)
