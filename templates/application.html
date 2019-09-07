@@ -1,4 +1,7 @@
 {% load render_bundle from webpack_loader %}
+
+{%load staticfiles %}
+
 <!DOCTYPE html>
 <html >
   <head>
@@ -6,26 +9,28 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
+    <link rel="icon" href="{% static "img/fav_t.png" %}" type="image/x-icon">
+
     <meta property='og:title' lang="en" content='Saqqi :: Ecologic Paper Bags' />
     <meta property='og:title' lang="fr" content='Saqqi :: Sacs em Papier bio-dégradable' />
-    <meta property='og:title' lang="pt-br" content='Saqqi :: Sacolas de papel biodegradável' />
-    <meta property='og:image' content='image/path' />
+    <!-- <meta property='og:title' lang="pt-br" content='Saqqi :: Sacolas de papel biodegradável' /> -->
+    <meta property='og:image' content='{% static "img/saq_facebook.png" %}' />
 
     <meta property='og:description' lang="en" content='Saqqi offer kaft papers bags for your costumers. All urs products are eco-friendly and we are engaged to protect ours planet.' />
     <meta property='og:description' lang="fr" content='Amballages de sacs en papier ecologique pour vos clients. Tous nos produits sont biodégradable et nous somme engagés dans la lutte pour la protection de la planète.' />
-    <meta property='og:description' lang="pt-br" content='Sacola de papel ecológica para seus clientes. Nossos produtos são biodegradáveis e estamos engajados na luta pela proteção do planeta.' />
+    <!-- <meta property='og:description' lang="pt-br" content='Sacola de papel ecológica para seus clientes. Nossos produtos são biodegradáveis e estamos engajados na luta pela proteção do planeta.' /> -->
 
 
     <meta lang="en" property="description" content='Saqqi offer kaft papers bags for your costumers. All urs products are eco-friendly and we are engaged to protect ours planet.' />
     <meta lang="fr" property="description" content='Amballages de sacs en papier ecologique pour vos clients. Tous nos produits sont biodégradable et nous somme engagés dans la lutte pour la protection de la planète.' />
-    <meta lang="pt-br" property="description" content='Sacola de papel ecológica para seus clientes. Nossos produtos são biodegradáveis e estamos engajados na luta pela proteção do planeta.' />
+    <!-- <meta lang="pt-br" property="description" content='Sacola de papel ecológica para seus clientes. Nossos produtos são biodegradáveis e estamos engajados na luta pela proteção do planeta.' /> -->
 
     <meta property='og:url' content='https://saqqi.com/' />
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
     <title lang="en">Saqqi :: Ecologic Paper Bags</title>
     <title lang="fr">Saqqi :: Sacs em Papier bio-dégradable</title>
-    <title lang="pt-br">Saqqi :: Sacolas de papel biodegradável</title>
+    <!-- <title lang="pt-br">Saqqi :: Sacolas de papel biodegradável</title> -->
 
    <!-- <link rel="icon" href="<%= BASE_URL %>favicon.ico"> -->
     

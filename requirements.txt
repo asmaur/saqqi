@@ -16,4 +16,4 @@ Weasyprint==48
 Celery==4.3.0
 requests==2.22.0
 django-hosts==3.0
-
+django-cleanup==4.0.0

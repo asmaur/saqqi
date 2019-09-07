@@ -24,15 +24,11 @@
 
                     <div class="col-sm-12 col-md-6 ">
 
-                        <div class="owl-carousel owl-theme" style="border: 1px solid #4fc3f7;">
-                            <div class="item" style="height: 200px;">
-                                <img class="img-fluid" :src="prod.capa" alt="" style="height: 300px;">
-                            </div>
-                            <div class="item" v-for="ig in saqimg" :key="ig.id">
-                                <img class="img-fluid" :src="ig.image_saqqi" alt="" style="height: 300px;">
-                            </div>
+                       
                             
-                        </div>
+                            <vue-img :ims="saqimg" />
+                            
+                      
 
 
                     </div>
@@ -60,7 +56,8 @@
 
 <script>
     import AddProd from '@/components/AddProd.vue'
-    import $ from 'jquery'
+    import VueImg from '@/components/VueImg.vue'
+    //import $ from 'jquery'
     import ax from '../api'
     import {
         mapGetters,
@@ -75,6 +72,7 @@
         },
         components: {
             AddProd,
+            VueImg,
         },
             data(){
             return{
@@ -100,14 +98,14 @@
        
                 
         },
-            beforeUpdate(){
+         /*   beforeUpdate(){
                 $(document).ready(function() {
                 $('.owl-carousel').owlCarousel({
                     loop: true,
                     margin: 10,
                     nav: false,
                     autoplay: true,
-                    autoplayTimeout: 10000,
+                    autoplayTimeout: 3000,
                     responsive: {
                         0: {
                             items: 1
@@ -121,6 +119,6 @@
                     }
                 })
             })
-            },
+            }, */
     }
 </script>
