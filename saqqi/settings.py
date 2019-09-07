@@ -48,7 +48,7 @@ INSTALLED_APPS = [
 
 LOCAL_APPS = ['apps.api', 'apps.market', 'apps.basket', 'apps.news']
 
-THIRD_PARTY_APPS = [ 'rest_framework', 'rest_framework.authtoken', 'imagekit', 'corsheaders', 'webpack_loader', 'django_hosts']
+THIRD_PARTY_APPS = [ 'rest_framework', 'rest_framework.authtoken', 'imagekit', 'corsheaders', 'webpack_loader', 'django_hosts', 'django_cleanup.apps.CleanupConfig']
 
 INSTALLED_APPS = INSTALLED_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 

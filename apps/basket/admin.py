@@ -4,8 +4,8 @@ from django.contrib import admin
 from .models import *
 
 class CartAdmin(admin.ModelAdmin):
-    list_display = ('proforma','fullname', 'location', 'shipto', 'email_sended', 'processing', 'payed', 'delivered', 'created_at',)
-    list_display_links = ('proforma', 'fullname')
+    list_display = ('order_code','fullname', 'location', 'shipto', 'email_sended', 'created_at',)
+    list_display_links = ('order_code', 'fullname')
 
 
 class OrderAdmin(admin.ModelAdmin):
@@ -18,7 +18,7 @@ class OrderAdmin(admin.ModelAdmin):
                     'transit_code',
                     'delivered'
                     )
-    list_display_links = ('number')
+    list_display_links = ('number',)
 
 admin.site.register(Cart, CartAdmin)
 admin.site.register(Order, OrderAdmin)

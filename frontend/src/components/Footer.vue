@@ -8,11 +8,11 @@
                 </div>
                 <div class="col-md-4 text-center">
                     
-                    <a href="" style="margin-right: .4rem;">
-                        <i class="fab fa-telegram fa-2x"></i>
+                    <a href="https://t.me/saqqitrade" style="margin-right: .4rem;" target="_blank">
+                        <i class="fab fa-telegram fa-3x"></i>
                     </a>
-                    <a href="">
-                        <i class="fab fa-whatsapp fa-2x"></i>
+                    <a href="https://api.whatsapp.com/send?phone=5551991424429&text=Hi" target="_blank">
+                        <i class="fab fa-whatsapp fa-3x"></i>
                     </a>
                     
                 </div>

@@ -58,7 +58,7 @@ class Order(models.Model):
     confirm = models.BooleanField(help_text="Request confirmed and packed", default=False)
     payed = models.BooleanField( help_text="transactions confirmed by bank" ,default=False)
     transit = models.BooleanField(help_text="request in transit", default=False)
-    transit_code = models.CharField(help_text="codigo do transito", blank=True)
+    transit_code = models.CharField(help_text="codigo do transito", max_length=100, blank=True)
     delivered = models.BooleanField( help_text="Deliverance made and confirmed buy client", default=False)
 
     class Meta:
