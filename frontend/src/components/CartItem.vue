@@ -49,7 +49,7 @@
 
                 <router-link class="btn btn-primary entrar" :to="'/'+GET_LANG+'/product/'+item.product.slug+'/'+item.product.code">
                    <!-- <i class="fas fa-external-link-alt"></i> -->
-                   <i class="fas fa-eye" style="color: #000;"></i>
+                   <i class="fas fa-eye"></i>
                 </router-link>
 
 

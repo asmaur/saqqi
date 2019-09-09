@@ -24,10 +24,11 @@
                                     <h4>{{$t('contact_us')}}</h4>
 
                                 </div>
-                                <a href="" style="color: #000; text-decoration: none;">
+                                <a href="https://t.me/saqqitrade" style="color: #000; text-decoration: none;">
                                     <i class="fab fa-telegram fa-3x"></i>
                                 </a>
-                                <a href="" style="color: #000; text-decoration: none;">
+                                <a href="https://api.whatsapp.com/send?phone=5551991424429&text=Hi" target="_blank" style="color: #000; text-decoration: none;">
+                                   
                                     <i class="fab fa-whatsapp-square fa-3x"></i>
                                 </a>
 

@@ -15,7 +15,7 @@
                                     <div class="content text-center">
                                         <h2 style="padding-bottom: .3rem; text-transform: capitalize;"> {{ $t('welcome_1') }}.</h2>
 
-                                        <router-link :to="'/'+GET_LANG+'/shop'" class="btn btn-primary btn-lg">
+                                        <router-link :to="'/'+GET_LANG+'/shop'" class="btn btn-primary btn-lg btn-block">
                                             {{$t('shop_button')}}
                                         </router-link>
                                      <!--   <button class="btn btn-primary" style="margin-left: .2rem;" data-toggle="modal" data-target="#newsletter">
@@ -43,7 +43,7 @@
                                     <div class="content text-center">
                                         <h2 style="padding-bottom: .3rem; text-transform: capitalize;"> {{ $t('welcome_2') }}.</h2>
 
-                                        <router-link :to="'/'+GET_LANG+'/shop'" class="btn btn-primary btn-lg">
+                                        <router-link :to="'/'+GET_LANG+'/shop'" class="btn btn-primary btn-lg btn-block">
                                             {{$t('shop_button')}}
                                         </router-link>
                                       <!--  <button class="btn btn-primary" style="margin-left: .2rem;" data-toggle="modal" data-target="#newsletter">
@@ -75,7 +75,7 @@
 
                                         <!-- <h2 style="padding-bottom: .3rem; text-transform: capitalize;"> Buy with us, help protect our planet.</h2> -->
 
-                                        <router-link :to="'/'+GET_LANG+'/shop'" class="btn btn-primary btn-lg">
+                                        <router-link :to="'/'+GET_LANG+'/shop'" class="btn btn-primary btn-lg btn-block">
                                             {{$t('shop_button')}}
                                         </router-link>
                                       <!--  <button class="btn btn-primary" style="margin-left: .2rem;" data-toggle="modal" data-target="#newsletter">

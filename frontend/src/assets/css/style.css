@@ -6,8 +6,8 @@
 /*red #b71c1c */
 
 body{
-    height: 100%;
-    width: 100%;
+    height: 100vh;
+    width: 100vw;
     font-family: 'Raleway', cursive;
 }
 
@@ -72,8 +72,8 @@ body{
     font-weight: 600;
 }
 #download .alert{
-    color: #000;
-    background-color: #4fc3f7; 
+    color: #fff;
+    background-color: #5E2750; /* #4fc3f7; */
     border: 0;
 }
 #download .btn{

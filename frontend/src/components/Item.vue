@@ -1,6 +1,6 @@
 <template>
 
-    <div class="col-sm-12 col-md-4 p-1 shop-item">
+    <div class="col-sm-12 col-md-6 col-lg-4 shop-item">
 
         <router-link :to="'/'+GET_LANG+'/product/'+prod.slug+'/'+prod.code">
             <img :src="prod.capa" alt="" class="img-fluid">

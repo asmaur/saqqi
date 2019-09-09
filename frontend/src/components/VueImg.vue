@@ -1,6 +1,6 @@
 <template>
 
-    <div class="owl-carousel owl-theme" style="border: 1px solid #4fc3f7;">
+    <div class="owl-carousel owl-theme" style="border: 1px solid #5E2750;">
 
         <div class="item" v-for="im in ims" :im="im" :key="im.id">
             <img class="img-fluid" :src="im.image_saqqi" alt="" style="height: 300px;">
