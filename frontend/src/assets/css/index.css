@@ -48,7 +48,7 @@
 }
 .content a{
     text-transform: capitalize;
-    background-color: #4fc3f7;
+    background-color: #4fc3f7; 
     font-weight: 800;
     border: 0;
     color: #000;
@@ -60,13 +60,13 @@
 }
 
 #about-us{
-    min-height: 45vh;
+    min-height: 15vh;
 }
 
 
 .newsletter{
-    min-height: 15vh;
-    background-color: #4fc3f7;
+    min-height: 2vh;
+    background-color: #5E2750; /*#4fc3f7; */
     display: flex;
     align-items: center;
     color: #000;
@@ -87,13 +87,13 @@
 
 .entrar{
     text-transform: capitalize;
-    background-color: #4fc3f7;
+    background-color: #4fc3f7; 
     font-weight: 800;
     border: 0;
 }
 .entrar:hover{
     text-transform: capitalize;
-    background-color: #4fc3f7;
+    background-color: #4fc3f7; 
     font-weight: 800;
     border: 0;
 }

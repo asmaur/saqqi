@@ -15,12 +15,12 @@
                                     <div class="content text-center">
                                         <h2 style="padding-bottom: .3rem; text-transform: capitalize;"> {{ $t('welcome_1') }}.</h2>
 
-                                        <router-link :to="'/'+GET_LANG+'/shop'" class="btn btn-primary btn-large">
+                                        <router-link :to="'/'+GET_LANG+'/shop'" class="btn btn-primary btn-lg">
                                             {{$t('shop_button')}}
                                         </router-link>
-                                        <button class="btn btn-primary" style="margin-left: .2rem;" data-toggle="modal" data-target="#newsletter">
+                                     <!--   <button class="btn btn-primary" style="margin-left: .2rem;" data-toggle="modal" data-target="#newsletter">
                                             {{$t('suscribe_button_slide')}}
-                                        </button>
+                                        </button> -->
 
                                     </div>
                                 </div>
@@ -43,12 +43,12 @@
                                     <div class="content text-center">
                                         <h2 style="padding-bottom: .3rem; text-transform: capitalize;"> {{ $t('welcome_2') }}.</h2>
 
-                                        <router-link :to="'/'+GET_LANG+'/shop'" class="btn btn-primary btn-large">
+                                        <router-link :to="'/'+GET_LANG+'/shop'" class="btn btn-primary btn-lg">
                                             {{$t('shop_button')}}
                                         </router-link>
-                                        <button class="btn btn-primary" style="margin-left: .2rem;" data-toggle="modal" data-target="#newsletter">
+                                      <!--  <button class="btn btn-primary" style="margin-left: .2rem;" data-toggle="modal" data-target="#newsletter">
                                             {{$t('suscribe_button_slide')}}
-                                        </button>
+                                        </button> -->
 
                                     </div>
                                 </div>
@@ -75,12 +75,12 @@
 
                                         <!-- <h2 style="padding-bottom: .3rem; text-transform: capitalize;"> Buy with us, help protect our planet.</h2> -->
 
-                                        <router-link :to="'/'+GET_LANG+'/shop'" class="btn btn-primary btn-large">
+                                        <router-link :to="'/'+GET_LANG+'/shop'" class="btn btn-primary btn-lg">
                                             {{$t('shop_button')}}
                                         </router-link>
-                                        <button class="btn btn-primary" style="margin-left: .2rem;" data-toggle="modal" data-target="#newsletter">
+                                      <!--  <button class="btn btn-primary" style="margin-left: .2rem;" data-toggle="modal" data-target="#newsletter">
                                             {{$t('suscribe_button_slide')}}
-                                        </button>
+                                        </button> -->
 
                                     </div>
                                 </div>

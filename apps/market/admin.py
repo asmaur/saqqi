@@ -13,9 +13,27 @@ class CategoryAdmin(TabbedTranslationAdmin):
     search_fields = ["name", "code"]
     pass
 
+
+class ImageInline(admin.StackedInline):
+    model = Image
+    extra = 1
+
 class ProductAdmin(TabbedTranslationAdmin):
     list_display = ('__str__', 'is_active','price', 'price_real', 'convert_price', 'created_at')
-    pass
+    inlines = [ImageInline]
+    def save_model(self, request, obj, form, change):
+        obj.save()
+
+        for afile in request.FILES.getlist('image_multiple'):
+            obj.image.create(image_saqqi=afile)
+
+
+
+
+
+
+
+
 
 
 admin.site.register(Category, CategoryAdmin)
