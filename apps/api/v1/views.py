@@ -92,7 +92,7 @@ class ImageViewset(viewsets.ViewSet):
         return Response(serializer.data)
 
     def retrieve(self, request, pk=None):
-        imgs = Image.objects.all().filter(product__code=pk)
+        imgs = Image.objects.all().filter(product__code=pk).order_by("-created_at",)
         serializer = ImageSerializer(imgs, many=True,  context={'request': request})
         return Response(serializer.data)
 
