@@ -26,7 +26,7 @@
                 <div class="item-price">
 
                     <span class="price">
-                        US ${{prod.price}}/uni
+                        US ${{formatPrice(prod.price)}}/uni
                     </span> 
 
                 </div>
@@ -85,6 +85,10 @@
                     quantity: quantity
                 });
                 this.$noty.success(this.$t('product_added')) //"Product added to cart!");
+            },
+         formatPrice(value) {
+                let val = (value/1).toFixed(2).replace('.', ',')
+                return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")
             },
         },
 
