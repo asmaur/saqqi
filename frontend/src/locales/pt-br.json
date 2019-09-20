@@ -22,7 +22,7 @@
     "about_mission_l2": "Constantemente providenciar ideias inovadoras e modernas nas embalagens conforme as demandas do mercado",
      "about_mission_l3": "Constantemente pesquisar e desenvolver produtos ecologicamente corretos em paralelo às demandas do mercado",
     "title_featured": "Destaques",
-    "minimum_order": "Pedido Minimo",
+    "minimum_order": "Pedido Min.",
     "title_our_products": "Nossos Produtos",
     "product": "Produtos",
     "width": "largura",
@@ -81,6 +81,7 @@
     "wrong_data_in_form": "O formulário contêm erros, Verifique os dados",
     "empty_cart": "Seu carrinho está vazio.",
     "delete_from_cart": "item removido do carrinho",
-    "reload_page": "<strong>Recarregue a página para aplicar as mudanças</strong>"
+    "reload_page": "<strong>Recarregue a página para aplicar as mudanças</strong>",
+    "price": "Preço"
     
 }

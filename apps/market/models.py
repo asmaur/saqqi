@@ -63,14 +63,14 @@ class Product(models.Model):
     #brand = models.CharField(max_length=50)
     #sku = models.CharField(max_length=50)
     site_url = models.URLField(blank=True, null=True)
-    site_price = models.DecimalField(max_digits=9, decimal_places=2, validators=[MinValueValidator(Decimal('0.01'))], blank=True, null=True)
-    price = models.DecimalField(max_digits=9, decimal_places=2, blank=True, validators=[MinValueValidator(Decimal('0.01'))])
-    price_real = models.DecimalField(max_digits=9, decimal_places=2, blank=True, default=1.00, validators=[MinValueValidator(Decimal('0.01'))])
-    old_price = models.DecimalField(max_digits=9, decimal_places=2, blank=True, default=0.00, validators=[MinValueValidator(Decimal('0.01'))])
+    site_price = models.DecimalField(help_text="preço/unit", max_digits=9, decimal_places=2, validators=[MinValueValidator(Decimal('0.01'))], blank=True, null=True)
+    price = models.DecimalField(help_text="preço/kg", max_digits=9, decimal_places=2, blank=True, validators=[MinValueValidator(Decimal('0.01'))])
+    price_real = models.DecimalField( help_text="preço/kg", max_digits=9, decimal_places=2, blank=True, default=1.00, validators=[MinValueValidator(Decimal('0.01'))])
+    old_price = models.DecimalField(help_text="preço/kg", max_digits=9, decimal_places=2, blank=True, default=0.00, validators=[MinValueValidator(Decimal('0.01'))])
     is_active = models.BooleanField(default=False)
     is_bestseller = models.BooleanField(default=False)
     is_featured = models.BooleanField(default=False)
-    mini_quantity = models.IntegerField(default=1000)
+    mini_quantity = models.IntegerField( help_text="quantity in Kg", default=1000)
     width = models.DecimalField((u'largura'), decimal_places=2, max_digits=12, default=0.00,  validators=[MinValueValidator(Decimal('0.01'))])
     heigth = models.DecimalField((u'altura'), decimal_places=2, max_digits=12, default=0.00,  validators=[MinValueValidator(Decimal('0.01'))])
     lateral = models.DecimalField((u'lateral'), decimal_places=2, max_digits=12, default=0.00,
@@ -93,7 +93,7 @@ class Product(models.Model):
         datas = json.loads(response.text)
         real = datas['rates']['BRL']
         dollar = datas['rates']['BRL']
-        return round(self.price_real/Decimal(real), 2)
+        return round(self.price_real/Decimal(real), 7)
 
 
 

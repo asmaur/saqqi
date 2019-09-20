@@ -32,8 +32,8 @@
             <p class="card-title" style="margin-top:-.5rem" v-if="GET_LANG=='fr'">{{prod.name_fr}}</p>
             <p class="card-title" style="margin-top:-.5rem" v-if="GET_LANG=='pt-br'">{{prod.name_pt_br}}</p>
 
-            <span> | REF {{prod.code}}. | <strong> USD {{ prod.price}} </strong> </span>
-            <!--<span> Dim: {{prod.length}}x{{prod.width}}x{{prod.heigth}} cm </span> --> <br>
+            <span> | REF {{prod.code}}. |  <strong>US $ {{ prod.price}} </strong>  </span> 
+           <!-- <span> Dim: {{prod.length}}x{{prod.width}}x{{prod.heigth}} cm </span> --> <br>
             
             <span>{{$t('width')}}: {{prod.width}} cm</span> <br>
             <span>{{$t('heigth')}}: {{prod.heigth}} cm</span> <br>

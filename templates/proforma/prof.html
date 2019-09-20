@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <link href="proforma.css" rel="stylesheet">
-    <title>proforma_{{data.datus.reference}}</title>
+    <title>proforma_REF00129333783</title>
     <meta name="description" content="Invoice demo sample">
     <meta name="author" content="Kozea">
 </head>
@@ -14,13 +14,11 @@
     <aside>
         <address id="from">
             <h2 style="margin-bottom: -1.5rem;">SAQQI TRADE</h2>
-            CNPJ: 65363435436-09/0001
             Rua Marechal Floriano Peixoto 370
-            CEP: 90020-061
-            Porto Alegre-RS, Brasil
+            90020-061 Porto Alegre-RS, Brasil
             Phone: +55 51 9 91 42 44 29
             Email: contact@saqqi.com
-
+            CNPJ: 65363435436-09/0001
         </address>
     </aside>
 
@@ -28,7 +26,7 @@
 
     <ul class="list-group">
         <li class="list-group-item active">
-            INVOICE
+            PROFORMA
         </li>
         <li class="list-group-item">Order: <strong>{{data.datus.reference}}</strong></li>
         <li class="list-group-item">Date: {{data.date|date:"D, d M, Y"}} </li>
@@ -71,7 +69,7 @@
                 <th>Code</th>
                 <th>Product</th>
                 <th>Quantity (uni)</th>
-                <th>uni/US $</th>
+                <th>uni/USD</th>
                 <th>Subtotal</th>
             </tr>
         </thead>
@@ -108,7 +106,7 @@
 
                 <td colspan="4"></td>
                 <td> <strong>Total</strong> </td>
-                <td> <strong>US $ {{data.datus.total}} </strong> </td>
+                <td> <strong>$ {{data.datus.total}} </strong> </td>
             </tr>
         </tbody>
     </table>
@@ -127,13 +125,12 @@
         <p>Others conditions: The shipment of the request will be subordinate to the acceptance of the conditions on this
             proforma with the payment of the transportation value.</p>
 
-        <p><strong>Please check your orders and return with your acceptance. </strong> </p>
+        <p>if you agree with the terms of this proforma, <strong>please return with your acceptance. </strong> </p>
 
         <p>
-            ( ) Yes, it's all okay. <br>
-            ( ) No, They are missing items. Let us contact you or try again in our website.
+            ( ) Yes, we agree with the conditions proposed in this proforma. <br>
+            ( ) No, We do not agree with the conditions contained in this Proforma. canccel request.
         </p>
-        <p><strong> We will make contact by whatsapp our email. </strong> </p>
 
     </div>
 

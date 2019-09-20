@@ -124,7 +124,7 @@
 
                                     <p>Code: <strong>{{chechoutref}}</strong></p>
                                     
-                                    <p>Total: <strong>USD {{formatPrice(cartTotalAmount)}}</strong></p>
+                                    <p>Total: <strong>US $ {{formatPrice(cartTotalAmount)}}</strong></p>
                                 </div>
 
                                 <div class="card-footer">
