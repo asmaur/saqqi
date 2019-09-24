@@ -1,7 +1,7 @@
 <template>
 
 
-    <li class="nav-item">
+    <li class="nav-item" style="margin-right: 1rem;">
 
         <select class="form-control" id="lang" v-model="lang" @change="changeLanguage">
             <option v-for="lg in langues" :key="lg" :selected="GET_LANG" :value="lg">{{lg}}</option>
