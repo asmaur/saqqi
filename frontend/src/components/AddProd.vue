@@ -3,45 +3,63 @@
 
     <div class="card">
 
-       <!-- <div class="card-body" v-if="GET_LANG=='en'">
-            <p>Category: <span v-for="cat in categories" :key="cat.id"> {{cat.name_en}} </span>, </p>
-            <p>
-                {{prod.description_en}}
-            </p>
-            <hr>
-        </div>
-
-        <div class="card-body" v-if="GET_LANG=='fr'">
-            <p>Category: <span v-for="cat in categories" :key="cat.id"> {{cat.name_fr}} </span>, </p>
-            <p>
-                {{prod.description_fr}}
-            </p>
-            <hr>
-        </div>
-
-        <div class="card-body" v-if="GET_LANG=='pt-br'">
-            <p>Category: <span v-for="cat in categories" :key="cat.id"> {{cat.name_pt_br}} </span>, </p>
-            <p>
-                {{prod.description_pt_br}}
-            </p>
-            <hr>
-        </div> -->
+        
 
         <div class="card-body">
             <p class="card-title" style="margin-top:-.5rem" v-if="GET_LANG=='en'">{{prod.name_en}}</p>
             <p class="card-title" style="margin-top:-.5rem" v-if="GET_LANG=='fr'">{{prod.name_fr}}</p>
             <p class="card-title" style="margin-top:-.5rem" v-if="GET_LANG=='pt-br'">{{prod.name_pt_br}}</p>
 
-            <span> | REF {{prod.code}}. |  <strong>US $ {{ formatPrice(prod.price)}} </strong>  </span> 
-           <!-- <span> Dim: {{prod.length}}x{{prod.width}}x{{prod.heigth}} cm </span> --> <br>
+            <span> | REF {{prod.code}}. |  <strong>US$ {{ formatPrice(prod.price)}} </strong>  </span> 
+           <!-- <span> Dim: {{prod.length}}x{{prod.width}}x{{prod.heigth}} cm </span>  <br>
             
             <span>{{$t('width')}}: {{prod.width}} cm</span> <br>
             <span>{{$t('heigth')}}: {{prod.heigth}} cm</span> <br>
-            <span>{{$t('lateral')}}: {{prod.lateral}} cm</span> <br>
+            <span>{{$t('lateral')}}: {{prod.lateral}} cm</span> <br> -->
 
             <p class="card-title"> <strong>{{$t('min_order')}}: {{prod.mini_quantity}} uni.</strong> </p>
 
-            <ul class="list-group list-group-flush">
+           
+        </div>
+        
+        <hr>
+        
+        <div class="card-body" v-if="GET_LANG=='en'">
+            
+            <p v-html="prod.description_en">
+                
+            </p>
+            
+        </div>
+
+        <div class="card-body" v-if="GET_LANG=='fr'">
+            <p>Category: <span v-for="cat in categories" :key="cat.id"> {{cat.name_fr}} </span>, </p>
+            <p v-html="prod.description_fr">
+                
+            </p>
+            
+        </div>
+
+        <div class="card-body" v-if="GET_LANG=='pt-br'">
+            <p>Category: <span v-for="cat in categories" :key="cat.id"> {{cat.name_pt_br}} </span>, </p>
+            <p v-html="prod.description_pt_br">
+                
+            </p>
+            
+        </div> 
+        
+        
+        
+        
+        
+        
+        
+        <hr>
+        
+        
+        <div class="card-footer">
+          
+           <ul class="list-group list-group-flush">
 
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
@@ -60,8 +78,9 @@
 
 
             </ul>
-        </div>
-        <div class="card-footer">
+          
+          
+          
            
             <button class="btn btn-primary btn-block fechar" @click="add_to_cart(prod.code, qty)">
                 {{$t('add_to_cart')}}

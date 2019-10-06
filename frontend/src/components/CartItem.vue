@@ -12,9 +12,9 @@
 
                 <p class="card-title">
 
-                    <span>Dim: {{item.product.width}}x{{item.product.heigth}}x{{item.product.lateral}} cm </span>
+                 <!--   <span>Dim: {{item.product.width}}x{{item.product.heigth}}x{{item.product.lateral}} cm </span> -->
                 </p>
-                <p class="card-title"> <strong>{{$t('price')}}: US ${{formatPrice(item.product.price)}}/uni.</strong> </p> 
+                <p class="card-title"> <strong>{{$t('price')}}: US$ {{formatPrice(item.product.price)}}/uni.</strong> </p> 
                 <p class="card-title"> <strong>{{$t('order')}}: {{item.quantity}} uni.</strong> </p>
                 <p class="card-title"> <strong>Subtotal: ${{item.subtotal}}</strong> </p> 
 

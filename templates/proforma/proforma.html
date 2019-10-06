@@ -69,9 +69,9 @@
             <tr>
                 <th>#</th>
                 <th>Code</th>
-                <th>Product</th>
+                <th>Description</th>
                 <th>Quantity (uni)</th>
-                <th>uni/US $</th>
+                <th>uni/US$</th>
                 <th>Subtotal</th>
             </tr>
         </thead>
@@ -84,7 +84,7 @@
                     <td>{{ forloop.counter }}</td>
                     <td> <strong>{{item.product.code}}</strong> </td>
                     <td>{{item.product.name}} <br>
-                        Dim: <strong>{{ item.product.width |floatformat }}x{{item.product.heigth | floatformat }}x{{ item.product.lateral |floatformat }} cm.</strong>
+                        {{ item.product.description }}.</strong>
                     </td>
                     <td> <strong>{{item.quantity}}</strong> </td>
                     <td> <strong>$ {{item.product.price}} </strong> </td>

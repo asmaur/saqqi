@@ -14,7 +14,7 @@
                 <span v-if="GET_LANG=='fr'">{{prod.name_fr}} </span>
                 <span v-if="GET_LANG=='pt-br'">{{prod.name_pt_br}} </span> -->
                     <span> | REF {{prod.code}}.</span> <br>
-                    <span> Dim: {{prod.width}}x{{prod.heigth}}x{{prod.lateral}} cm </span>  <br>
+                  <!--  <span> Dim: {{prod.width}}x{{prod.heigth}}x{{prod.lateral}} cm </span>  <br> -->
 
                 </router-link>
             </div>
@@ -26,7 +26,7 @@
                 <div class="item-price">
 
                     <span class="price">
-                        US ${{formatPrice(prod.price)}}/uni
+                        US$ {{formatPrice(prod.price)}}/uni
                     </span> 
 
                 </div>
