@@ -84,7 +84,7 @@
                     <td>{{ forloop.counter }}</td>
                     <td> <strong>{{item.product.code}}</strong> </td>
                     <td>{{item.product.name}} <br>
-                        {{ item.product.description }}.</strong>
+                        {{ item.product.description | safe }}.</strong>
                     </td>
                     <td> <strong>{{item.quantity}}</strong> </td>
                     <td> <strong>$ {{item.product.price}} </strong> </td>
