@@ -3,8 +3,8 @@ const webpack = require('webpack');
 //const path = require("path");
 module.exports = {
     
-    //publicPath: '/static/',
-    publicPath: "http://0.0.0.0:8080/",
+    publicPath: '/static/',
+    //publicPath: "http://0.0.0.0:8080/",
     outputDir: '../frontend/dist/',
     
     chainWebpack: config => {
