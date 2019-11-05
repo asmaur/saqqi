@@ -64,7 +64,7 @@ class Product(models.Model):
     is_active = models.BooleanField(default=False)
     is_bestseller = models.BooleanField(default=False)
     is_featured = models.BooleanField(default=False)
-    mini_quantity = models.IntegerField( help_text="quantity in uni", default=10000)
+    mini_quantity = models.IntegerField( help_text="quantity in ton.", default=1)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     categories = models.ManyToManyField(Category, related_name='products')

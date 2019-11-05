@@ -33,7 +33,7 @@
 
                 <div class="item-min">
                     <span>
-                        {{$t('minimum_order')}}: {{prod.mini_quantity}} uni
+                        {{$t('minimum_order')}}: {{prod.mini_quantity}} ton.
                     </span>
                 </div>
 

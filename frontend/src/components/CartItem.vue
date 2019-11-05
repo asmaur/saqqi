@@ -16,7 +16,7 @@
                 </p>
               <!--  <p class="card-title"> <strong>{{$t('price')}}: US$ {{formatPrice(item.product.price)}}/uni.</strong> </p> -->
                 <p class="card-title"> | REF {{item.product.code}}. </p>
-                <p class="card-title"> <strong>{{$t('order')}}: {{item.quantity}} uni.</strong> </p>
+                <p class="card-title"> <strong>{{$t('order')}}: {{item.quantity}} ton.</strong> </p>
               <!--  <p class="card-title"> <strong>Subtotal: ${{item.subtotal}}</strong> </p> -->
 
                 <!-- <ul class="list-group list-group-flush">

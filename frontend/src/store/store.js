@@ -82,7 +82,7 @@ export default new Vuex.Store({
             //find the product in the cart list
             let cartProduct = state.cart.find((product) => product.code === productCode);
 
-            cartProduct.quantity -= 1000;
+            cartProduct.quantity -= 1;
             //Add back the quantity in products list by 1
             //product.quantity++;
         },
@@ -92,7 +92,7 @@ export default new Vuex.Store({
             //find the product in the cart list
             let cartProduct = state.cart.find((product) => product.code === productCode);
 
-            cartProduct.quantity += 1000;
+            cartProduct.quantity += 1;
             //Add back the quantity in products list by 1
             //product.quantity++;
         },

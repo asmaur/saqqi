@@ -17,7 +17,7 @@
             <span>{{$t('heigth')}}: {{prod.heigth}} cm</span> <br>
             <span>{{$t('lateral')}}: {{prod.lateral}} cm</span> <br> -->
 
-            <p class="card-title"> <strong>{{$t('min_order')}}: {{prod.mini_quantity}} uni.</strong> </p>
+            <p class="card-title"> <strong>{{$t('min_order')}}: {{prod.mini_quantity}} ton.</strong> </p>
 
            
         </div>
@@ -130,15 +130,15 @@
                     this.$noty.warning(this.$t('minimum_value')) //"valor minimo atingido!");
                     return;
                 } else {
-                    this.qty -= 1000;
+                    this.qty -= 1;
                 }
             },
             moreProd() {
 
                 if (this.qty <= this.prod.mini_quantity) {
-                    this.qty = this.prod.mini_quantity + 1000;
+                    this.qty = this.prod.mini_quantity + 1;
                 } else {
-                    this.qty += 1000;
+                    this.qty += 1;
                 }
 
 
