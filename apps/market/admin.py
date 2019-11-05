@@ -19,7 +19,7 @@ class ImageInline(admin.StackedInline):
     extra = 1
 
 class ProductAdmin(TabbedTranslationAdmin):
-    list_display = ('__str__', 'is_active', 'created_at')
+    list_display = ('__str__', 'is_active', 'mini_quantity', 'created_at')
     inlines = [ImageInline]
     def save_model(self, request, obj, form, change):
         obj.save()
