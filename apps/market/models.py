@@ -61,17 +61,10 @@ class Product(models.Model):
 
     slug = models.SlugField(max_length=255, blank=True)
     site_url = models.URLField(blank=True, null=True)
-    price = models.DecimalField(help_text="preço/uni", max_digits=9, decimal_places=4, validators=[MinValueValidator(Decimal('0.01'))])
-    site_price = models.DecimalField(help_text="preço do site ou preço do fornecedor", max_digits=9, decimal_places=4, validators=[MinValueValidator(Decimal('0.01'))], blank=True, null=True)
-    price_real = models.DecimalField( help_text="preço/uni", max_digits=9, decimal_places=4, blank=True, default=1.00, validators=[MinValueValidator(Decimal('0.01'))])
-    old_price = models.DecimalField(help_text="preço/uni", max_digits=9, decimal_places=4, blank=True, default=0.00, validators=[MinValueValidator(Decimal('0.01'))])
     is_active = models.BooleanField(default=False)
     is_bestseller = models.BooleanField(default=False)
     is_featured = models.BooleanField(default=False)
-    mini_quantity = models.IntegerField( help_text="quantity in uni", default=10)
-    #width = models.DecimalField((u'largura'), decimal_places=2, max_digits=12, default=0.00,  validators=[MinValueValidator(Decimal('0.01'))])
-    #heigth = models.DecimalField((u'altura'), decimal_places=2, max_digits=12, default=0.00,  validators=[MinValueValidator(Decimal('0.01'))])
-    #lateral = models.DecimalField((u'lateral'), decimal_places=2, max_digits=12, default=0.00, validators=[MinValueValidator(Decimal('0.01'))])
+    mini_quantity = models.IntegerField( help_text="quantity in uni", default=10000)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     categories = models.ManyToManyField(Category, related_name='products')
@@ -84,13 +77,6 @@ class Product(models.Model):
 
     def __str__(self):
         return "REF {0}".format(self.code)
-
-    def convert_price(self):
-        response = requests.get('https://api.exchangeratesapi.io/latest?symbols=USD,BRL')
-        datas = json.loads(response.text)
-        real = datas['rates']['BRL']
-        dollar = datas['rates']['BRL']
-        return round(self.price_real/Decimal(real), 7)
 
 
 

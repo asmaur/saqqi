@@ -130,6 +130,26 @@
 
                     </div>
                 </div>
+                
+                
+                <div class="col-md-6 offset-md-3 text-center">
+                        <h4>{{$t('como_func_title')}}</h4>
+                    </div>
+                    <div class="col-md-8 offset-md-2 text-justify">
+
+                        <ul>
+                            <li> {{$t('como_func_l1')}}. </li>
+                            <li> {{$t('como_func_l2')}}. </li>
+                            <li> {{$t('como_func_l3')}}. </li>
+                            
+                        </ul>
+                        
+                        <br>
+                        
+                        </div>
+                
+                
+                
             </div>
 
         </div>

@@ -23,13 +23,13 @@
 
             <div class="item-actions">
 
-                <div class="item-price">
+               <!-- <div class="item-price">
 
                     <span class="price">
                         US$ {{formatPrice(prod.price)}}/uni
                     </span> 
 
-                </div>
+                </div> -->
 
                 <div class="item-min">
                     <span>

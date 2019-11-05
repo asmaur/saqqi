@@ -105,6 +105,21 @@
                                             <span class="alert-danger">{{ errors.first('port_code') }}</span>
                                         </div>
                                     </div>
+                                    
+                                 <!--   <div class="form-row">
+                                        <div class="form-group col-md-12">                                            
+                                          
+                                        <label for="exampleFormControlSelect1">lang</label>
+                                        <select class="form-control" id="exampleFormControlSelect1" v-model="languag">
+                                          <option>English</option>
+                                          <option>Français</option>
+                                          <option>Portugues</option>
+                                          
+                                        </select>
+                                     
+                                            
+                                        </div>
+                                    </div> -->
 
                                     <p> <strong> **{{$t('advise')}}. </strong> </p>
 
@@ -124,7 +139,7 @@
 
                                     <p>Code: <strong>{{chechoutref}}</strong></p>
                                     
-                                    <p>Total: <strong>US $ {{formatPrice(cartTotalAmount)}}</strong></p>
+                                    <p>Total: <strong> {{GET_CART_TOTAL}}  itens </strong> <!--US $ {{formatPrice(cartTotalAmount)}}</strong> -->  </p>
                                 </div>
 
                                 <div class="card-footer">
@@ -171,7 +186,7 @@
             chechoutref: function() {
                 return "REF" + (new Date).toISOString().replace(/\D/g, '') + "SAQ";
             },
-            ...mapGetters(['cartTotalAmount', 'GET_LANG']),
+            ...mapGetters(['cartTotalAmount', 'GET_LANG', 'GET_CART_TOTAL']),
         },
         data() {
             return {
@@ -188,6 +203,8 @@
                 port_city: null,
                 port_code: null,
                 total: null,
+                lang: null,
+                languag: null,
                 datus: {},
 
 

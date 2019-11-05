@@ -42,7 +42,7 @@ class ProductSerializer(serializers.ModelSerializer):
     class Meta:
         model = Product
         #fields = '__all__'
-        exclude = ['created_at', 'updated_at', 'categories', 'site_url', 'site_price', "description_fr", "description_pt_br", "description_en", ]
+        exclude = ['created_at', 'updated_at', 'categories', "description_fr", "description_pt_br", "description_en", ]
 
 class ProductDetailSerializer(serializers.ModelSerializer):
     categories = CategorySerializer(many=True)

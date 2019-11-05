@@ -10,7 +10,7 @@
             <p class="card-title" style="margin-top:-.5rem" v-if="GET_LANG=='fr'">{{prod.name_fr}}</p>
             <p class="card-title" style="margin-top:-.5rem" v-if="GET_LANG=='pt-br'">{{prod.name_pt_br}}</p>
 
-            <span> | REF {{prod.code}}. |  <strong>US$ {{ formatPrice(prod.price)}} </strong>  </span> 
+            <span> | REF {{prod.code}} <!-- |  <strong>US$ {{ formatPrice(prod.price)}} </strong> -->  </span> 
            <!-- <span> Dim: {{prod.length}}x{{prod.width}}x{{prod.heigth}} cm </span>  <br>
             
             <span>{{$t('width')}}: {{prod.width}} cm</span> <br>
@@ -158,7 +158,9 @@
                     });
                     this.$noty.success(this.$t('product_added'))//"Product added to cart!");
 
-                } else {
+                } else if(quantity < this.prod.mini_quantity){
+                    this.$noty.error(this.$t('quantity_wrong'))
+                }else {
                     //console.log(code, quantity);
                     this.addToCart({
                         productCode: code,

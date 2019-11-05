@@ -13,7 +13,7 @@
 
     <aside>
         <address id="from">
-            <h2 style="margin-bottom: -1.5rem;">SAQQI TRADE</h2>
+            <h2 style="margin-bottom: -1.5rem;">SAQQI COMERCIAL LDTA</h2>
             CNPJ: 65363435436-09/0001
             Rua Marechal Floriano Peixoto 370
             CEP: 90020-061
@@ -28,7 +28,7 @@
 
     <ul class="list-group">
         <li class="list-group-item active">
-            INVOICE
+            COTATION REQUEST
         </li>
         <li class="list-group-item">Order: <strong>{{data.datus.reference}}</strong></li>
         <li class="list-group-item">Date: {{data.date|date:"D, d M, Y"}} </li>
@@ -36,7 +36,7 @@
 
     <ul class="list-group">
         <li class="list-group-item active">
-            SOLD TO
+            REQUEST FROM
         </li>
         <li class="list-group-item">Company Name: <strong> {{data.datus.company}} </strong></li>
         <li class="list-group-item">Country: <strong> {{data.datus.state}} </strong> </li>
@@ -71,8 +71,7 @@
                 <th>Code</th>
                 <th>Description</th>
                 <th>Quantity (uni)</th>
-                <th>uni/US$</th>
-                <th>Subtotal</th>
+                
             </tr>
         </thead>
         <tbody>
@@ -84,51 +83,29 @@
                     <td>{{ forloop.counter }}</td>
                     <td> <strong>{{item.product.code}}</strong> </td>
                     <td>
-                        {{ item.product.description | safe }}.</strong>
+                       <strong> {{ item.product.description | safe }}.</strong>
                     </td>
                     <td> <strong>{{item.quantity}}</strong> </td>
-                    <td> <strong>$ {{item.product.price}} </strong> </td>
-                    <td>$ {{item.subtotal}} </td>
+
                 </tr>
         {% endfor %}
         {% endif %}
 
-        <!--    <tr>
-                <td>2</td>
-                <td>Kraft paper bag <br>
-                    Dim: <strong>23x34x45 cm.</strong>
-                </td>
-                <td> <strong>1.234.456.78</strong> </td>
-                <td> <strong> 0.008 </strong> </td>
-                <td> 3.000.000 </td>
-            </tr> -->
 
-
-            <tr>
-
-                <td colspan="4"></td>
-                <td> <strong>Total</strong> </td>
-                <td> <strong>US $ {{data.datus.total}} </strong> </td>
-            </tr>
         </tbody>
     </table>
 
-    <!-- <ul class="list-group">
-        <li class="list-group-item active">
-            Banking informations
-        </li>
-        <li class="list-group-item">Bank Wire Transfer: <strong> SAQQI TRADE </strong></li>
-        <li class="list-group-item">Bank Name: <strong>BRADESCO S.A.</strong> </li>
-        <li class="list-group-item">Swift Code: <strong>QAWSEDCFVGT</strong> </li>
-    </ul> -->
+
 
     <div class="infos">
 
-        <p>Others conditions: The shipment of the request will be subordinate to the acceptance of the conditions on this
+        <p> <strong>Icoterms: FOB </strong> </p>
+
+    <!--    <p>Others conditions: The shipment of the request will be subordinate to the acceptance of the conditions on this
             invoice and the payment of the transportation value.</p>
         <p> <strong> Payment: Western Union, Paypal (for small amount), T/T </strong> </p>
 
-        <p> <strong>Shipment: DHL/FedEx/UPS (Suitable for small package ), or by sea/air.</strong> </p>
+        <p> <strong>Shipment: DHL/FedEx/UPS (Suitable for small package ), or by sea/air.</strong> </p> -->
 
         <p> <strong>Please check your orders and return with your acceptance. </strong> </p>
 
@@ -136,11 +113,11 @@
             ( ) Yes, it's all okay. <br>
             ( ) No, They are missing items. Let us contact you or try again in our website.
         </p>
-        <p><strong> We will make contact by whatsapp our email. </strong> </p>
+        <p><strong> We will make contact by whatsapp or email. </strong> </p>
 
     </div>
 
-    <div class="signature">
+   <!-- <div class="signature">
 
 
         <div>
@@ -160,7 +137,7 @@
         </div>
 
 
-    </div>
+    </div> -->
 
 
 </body>

@@ -60,7 +60,7 @@ export default new Vuex.Store({
             if (item) {
                 //product already present in the cart. so increase the quantity
                 item.quantity = new Intl.NumberFormat('de-DE').format(quantity);
-                item.subtotal = new Intl.NumberFormat('de-DE', {minimumFractionDigits: 2}).format(product.price * quantity)
+                //item.subtotal = new Intl.NumberFormat('de-DE', {minimumFractionDigits: 2}).format(product.price * quantity)
             } else {
                 
                 //let val = ((product.price * quantity) / 1).toFixed(2).replace('.', ',')
@@ -70,7 +70,7 @@ export default new Vuex.Store({
                     // product newly added to cart
                     product,
                     quantity: new Intl.NumberFormat('de-DE').format(quantity), //String(quantity).replace(/(.)(?=(\d{3})+$)/g,'$1.'),
-                    subtotal: new Intl.NumberFormat('de-DE', {minimumFractionDigits: 2}).format(product.price * quantity) //val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, "."), //product.price * quantity, 
+                   // subtotal: new Intl.NumberFormat('de-DE', {minimumFractionDigits: 2}).format(product.price * quantity) //val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, "."), //product.price * quantity, 
                 });
             }
             localStorage.setItem('cart', JSON.stringify(state.cart))
