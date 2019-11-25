@@ -10,9 +10,9 @@
 
             <div class="item-info text-center">
                 <router-link :to="'/'+GET_LANG+'/product/'+prod.slug+'/'+prod.code">
-                    <!--   <span v-if="GET_LANG=='en'">{{prod.name_en}} </span>
+                       <span v-if="GET_LANG=='en'">{{prod.name_en}} </span>
                 <span v-if="GET_LANG=='fr'">{{prod.name_fr}} </span>
-                <span v-if="GET_LANG=='pt-br'">{{prod.name_pt_br}} </span> -->
+                <span v-if="GET_LANG=='pt-br'">{{prod.name_pt_br}} </span> 
                     <span> | REF {{prod.code}}.</span> <br>
                   <!--  <span> Dim: {{prod.width}}x{{prod.heigth}}x{{prod.lateral}} cm </span>  <br> -->
 
