@@ -68,7 +68,7 @@ class ProductViewset(viewsets.ViewSet):
 
     @action(methods=["GET"], detail=False)
     def featured(self, request):
-        prods = Product.objects.filter(is_active=True).filter(is_featured=True)
+        prods = Product.objects.filter(is_active=True).filter(is_featured=True).order_by("-level")
         serializer = ProductSerializer(prods, many=True, context={'request': request})
         return Response(serializer.data, status.HTTP_200_OK)
 
