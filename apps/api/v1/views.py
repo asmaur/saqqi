@@ -52,7 +52,7 @@ class CategoryViewset(viewsets.ViewSet):
         return Response(serializer.data)
     
 class ProductViewset(viewsets.ViewSet):
-    queryset = Product.objects.all().filter(is_active=True)
+    queryset = Product.objects.all().filter(is_active=True).order_by("-level")
     #serializer_class = CategorySerializer
     authentication_classes = (TokenAuthentication,)
     permission_classes = (permissions.IsAuthenticated,)

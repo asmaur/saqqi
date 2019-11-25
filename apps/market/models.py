@@ -53,12 +53,27 @@ class Category(models.Model):
         return self.name
 
 
+LEVELS = (
+    (0, '0'),
+    (1, '1'),
+    (2, '2'),
+    (3, '3'),
+    (4, '4'),
+    (5, '5'),
+    (6, '6'),
+    (7, '7'),
+    (8, '8'),
+    (9, '9'),
+    (10, '10'),
+
+)
+
 
 class Product(models.Model):
     code = models.CharField(max_length=255, unique=True, blank=True)
     name = models.CharField(max_length=255)
     description = models.TextField(blank=True)
-
+    level = models.IntegerField(choices=LEVELS, default=0, help_text="Escala do Plano [0 a 10]")
     slug = models.SlugField(max_length=255, blank=True)
     site_url = models.URLField(blank=True, null=True)
     is_active = models.BooleanField(default=False)

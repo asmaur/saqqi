@@ -20,7 +20,9 @@
 
             <div class="row">
                 <div class="col-12 col-md-8 text-left p-3">
-                    <p>saqqi &copy; {{ano}} | All right reserved.</p>
+                    <p>saqqi &copy; {{ano}} | All right reserved. <br>
+                    CNPJ: 35.503.491/0001-78
+                      </p>
                 </div>
                 <div class="col-12 col-md-4 text-right p-3">
 
