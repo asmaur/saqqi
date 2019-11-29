@@ -49,6 +49,11 @@
                                             <input type="text" class="form-control" id="company" name="company" v-model="company" v-validate="{ required: true, alpha:true }" :placeholder="$t('company_name_placeholder')" required>
                                             <span class="alert-danger">{{ errors.first('company') }}</span>
                                         </div>
+                                        <div class="form-group col-md-12">
+                                            <label for="company_registry">{{$t('company_registry')}}</label>
+                                            <input type="text" class="form-control" id="company_registry" name="company_registry" v-model="company_registry" v-validate="{ required: true }" :placeholder="$t('company_registry_placeholder')" required>
+                                            <span class="alert-danger">{{ errors.first('company_registry') }}</span>
+                                        </div>
 
                                         <div class="form-group col-md-6">
                                             <label for="email">Email</label>
@@ -193,6 +198,7 @@
                 first_name: null,
                 last_name: null,
                 company: null,
+                company_registry: null,
                 email: null,
                 confirm_email: null,
                 phone: null,
@@ -351,6 +357,13 @@
                     this.datus.port_code = ero12;
                 } else {
                     delete this.datus.port_code;
+                }
+            },
+            company_registry: function(ero13) {
+                if (ero13 != "") {
+                    this.datus.company_registry = ero13;
+                } else {
+                    delete this.datus.company_registry;
                 }
             },
         },

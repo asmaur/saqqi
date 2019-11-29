@@ -51,6 +51,8 @@
     "last_name_placeholder": "Your last name",
     "company_name": "Company name",
     "company_name_placeholder": "Company Name",
+    "company_registry": "Company registry",
+    "company_registry_placeholder": "Company registry code",
     "confirm_email": "Confirm email",
     "confirm_email_placeholder": "Confirm email address",
     "phone": "Phone",
