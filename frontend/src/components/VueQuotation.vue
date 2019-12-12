@@ -132,9 +132,9 @@
                         ax.post("quote/add_quotation/", formData)
                             .then(() => {
                                 this.$noty.success(this.$t('request_processed'));
-                               /* setTimeout(() => {
+                                setTimeout(() => {
                                     location.reload();
-                                }, 2000); */
+                                }, 5000); 
                             })
                             .catch(() => {
                                 this.$noty.error(this.$t('request_wrong'))
