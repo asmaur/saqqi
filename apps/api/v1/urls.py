@@ -13,6 +13,7 @@ router.register(r'products', ProductViewset)
 router.register(r'img', ImageViewset)
 router.register(r'cart', CartViewset)
 router.register(r's', SubscriberViewset)
+router.register(r'quote', QuotationViewset)
 
 urlpatterns = [
     path('', include(router.urls)),

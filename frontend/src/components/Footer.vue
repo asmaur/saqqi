@@ -1,6 +1,51 @@
 <template>
+   
+   
+   <div id="footer">
+        
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5 col-md-6 col-sm-6">
+                    <div class="single-footer-widget">
+                        <h6> {{$t('about_us')}} </h6>
+                        <p v-html="$t('about_footer_p')">
+                            
+                        </p>
+                        <p class="footer-text">
 
-    <div id="footer">
+                            Copyright © {{ano}} | All rights reserved | <br>
+                            design by <a href="https://wanubit.com" target="_blank" style="text-decoration: underline; color: red;">wanubit</a>
+
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-5  col-md-6 col-sm-6">
+                   
+                    <news-letter />
+                    
+                    
+                </div>
+                <div class="col-lg-2 col-md-6 col-sm-6 social-widget">
+                    <div class="single-footer-widget">
+                        <h6> {{$t('follow')}} </h6>
+                        <p> {{$t('follow_p')}} </p>
+                        <div class="footer-social d-flex align-items-center">
+                            <a href="https://facebook.com/saqqicomercial"><i class="fab fa-facebook"></i></a>                            
+                            <a href="https://linkedin.com/company/saqqi"><i class="fab fa-linkedin"></i></a>
+                            <a href="https://wa.me/5551991424429"><i class="fab fa-whatsapp"></i></a>
+                            <a href="https://t.me/saqqicomercial"><i class="fab fa-telegram-plane"></i></a>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+   
+   
+
+   <!-- <div id="footer">
         <div class="container">
             <div class="row">
 
@@ -38,15 +83,21 @@
 
         </div>
 
-    </div>
+    </div> -->
 
 
 </template>
 
 
 <script>
+    
+    import NewsLetter from '@/components/NewsLetter.vue'
+    
     export default {
         name: "Footer",
+        components: {
+            NewsLetter,
+        },
         computed: {
             ano: function() {
                 var dt = new Date()

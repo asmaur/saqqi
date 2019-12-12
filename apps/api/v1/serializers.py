@@ -65,3 +65,9 @@ class SubscriberSerializer(serializers.ModelSerializer):
     class Meta:
         model = NewsLetters
         fields = '__all__'
+
+class QuotationSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Quotation
+        fields = '__all__'
+        exclude = ['loifile']

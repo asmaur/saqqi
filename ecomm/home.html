@@ -1,0 +1,375 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="vendor/css/bootstrap.min.css">
+    <link rel="stylesheet" href="OwlCarousel/assets/owl.theme.default.css">
+    <link rel="stylesheet" href="OwlCarousel/assets/owl.carousel.min.css">
+
+
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/shop.css">
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/stilis.css">
+    <link rel="stylesheet" href="css/hexagons.min.css">
+    <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
+
+    <title>Saqqi | Comercial Exportadora LTDA</title>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg fixed-top ">
+
+        <ul class="navbar-nav nav-two-icon" style="margin-right: 1.5rem;">
+            <li class="nav-item">
+                <router-link class="nav-link" :to="'/'+GET_LANG+'/cart'">
+                    <i class="fas fa-shopping-cart fa-2x"></i>
+                    <div class="cart-item-number text-center">
+                        <!--   <span style="font-size: .8rem; font-weight: 800;"> {{GET_CART_TOTAL}} </span> -->
+                    </div>
+
+                </router-link>
+            </li>
+        </ul>
+
+        <router-link class="navbar-brand justify-content-center" :to="'/'+GET_LANG+'/'">
+            <img src="img/saqt1.png" alt="">
+            SAQQI
+        </router-link>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+
+
+
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto" style="font-size: .9rem;">
+
+                <li class="nav-item">
+                    <router-link class="nav-link" :to="'/'+GET_LANG+'/shop'">shop</router-link>
+                </li>
+              <!--  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        category
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown" v-if="GET_LANG=='en'">
+                        <router-link class="dropdown-item" :to="'/'+GET_LANG+'/category/'+name.slug" v-for="name in names" :key="name.index">{{name.name_en}}</router-link>
+
+                    </div>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown" v-if="GET_LANG=='fr'">
+                        <router-link class="dropdown-item" :to="'/'+GET_LANG+'/category/'+name.slug" v-for="name in names" :key="name.index">{{name.name_fr}}</router-link>
+
+                    </div>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown" v-if="GET_LANG=='pt-br'">
+                        <router-link class="dropdown-item" :to="'/'+GET_LANG+'/category/'+name.slug" v-for="name in names" :key="name.index">{{name.name_pt_br}}</router-link>
+
+                    </div>
+                </li> -->
+                <li class="nav-item">
+                    <router-link class="nav-link" :to="'/'+GET_LANG+'/customized'">Quotation</router-link>
+                </li>
+                <li class="nav-item">
+                    <router-link class="nav-link" :to="'/'+GET_LANG+'/customized'">contact</router-link>
+                </li>
+                <li class="nav-item" style="margin-right: 1rem;">
+
+                    <select class="form-control" id="lang" v-model="lang" @change="changeLanguage">
+                        <option v-for="lg in langues" :key="lg" :selected="GET_LANG" :value="lg">pt-br</option>
+
+                    </select>
+
+
+
+                </li>
+
+            </ul>
+
+        </div>
+
+
+
+
+    </nav>
+    
+    <div id="main-banner">
+       
+       <div class="overlay overlay-bg">
+           
+           <div class="container">
+               <div class="row fullscreen d-flex align-items-center justify-content-center">
+                   
+                    <div class="banner-content col-lg-12 col-md-12">
+                    <h6 class="text-uppercase">Don’t look further, here is the key</h6>
+                    <h1>
+                        We’re connect you to the Bazilians suppliers
+                    </h1>
+                    <p class="text-white">
+                        We are a trading company specialized in providing all kind of commodities around the world. 
+                    </p>
+                    <a href="#" class="primary-btn header-btn text-uppercase">Get in touch</a>
+                </div>
+                   
+               </div>
+           </div>
+           
+       </div>
+        
+    </div>
+    
+    <div id="how-work">
+       
+       
+       <div class="container">
+           
+           <div class="row">
+               <div class="col-md-8 offset-md-2 text-center">
+                   <h2 style="padding: 1rem; font-weight: 700;"> How it work</h2>
+                   <hr>
+               </div>
+           </div>
+           
+           
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="single-cat d-flex flex-column">
+                        <a href="#" class="hb-sm-margin mx-auto d-block">
+                        <span class="hb hb-sm inv hb-facebook-inv">
+                            <span class="fas fa-random">                           
+                            </span>
+                        </span>
+                        </a>
+                        <h4 class="mb-20" style="margin-top: 23px;">Make a Choose</h4>
+                        <p>
+                            When you decide what's your needs, Choose us to make the best deal. We offer a divers options to contact us and we always ready to help your grow your industry.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="single-cat">
+                        <a href="#" class="hb-sm-margin mx-auto d-block">
+                        <span class="hb hb-sm inv hb-facebook-inv">
+                            <span class="fas fa-cart-plus"></span>
+                        </span></a>
+                        <h4 class="mt-40 mb-20">Go to shop</h4>
+                        <p>
+                            We have shopping plateform, go to our shoop section and choose what your need in your cart and make a free quote request. Just simple as that.
+                            <br> We will answer in 48hs with all details, ready to close business.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="single-cat">
+                        <a href="#" class="hb-sm-margin mx-auto d-block"><span class="hb hb-sm inv hb-facebook-inv"><span class="far fa-registered"></span></span></a>
+                        <h4 class="mt-40 mb-20">Request a Quote</h4>
+                        <p>
+                            Need something special or product not in the shopping section, go to the Quotation section and request product or commodities we provide.
+                            Just send us your specification and we will repond in 48hs.
+                        </p>
+                    </div>
+                </div>
+                 <div class="col-lg-4">
+                    <div class="single-cat">
+                        <a href="#" class="hb-sm-margin mx-auto d-block"><span class="hb hb-sm inv hb-facebook-inv"><span class="far fa-comment-alt"></span></span></a>
+                        <h4 class="mt-40 mb-20">Contact Us</h4>
+                        <p>
+                            Have a comment request a quote for any other product. Contact us by email, WhatsApp, Telegram.
+                            <br> We will be happy to help!
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>       
+       
+        
+    </div>
+    
+    <div id="about-us">
+       
+       <div class="container">
+            <div class="row justify-content-center align-items-center">
+                <div class="col-lg-8 col-md-12 home-about-left">
+                    <h2 style="padding: 1rem; font-weight: 700;">About Us</h2>
+                    <hr style="position: relative; text-align: left; margin-right: 35rem;">
+                    <h1>
+                        Your satisfaction is <br> Our main goal
+                        
+                    </h1>
+                    <p class="sub"> <strong> We are here to listen </strong> <br> <strong> To deliver you the best quality and price </strong> </p>
+                    <p class="pb-20">
+                        <strong>Saqqi Commercial Exportadora LTDA </strong> is a registered trading company specialized in <strong>commodities
+                        and manufacturers importation & exportation </strong> business in Brazil. We provide all kinds of goods for
+countries around the world with the partnership we established with Brazilian manufacturers. We
+                        have a <strong>selected group of manufacturers committed with the environment protection </strong> and have
+implemented a sustainable production process following international standards. <br> Our main goal is to
+                        connect Brazilian companies to other companies around the world <strong>offering the best quality and price </strong>
+                        in order to <strong>create great business contact and relationships.</strong>
+                    </p>
+                    
+                </div>
+                <div class="col-lg-4 col-md-12 home-about-right relative">
+                    
+                    <a href="" class="btn-primary btn-block text-center p-2"> Contact Us</a>
+                    
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    
+    <div id="services">
+         <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-12 pb-30 header-text text-center">
+                    <h1 class="mb-10" style="padding: 1rem; font-weight: 700;">Our Market Sectors</h1>
+                 <!--   <p>
+                        Who are in extremely love with eco friendly system.
+                    </p> -->
+                    <hr>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="single-service">
+                        <div class="thumb">
+                            <img src="img/paper.jpg" alt="" class="fluid-img">
+                        </div>
+                        <h4 style="font-weight: 700;">Paper & Pulp</h4>
+                        <p>
+                            Brazil is the third largest producer of pulp and paper in the world. Exporting office supplies, kraft paper, corrugated paper and all derivatives.
+                        </p>
+                        
+                        <a href="" class="btn-block btn-primary text-center p-2">Request a quote</a>
+                        
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="single-service">
+                        <div class="thumb">
+                            <img src="img/rebar-uk.jpg" alt="">
+                        </div>
+                        <h4 style="font-weight: 700;">Steel, Aluminium & Minerals</h4>
+                        <p>
+                            Brazil ranks amongst the top 10 steel and aluminium producing countries in the world. Brazil export steel, aliminium, copper and many other minerals and derivatives.
+                        </p>
+                        
+                        <a href="" class="btn-block btn-primary text-center p-2">Request a quote</a>
+                        
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="single-service">
+                        <div class="thumb">
+                            <img src="img/calca.png" alt="">
+                        </div>
+                        <h4 style="font-weight: 700;">Footwear & Accessories</h4>
+                        <p>
+                            Brazil is is the third largest footwear and derivatives producer in the world, being the third largest shoe and accessories manufacturer in the world. 
+                        </p>
+                        
+                        <a href="" class="btn-block btn-primary text-center p-2">Request a quote</a>
+                        
+                    </div>
+                </div>
+                
+                
+                <div class="col-lg-4">
+                    <div class="single-service">
+                        <div class="thumb">
+                            <img src="img/agro_8.jpg" alt="">
+                        </div>
+                        <h4 style="font-weight: 700;">Agri Business</h4>
+                        <p>
+                            Brazil is the world’s largest producer and exporter of coffee, sugar, and orange juice, and is highly ranked in the production and export of soybean, corn, ethanol, pork, beef, poultry chicken, chiken paws etc.
+                        </p>
+                        
+                        <a href="" class="btn-block btn-primary text-center p-2">Request a quote</a>
+                        
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+    
+    <div id="footer">
+        
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5 col-md-6 col-sm-6">
+                    <div class="single-footer-widget">
+                        <h6>About Us</h6>
+                        <p>
+                            <strong>Saqqi Commercial Exportadora LTDA, </strong> We specialized in exporting paper and pulp products since we based in the third worldwide paper producer. Supplying the best export paper products such as Kraft paper bags, Natural Kraft paper rolls, corrugated, newsprint, and monolucent paper rolls among other products. We also provide agricole products like soybeans, yellow maize, etc, Steel and aluminum, and many other commodities. 
+                            <br>With our dynamic team always ready to serve we look forward to a wonderful relationship together and success for all concerned.
+                        </p>
+                        <p class="footer-text">
+
+                            Copyright ©<script type="text/javascript">
+                                document.write(new Date().getFullYear());
+                            </script> All rights reserved | <br>
+                            design <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://wanubit.com" target="_blank">wanubit</a>
+
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-5  col-md-6 col-sm-6">
+                    <div class="single-footer-widget">
+                        <h6>Newsletter</h6>
+                        <p>Stay update with our latest</p>
+                        <div class="" id="mc_embed_signup">
+                            <form target="_blank" novalidate="true" action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01" method="get" class="form-inline">
+                                <input class="form-control" name="EMAIL" placeholder="Enter Email" onfocus="if (!window.__cfRLUnblockHandlers) return false; this.placeholder = ''" onblur="if (!window.__cfRLUnblockHandlers) return false; this.placeholder = 'Enter Email '" required="" type="email">
+                                <button class="click-btn btn btn-default"><i class="fas fa-paper-plane" aria-hidden="true"></i></button>
+                                <div style="position: absolute; left: -5000px;">
+                                    <input name="b_36c4fd991d266f23781ded980_aefe40901a" tabindex="-1" value="" type="text">
+                                </div>
+                                <div class="info"></div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 col-sm-6 social-widget">
+                    <div class="single-footer-widget">
+                        <h6>Follow Us</h6>
+                        <p>Let us be social</p>
+                        <div class="footer-social d-flex align-items-center">
+                            <a href="https://facebook.com/saqqicomercial"><i class="fab fa-facebook"></i></a>                            
+                            <a href="https://linkedin.com/saqqi"><i class="fab fa-linkedin"></i></a>
+                            <a href="https://wa.me/5551991424429"><i class="fab fa-whatsapp"></i></a>
+                            <a href="https://t.me/saqqicomercial"><i class="fab fa-telegram-plane"></i></a>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
+
+<!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="vendor/js/bootstrap.min.js"></script>
+    <script src="OwlCarousel/owl.carousel.min.js"></script>
+
+
+
+</body>
+
+
+</html>

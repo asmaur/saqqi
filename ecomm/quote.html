@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="vendor/css/bootstrap.min.css">
+    <link rel="stylesheet" href="OwlCarousel/assets/owl.theme.default.css">
+    <link rel="stylesheet" href="OwlCarousel/assets/owl.carousel.min.css">
+
+
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/shop.css">
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/stilis.css">
+    <link rel="stylesheet" href="css/hexagons.min.css">
+    <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
+
+    <title>Saqqi | Comercial Exportadora LTDA</title>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg fixed-top ">
+
+        <ul class="navbar-nav nav-two-icon" style="margin-right: 1.5rem;">
+            <li class="nav-item">
+                <router-link class="nav-link" :to="'/'+GET_LANG+'/cart'">
+                    <i class="fas fa-shopping-cart fa-2x"></i>
+                    <div class="cart-item-number text-center">
+                        <!--   <span style="font-size: .8rem; font-weight: 800;"> {{GET_CART_TOTAL}} </span> -->
+                    </div>
+
+                </router-link>
+            </li>
+        </ul>
+
+        <router-link class="navbar-brand justify-content-center" :to="'/'+GET_LANG+'/'">
+            <img src="img/saqt1.png" alt="">
+            SAQQI
+        </router-link>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+
+
+
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto" style="font-size: .9rem;">
+
+                <li class="nav-item">
+                    <router-link class="nav-link" :to="'/'+GET_LANG+'/shop'">shop</router-link>
+                </li>
+                <!--  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        category
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown" v-if="GET_LANG=='en'">
+                        <router-link class="dropdown-item" :to="'/'+GET_LANG+'/category/'+name.slug" v-for="name in names" :key="name.index">{{name.name_en}}</router-link>
+
+                    </div>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown" v-if="GET_LANG=='fr'">
+                        <router-link class="dropdown-item" :to="'/'+GET_LANG+'/category/'+name.slug" v-for="name in names" :key="name.index">{{name.name_fr}}</router-link>
+
+                    </div>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown" v-if="GET_LANG=='pt-br'">
+                        <router-link class="dropdown-item" :to="'/'+GET_LANG+'/category/'+name.slug" v-for="name in names" :key="name.index">{{name.name_pt_br}}</router-link>
+
+                    </div>
+                </li> -->
+                <li class="nav-item">
+                    <router-link class="nav-link" :to="'/'+GET_LANG+'/customized'">Quotation</router-link>
+                </li>
+                <li class="nav-item">
+                    <router-link class="nav-link" :to="'/'+GET_LANG+'/customized'">contact</router-link>
+                </li>
+                <li class="nav-item" style="margin-right: 1rem;">
+
+                    <select class="form-control" id="lang" v-model="lang" @change="changeLanguage">
+                        <option v-for="lg in langues" :key="lg" :selected="GET_LANG" :value="lg">pt-br</option>
+
+                    </select>
+
+
+
+                </li>
+
+            </ul>
+
+        </div>
+
+
+
+
+    </nav>
+
+
+    <div class="main">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 offset-md-3">
+                    <div class="content text-center">
+                        <h4>Free Quote</h4>
+                        <hr style="height: .1rem; background-color: #fff; margin-top: -.2rem;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="quote">
+
+        <div class="container-fluid">
+
+            <div class="row">
+
+                <div class="col-lg-12 col-md-12">
+                    <form class="form-wrap" action="#">
+                        <h4 class="pb-20" style="color: #000;">Request a Quote</h4>
+                        
+                        <div class="form-group">
+                            
+                          <!--  <select id="inputEstado" class="form-control">
+                                <option selected>Escolher...</option>
+                                <option>...</option>
+                            </select> -->
+                        </div>
+                        
+                        <input type="text" class="form-control" placeholder="Enter your fullname" >
+                        
+                        <input type="phone" class="form-control" placeholder="Phone Number (international format)">
+                        
+                        <input type="email" class="form-control" placeholder="Email Address">
+                        
+                        <div class="form-group custom-file">
+                            <input type="file" class="custom-file-input" id="validatedCustomFile" required>
+                            <label class="custom-file-label" for="validatedCustomFile">Attach here your LOI (Letter of Intent)</label>
+
+                        </div>
+                        
+                        <textarea name="message" id="" cols="100" rows="10" placeholder="Message" class="form-control" style="margin-top: 1rem;"></textarea>
+                        
+                        <button type="submit" class="btn-primary btn-block" style="padding: .4rem;">Request Free Quote</button>
+                    </form>
+                </div>
+
+            </div>
+
+
+
+
+        </div>
+    </div>
+
+
+
+
+
+
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="js/jquery-3.4.1.min.js"></script>
+        <script src="js/popper.min.js"></script>
+        <script src="vendor/js/bootstrap.min.js"></script>
+        <script src="OwlCarousel/owl.carousel.min.js"></script>
+
+
+
+</body>
+
+
+</html>

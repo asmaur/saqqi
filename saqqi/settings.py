@@ -263,4 +263,8 @@ CELERY_ROUTES = {
         'queue': 'new-mailchimp',
         'routing_key': 'new_mailchimp',
     },
+    'apps.api.v1.notify_quote': {
+        'queue': 'notify-quote',
+        'routing_key': 'notify_quote',
+    },
 }

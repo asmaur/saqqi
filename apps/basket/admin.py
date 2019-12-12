@@ -20,5 +20,22 @@ class OrderAdmin(admin.ModelAdmin):
                     )
     list_display_links = ('number',)
 
+
+class QuotationAdmin(admin.ModelAdmin):
+    list_display = (
+        'sector',
+        'fullname',
+        'email',
+        'processing',
+        'confirm',
+        'processed',
+        'updated_at',
+        'created_at'
+    )
+    list_display_links = ('sector',)
+
+
+
 admin.site.register(Cart, CartAdmin)
 admin.site.register(Order, OrderAdmin)
+admin.site.register(Quotation, QuotationAdmin)

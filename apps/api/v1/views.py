@@ -208,3 +208,46 @@ class SubscriberViewset(viewsets.ViewSet):
             return Response(status.HTTP_200_OK)
         except Exception as ex:
             return Response(status.HTTP_400_BAD_REQUEST)
+
+class QuotationViewset(viewsets.ViewSet):
+    queryset = Quotation.objects.all()
+
+    authentication_classes = (TokenAuthentication,)
+    permission_classes = (permissions.IsAuthenticated,)
+
+    def list(self, request):
+        quotes = Quotation.objects.all()
+        serializer = QuotationSerializer(quotes, many=True)
+
+        return Response(serializer.data, status.HTTP_200_OK)
+
+    @staticmethod
+    def new_quote(pk=None):
+        try:
+            notify_quote.delay(pk=pk)
+            return None
+        except Exception as ex:
+            print(ex)
+            return None
+
+    @action(methods=["POST"], detail=False)
+    def add_quotation(self, request):
+
+        try:
+            data = json.loads(request.data['datus'])
+
+
+            if data and request.FILES['file']:
+                print(data)
+                quote = Quotation(sector = data['sector'], phone = data['phone'], email = data['email'], fullname = data['fullname'], message = data['message'], loifile=request.FILES['file'])
+                quote.save()
+                self.new_quote(quote.id)
+                return Response(status.HTTP_200_OK)
+
+            else:
+                return Response(status.HTTP_400_BAD_REQUEST)
+
+
+        except Exception as ex:
+            print(ex)
+            return Response(status.HTTP_400_BAD_REQUEST)

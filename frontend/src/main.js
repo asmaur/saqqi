@@ -9,6 +9,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import 'lightgallery/dist/css/lightgallery.min.css'
 import 'owl.carousel/dist/assets/owl.carousel.min.css'
 import 'owl.carousel/dist/assets/owl.theme.default.min.css'
+import './assets/css/hexagons.min.css'
 
 
 
@@ -28,6 +29,7 @@ import 'owl.carousel/dist/owl.carousel.min.js'
 import './assets/css/style.css'
 import './assets/css/index.css'
 import './assets/css/shop.css'
+import './assets/css/stilis.css'
 
 
 

@@ -1,9 +1,37 @@
 <template>
 
     <div>
+        
+        
+         <div class="single-footer-widget">
+                        <h6> {{$t('newsletter')}} </h6>
+                        <p> {{$t('newsletter_p')}} </p>
+                        
+                                                        
+                        <div class="" id="mc_embed_signup">
+                            <form target="_blank" class="form-inline" @submit.prevent="subscribe()">
+                               
+                               <input type="email" class="form-control" placeholder="email" id="email" v-model="email" name="mail" aria-label="email" aria-describedby="button-addon2" required>
+                              <div class="input-group-append">
+                                <button class="btn btn-outline-secondary" type="submit" id="button-addon2"> <i class="fas fa-paper-plane" aria-hidden="true"></i> </button>
+                              </div>
+                               
+                               
+                            <!--    <input class="form-control" name="email" placeholder="Enter Email"  required="" type="email">
+                                <button class="click-btn btn btn-default"><i class="fas fa-paper-plane" aria-hidden="true"></i></button>         
+                                <div class="info"></div> -->
+                                
+                            </form>
+                        </div>
+                    </div>
+        
+      
+        <!--  
 
-        <div class="newsletter">
-       <!--     <div class="container">
+        <div class="newsletter">       
+        
+        
+         <div class="container">
                 <div class="row">
                     <div class="col-md-6">
 
@@ -48,9 +76,10 @@
 
                     </div>
                 </form>
-            </div> -->
+            </div> 
         </div> 
-
+        
+        -->
 
 
     </div>

@@ -22,7 +22,7 @@
            
         </div>
         
-        <hr>
+        <hr style="color: #000 !important; position: relative; width: 100%; height: 1px !important;">
         
         <div class="card-body" v-if="GET_LANG=='en'">
             
@@ -54,7 +54,7 @@
         
         
         
-        <hr>
+        <hr style="color: #000 !important; position: relative; width: 100%; height: 1px !important;">
         
         
         <div class="card-footer">

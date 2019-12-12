@@ -1,5 +1,5 @@
 
-from django.core.mail import EmailMultiAlternatives
+from django.core.mail import EmailMultiAlternatives, EmailMessage
 from django.template.loader import get_template
 from django.conf import settings
 from celery import task, shared_task
@@ -89,3 +89,22 @@ def add_to_mailchimp(self, email=None):
         except Exception as ex:
             #print(ex)
             self.retry(exc=ex, max_retries=5, countdown=20)
+
+@task(bind=True)
+def notify_quote(self, pk=None):
+    try:
+        quote = Quotation.objects.get(id=pk)
+        template = get_template('mail/quote.txt')
+        print(quote.loifile)
+        LOI_URL= f'{settings.PROFORMA_URL}{quote.loifile}'
+        data={'LOI_URL': LOI_URL, 'sector': quote.sector, 'fullname': quote.fullname}
+        content = template.render(data)
+        to=settings.NEW_ORDER_FROM_EMAIL
+        from_mail = settings.NEW_ORDER_FROM_EMAIL
+        msg = EmailMultiAlternatives("New Quote Request", content, from_email=from_mail, to=[to, ])
+        msg.send()
+        return None
+    except Exception as ex:
+        print(ex)
+        self.retry(exc=ex, max_retries=5, countdown=20)
+

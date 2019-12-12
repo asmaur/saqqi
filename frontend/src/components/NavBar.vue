@@ -37,7 +37,14 @@
                     <li class="nav-item">
                         <router-link class="nav-link" :to="'/'+GET_LANG+'/shop'">{{$t('menu_shop')}}</router-link>
                     </li>
-                    <li class="nav-item dropdown">
+                    <li class="nav-item">
+                        <router-link class="nav-link" :to="'/'+GET_LANG+'/quotation'">{{$t('quotation')}}</router-link>
+                    </li>
+                    <li class="nav-item">
+                        <router-link class="nav-link" :to="'/'+GET_LANG+'/contact'">{{$t('contact')}}</router-link>
+                    </li>
+                    
+                   <!-- <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             {{$t('menu_category')}}
                         </a>
@@ -53,10 +60,10 @@
                             <router-link class="dropdown-item" :to="'/'+GET_LANG+'/category/'+name.slug" v-for="name in names" :key="name.index">{{name.name_pt_br}}</router-link>
 
                         </div>
-                    </li>
+                    </li> 
                     <li class="nav-item">
                         <router-link class="nav-link" :to="'/'+GET_LANG+'/customized'">{{$t('menu_customized')}}</router-link>
-                    </li>
+                    </li> -->
                    <!--  <li class="nav-item">
                         <router-link class="nav-link" :to="'/'+GET_LANG+'/cart'">{{$t('menu_cart')}} [ {{GET_CART_TOTAL}} ]</router-link>
                     </li> -->

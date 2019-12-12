@@ -1,0 +1,4 @@
+NEW QUOTE REQUEST:
+ SECTOR: {{sector}}
+ FROM: {{fullname}}
+ LOI: {{LOI_URL}}
