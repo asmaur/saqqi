@@ -267,4 +267,8 @@ CELERY_ROUTES = {
         'queue': 'notify-quote',
         'routing_key': 'notify_quote',
     },
+    'apps.api.v1.notify_supplier': {
+        'queue': 'notify-supplier',
+        'routing_key': 'notify_supplier',
+    },
 }

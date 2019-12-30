@@ -86,3 +86,33 @@ class Quotation(models.Model):
 
     def __str__(self):
         return self.sector
+
+class Supplier(models.Model):
+    created_at = models.DateTimeField(auto_now=True)
+    empresa = models.CharField(max_length=200,)
+    fullname = models.CharField(max_length=200,)
+    cnpj = models.CharField(max_length=200,)
+    email = models.EmailField(blank=True,)
+    telefone = models.CharField(max_length=200,)
+    estado = models.CharField(max_length=200,)
+    cidade = models.CharField(max_length=200,)
+    produto = models.CharField(max_length=200,)
+    message = models.TextField(blank=True)
+
+    class Meta:
+        ordering = ['-created_at']
+
+    def __str__(self):
+        return self.empresa
+
+class Catalog(models.Model):
+    name = models.CharField(max_length=100)
+    file = models.FileField(upload_to="WANUCLOUD/CATALOG/")
+    created_at = models.DateTimeField(auto_now=True)
+    updated_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ['created_at']
+
+    def __str__(self):
+        return self.name

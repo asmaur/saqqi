@@ -184,6 +184,7 @@
         //mapActions,
     } from 'vuex'
     import ax from '../api'
+    //import $ from 'jquery'
 
     export default {
         name: "VueCheckout",
@@ -216,6 +217,7 @@
 
             }
         },
+            
         methods: {
             //...mapGetters(['reInitCart']),
             formatPrice(value) {

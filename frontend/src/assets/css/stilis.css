@@ -24,6 +24,7 @@
     padding: 1rem;
     font-weight: 800;
     text-decoration: none;
+    overflow: hidden;
 }
 #main-banner .primary-btn:hover{
     background-color: transparent;
@@ -412,6 +413,17 @@ quote btn-primary {
     background-color: #5e2750 !important;
 }
 
-
+.list-group .active{
+    color: #fff;
+    background-color: #fba919; /* rgba(183, 28, 28, .8); */
+    padding: 1rem;
+    font-weight: 400;
+    text-decoration: none;
+    overflow: hidden;
+    border: 1px solid rgba(0,0,0,.125);
+}
+.list-group{
+    width: 100% !important;
+}
 
 

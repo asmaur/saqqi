@@ -108,3 +108,19 @@ def notify_quote(self, pk=None):
         print(ex)
         self.retry(exc=ex, max_retries=5, countdown=20)
 
+
+@task(bind=True)
+def notify_supplier(self, pk=None):
+    try:
+        supplier = Supplier.objects.get(id=pk)
+        template = get_template('mail/supplier.txt')
+        data={'empresa': supplier.empresa, 'fullname': supplier.fullname, 'cnpj': supplier.cnpj, 'email': supplier.email, 'telefone': supplier.telefone, 'produto': supplier.produto, 'estado': supplier.estado, 'cidade': supplier.cidade}
+        content = template.render(data)
+        to=settings.NEW_ORDER_FROM_EMAIL
+        from_mail = settings.NEW_ORDER_FROM_EMAIL
+        msg = EmailMultiAlternatives("New Supplier", content, from_email=from_mail, to=[to, ])
+        msg.send()
+        return None
+    except Exception as ex:
+        print(ex)
+        self.retry(exc=ex, max_retries=5, countdown=20)

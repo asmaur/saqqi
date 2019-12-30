@@ -116,6 +116,8 @@
                               {{$t('banner_p')}}
                             </p>
                             <router-link :to="'/'+GET_LANG+'/contact'" class="primary-btn header-btn text-uppercase"> {{$t('banner_link')}} </router-link>
+                            
+                            <button data-toggle="modal" data-target="#supplierModal" class="btn btn-primary header-btn text-uppercase" style="padding: .9rem; margin: 1rem;"> Seja Nosso Fornecedor </button>
                         </div>
 
                     </div>
@@ -341,7 +343,9 @@
 
         </div>
 
-
+    
+            <vue-supplier />
+    
 
     </div>
 
@@ -351,7 +355,7 @@
 
 <script>
     import $ from 'jquery'
-    //import NewsLetter from '@/components/NewsLetter.vue'
+    import VueSupplier from '@/components/VueSupplier.vue'
     //import Item from '@/components/Item.vue'
 
     import ax from '../api'
@@ -369,7 +373,7 @@
 
         },
         components: {
-            //NewsLetter,
+            VueSupplier,
             //Item,
         },
         data() {

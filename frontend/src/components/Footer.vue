@@ -23,6 +23,8 @@
                    
                     <news-letter />
                     
+                    <button data-toggle="modal" data-target="#supplierModal" class="btn btn-primary btn-large" style="margin-top: 1.2rem; padding: 1rem;">Seja Nosso Fornecedor</button>
+                    
                     
                 </div>
                 <div class="col-lg-2 col-md-6 col-sm-6 social-widget">
@@ -40,6 +42,10 @@
                 </div>
             </div>
         </div>
+        
+        
+        <vue-supplier />
+        
         
     </div>
    
@@ -92,11 +98,13 @@
 <script>
     
     import NewsLetter from '@/components/NewsLetter.vue'
+     import VueSupplier from '@/components/VueSupplier.vue'
     
     export default {
         name: "Footer",
         components: {
             NewsLetter,
+            VueSupplier,
         },
         computed: {
             ano: function() {

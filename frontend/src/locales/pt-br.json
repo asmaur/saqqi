@@ -2,8 +2,8 @@
     "menu_shop": "Shop",
     "menu_category": "Categorias",
     "menu_customized": "Especial",
-    
-    
+
+
     "quotation": "Cotação",
     "contact": "Contato",
     "banner_h6": "Não procure mais, aqui está a chave",
@@ -52,16 +52,66 @@
     "quote_op_2": "Agronegócio",
     "quote_op_3": "Aço, Alumínio e Minerais",
     "quote_op_4": "Calçados & Acessórios",
+    "quote_op_5": "Materiais de construção (ciment, aço, alumínio, tubos, conexões e Outros)",
     "contact_p": "O que você precisar do mercado brasileiro <br> Entre em contato conosco",
     "contact_phone": "Telefone",
     "contact_registry": "CNPJ",
     "contact_address": "Endereço",
     "request_processed": "O seu pedido foi processado. <br> Obrigado",
     "request_processing": "Em processamento ...",
-    
-    
-    
-    
+
+
+    "catalog": "Catálogo",
+    "catalog_free": "Catálogo de produtos",
+    "our_catalog": "Nossos Catálogos",
+    "quote_op_6": "Café Verde", 
+    "quote_op_7": "Milho", 
+    "quote_op_8": "Soja",
+    "quote_op_9": "Grãos e cereais(exceto milho)",
+    "quote_op_10": "Celulose",
+    "quote_op_11": "Aves",
+    "quote_op_12": "Nozes & Castanhas",
+    "quote_op_13": "Carnes",
+    "quote_op_14": "Óleos Comestíveis",
+    "quote_op_15": "Carne Suína",
+    "quote_op_16": "Amendoim",
+    "quote_op_17": "Peixes & Frutos do Mar",
+    "quote_op_18": "Frutas e Produtos Relacionados",
+    "quote_op_19": "Polpa de Fruta",
+    "quote_op_20": "Arroz",
+    "quote_op_21": "Congelados",
+    "quote_op_22": "Farinhas",
+    "quote_op_23": "Café",
+    "quote_op_24": "Café Gourmet",
+    "quote_op_25": "Leite",
+    "quote_op_26": "Água(Mineral, Alcalina, Purificada, etc.)",
+    "quote_op_27": "Bolsas & Bolsas de Mão",
+    "quote_op_28": "Mochilas & Bagagens",
+    "quote_op_29": "Calçados Femininos",
+    "quote_op_30": "Sandálias",
+    "quote_op_31": "Calçados de Couro",
+    "quote_op_32": "Chinelos",
+    "quote_op_33": "Calçados Masculinos",
+    "quote_op_34": "Calçados Atléticos",
+    "quote_op_35": "Calçados para Bebês e Crianças",
+    "quote_op_36": "Botas",
+    "quote_op_37": "Matéria - Prima para Calçados",
+    "quote_op_38": "Arames,Fios & Cabos",
+    "quote_op_39": "Materiais e Suprimentos de Construção",
+    "quote_op_40": "Parafusos e Porcas",
+    "quote_op_41": "Perfil de Alumínio",
+    "quote_op_42": "Sucata de Metais",
+    "quote_op_43": "Metais não ferrosos(Alumínio, Cobre, Etc.)",
+    "quote_op_44": "Aço & Ferro",
+    "quote_op_45": "Ligas Ferrosas & Não ferrosas",
+    "quote_op_46": "Produtos de Mármore, Granito, Pedra & Ardósia",
+    "quote_op_47": "Papel Sulfite A4",
+    "quote_op_48": "Papel, Papelão & Derivados",
+    "quote_op_49": "Produtos de Papelaria",
+
+
+
+
     "menu_cart": "Carrinho",
     "welcome_1": "O melhor para seus clientes",
     "welcome_2": "Forte, Resistente et versátil para as necessidades do seus clientes",
@@ -80,7 +130,7 @@
     "about_mission": "Misão",
     "about_mission_l1": "Constantemente providenciar embalagens ecológicas de qualidade com agilidade e confiabilidade",
     "about_mission_l2": "Constantemente providenciar ideias inovadoras e modernas nas embalagens conforme as demandas do mercado",
-     "about_mission_l3": "Constantemente pesquisar e desenvolver produtos ecologicamente corretos em paralelo às demandas do mercado",
+    "about_mission_l3": "Constantemente pesquisar e desenvolver produtos ecologicamente corretos em paralelo às demandas do mercado",
     "quantity_wrong": "Quantidade muito pequena",
     "como_func_title": "Como funciona",
     "como_func_l1": "Escolha quantos produtos que desejar",
@@ -126,7 +176,7 @@
     "ship_to": "Enviar para o porto",
     "ship_to_placeholder": "Nome do porto",
     "port_code": "Codigo do Porto",
-	"port_code_placeholder": "Entre o codigo do porto",
+    "port_code_placeholder": "Entre o codigo do porto",
     "port_city": "Cidade do Porto",
     "port_city_placeholder": "Cidade de localização do porto",
     "advise": "Podemos entrar em contato por email ou WhatsApp",
@@ -150,5 +200,5 @@
     "delete_from_cart": "item removido do carrinho",
     "reload_page": "<strong>Recarregue a página para aplicar as mudanças</strong>",
     "price": "Preço"
-    
+
 }

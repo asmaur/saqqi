@@ -38,6 +38,9 @@
                         <router-link class="nav-link" :to="'/'+GET_LANG+'/shop'">{{$t('menu_shop')}}</router-link>
                     </li>
                     <li class="nav-item">
+                        <router-link class="nav-link" :to="'/'+GET_LANG+'/catalog'">{{$t('catalog')}}</router-link>
+                    </li>
+                    <li class="nav-item">
                         <router-link class="nav-link" :to="'/'+GET_LANG+'/quotation'">{{$t('quotation')}}</router-link>
                     </li>
                     <li class="nav-item">

@@ -71,3 +71,9 @@ class QuotationSerializer(serializers.ModelSerializer):
         model = Quotation
         fields = '__all__'
         exclude = ['loifile']
+
+class CatalogSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Catalog
+        #fields = '__all__'
+        exclude = ['created_at', 'updated_at']

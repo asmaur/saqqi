@@ -251,3 +251,44 @@ class QuotationViewset(viewsets.ViewSet):
         except Exception as ex:
             print(ex)
             return Response(status.HTTP_400_BAD_REQUEST)
+
+class SupplierViewset(viewsets.ViewSet):
+    queryset = Supplier.objects.all()
+
+    authentication_classes = (TokenAuthentication,)
+    permission_classes = (permissions.IsAuthenticated,)
+
+    @staticmethod
+    def new_supplier(pk=None):
+        try:
+            notify_supplier.delay(pk=pk)
+            return None
+        except Exception as ex:
+            print(ex)
+            return None
+
+    @action(methods=['POST'], detail=False)
+    def add_supplier(self, request):
+        try:
+            data = json.loads(request.data['datus'])
+
+            if data:
+                print(data)
+                supplier = Supplier(empresa = data['empresa'], fullname = data['fullname'], cnpj = data['cnpj'], email = data['email'], telefone = data['telefone'], estado = data['estado'], cidade = data['cidade'], produto = data['produto'], message = data['message'])
+                supplier.save()
+                self.new_supplier(supplier.id)
+                return Response(status.HTTP_200_OK)
+
+            else:
+                return Response(status.HTTP_400_BAD_REQUEST)
+
+        except Exception as ex:
+            print(ex)
+            return Response(status.HTTP_400_BAD_REQUEST)
+
+    @action(methods=["GET"], detail=False)
+    def get_catalog(self, request):
+        catalogs = Catalog.objects.all()
+        serializer = CatalogSerializer(catalogs, context={'request': request}, many=True)
+
+        return Response(serializer.data, status.HTTP_200_OK)

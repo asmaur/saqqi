@@ -36,6 +36,28 @@ class QuotationAdmin(admin.ModelAdmin):
 
 
 
+
+class SupplierAdmin(admin.ModelAdmin):
+    list_display = (
+        'empresa',
+        'fullname',
+        'email',
+        'cnpj',
+        'created_at'
+    )
+    list_display_links = ('empresa',)
+
+
+class CatalogAdmin(admin.ModelAdmin):
+    list_display = (
+        'name',
+
+    )
+    list_display_links = ('name',)
+
+
 admin.site.register(Cart, CartAdmin)
 admin.site.register(Order, OrderAdmin)
 admin.site.register(Quotation, QuotationAdmin)
+admin.site.register(Supplier, SupplierAdmin)
+admin.site.register(Catalog, CatalogAdmin)

@@ -80,7 +80,8 @@ Vue.use(Loading, {
     zIndex: 999,
 }, {})
 
-
+import VueTheMask from 'vue-the-mask'
+Vue.use(VueTheMask)
 
 
 Vue.config.productionTip = true

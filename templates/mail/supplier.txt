@@ -1,0 +1,9 @@
+NEW SUPPLIER:
+ EMPRESA: {{empresa}}
+ NOME COMPLETO: {{fullname}}
+ CNPJ: {{cnpj}}
+ TELEFONE: {{telefone}}
+ EMAIL: {{email}}
+ PRODUCTO: {{produto}}
+ ESTADO: {{estado}}
+ CIDADE: {{cidade}}
