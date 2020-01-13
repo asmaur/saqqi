@@ -6,7 +6,7 @@
 
         <nav class="navbar navbar-expand-lg fixed-top ">
             
-            <ul class="navbar-nav nav-two-icon" style="margin-right: 1.5rem;">
+         <!--   <ul class="navbar-nav nav-two-icon" style="margin-right: 1.5rem;">
                  <li class="nav-item">
                      <router-link class="nav-link" :to="'/'+GET_LANG+'/cart'"> 
                          <i class="fas fa-shopping-cart fa-2x"></i> 
@@ -16,7 +16,7 @@
                          
                      </router-link>
                     </li> 
-            </ul>                         
+            </ul> -->                        
             
             <router-link class="navbar-brand justify-content-center" :to="'/'+GET_LANG+'/'">
                 <img src="../assets/img/saqt1.png" alt="">
@@ -34,9 +34,10 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto" style="font-size: .9rem;">
 
-                    <li class="nav-item">
+                  <!--  <li class="nav-item">
                         <router-link class="nav-link" :to="'/'+GET_LANG+'/shop'">{{$t('menu_shop')}}</router-link>
-                    </li>
+                    </li> -->
+                    
                     <li class="nav-item">
                         <router-link class="nav-link" :to="'/'+GET_LANG+'/catalog'">{{$t('catalog')}}</router-link>
                     </li>

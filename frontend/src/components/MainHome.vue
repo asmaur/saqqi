@@ -342,6 +342,56 @@
             </div>
 
         </div>
+        
+        
+        
+        
+        <div id="services">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-12 pb-30 header-text text-center">
+                        <h1 class="mb-10" style="padding: 1rem; font-weight: 700;"> {{$t('partener_h1')}} </h1>
+                        <!--   <p>
+                        Who are in extremely love with eco friendly system.
+                    </p> -->
+                        <hr>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-3 text-center">
+                        <a href="https://www.africaebrasil.com/" class="single-service">
+                            <div class="thumb">
+                                <img src="@/assets/img/africa_brasil.jpeg" alt="" class="fluid-img">
+                            </div>
+                            <h4 style="font-weight: 300;"> AFRICA & BRASIL IMPORT EXPORT </h4>
+                            
+
+                        </a>
+                    </div>
+                    
+                    
+                  <!--  <div class="col-lg-3 text-center">
+                        <a href="#" class="single-service">
+                            <div class="thumb">
+                                <img src="@/assets/img/mariante.png" alt="" class="fluid-img">
+                            </div>
+                            <h4 style="font-weight: 300;"> AFRICA & BRASIL IMPORT EXPORT </h4>
+                            
+
+                        </a>
+                    </div> -->
+    </div>
+    </div>
+    </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        
 
     
             <vue-supplier />
